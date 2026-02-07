@@ -22,11 +22,11 @@ public class Book extends MediaEntry {
     }
 
     public int getYearRead() {
-        return yearSeen;
+        return yearFinished;
     }
 
     public void setYearRead(int yearRead) {
-        this.yearSeen = yearRead;
+        this.yearFinished = yearRead;
     }
 
     public int getNumberOfPages() {

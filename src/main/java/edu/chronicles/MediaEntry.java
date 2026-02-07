@@ -4,18 +4,18 @@ public class MediaEntry {
     protected String name;
     protected String creator;
     protected int punctuation;
-    protected int yearSeen;
+    protected int yearFinished;
 
     public MediaEntry(String name, String creator) {
         this.name = name;
         this.creator = creator;
     }
 
-    public MediaEntry(String name, String creator, int punctuation, int yearSeen) {
+    public MediaEntry(String name, String creator, int punctuation, int yearFinished) {
         this.name = name;
         this.creator = creator;
         this.punctuation = punctuation;
-        this.yearSeen = yearSeen;
+        this.yearFinished = yearFinished;
     }
 
     public String getName() {
