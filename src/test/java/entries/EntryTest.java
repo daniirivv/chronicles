@@ -1,13 +1,13 @@
 package entries;
 
+import edu.chronicles.model.exceptions.InvalidRatingException;
 import edu.chronicles.model.entries.TVSeriesEntry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class TVSeriesEntryTest {
-
+public class EntryTest {
     private static final String SHOW_TITLE = "La Casa de Papel";
     private static final String SHOW_CREATOR = "Álex Pina";
 
@@ -19,8 +19,12 @@ class TVSeriesEntryTest {
     }
 
     @Test
-    void givenTVShowEntryParams_whenCreateNewEntry_shouldCreateCorrectEntry(){
-        assertEquals(SHOW_TITLE, tvSeriesEntry.getTitle());
-        assertEquals(SHOW_CREATOR, tvSeriesEntry.getCreator());
+    void rejectsRatingBelowRange() {
+        assertThrows(InvalidRatingException.class, () -> tvSeriesEntry.setRating(-1));
+    }
+
+    @Test
+    void rejectsRatingAboveRange() {
+        assertThrows(InvalidRatingException.class, () -> tvSeriesEntry.setRating(6));
     }
 }

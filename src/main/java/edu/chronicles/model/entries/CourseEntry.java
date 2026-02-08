@@ -14,7 +14,7 @@ public class CourseEntry extends Entry{
     private CompletionState completionState;
 
     public CourseEntry(String title,
-                       Float rating,
+                       Integer rating,
                        String comments,
                        Year releaseYear,
                        TopicType topic,

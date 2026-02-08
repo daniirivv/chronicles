@@ -17,7 +17,7 @@ public class BookEntry extends Entry {
 
     public BookEntry(String title,
                      String author,
-                     Float rating,
+                     Integer rating,
                      String comments,
                      Year releaseYear,
                      Format format,

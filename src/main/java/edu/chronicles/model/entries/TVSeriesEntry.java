@@ -13,17 +13,17 @@ public class TVSeriesEntry extends Entry{
     private Year releaseYear;
     private VODPlatform platform;
     private CompletionState completionState;
-    private Float imdbRating;
+    private Integer imdbRating;
     private List<TVSeriesAward> receivedAwards;
 
     public TVSeriesEntry(String title,
-                         Float rating,
+                         Integer rating,
                          String comments,
                          String director,
                          Year releaseYear,
                          VODPlatform platform,
                          CompletionState completionState,
-                         Float imdbRating,
+                         Integer imdbRating,
                          List<TVSeriesAward> receivedAwards) {
         super(title, rating, comments);
         this.director = director;
@@ -76,11 +76,11 @@ public class TVSeriesEntry extends Entry{
         this.completionState = completionState;
     }
 
-    public Float getImdbRating() {
+    public Integer getImdbRating() {
         return imdbRating;
     }
 
-    public void setImdbRating(Float imdbRating) {
+    public void setImdbRating(Integer imdbRating) {
         this.imdbRating = imdbRating;
     }
 
