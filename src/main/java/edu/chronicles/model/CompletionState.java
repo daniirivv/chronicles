@@ -1,6 +1,6 @@
 package edu.chronicles.model;
 
-public enum State {
+public enum CompletionState {
     SIN_COMENZAR,
     COMENZADO,
     TERMINADO,

@@ -1,31 +1,30 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.Platform;
-import edu.chronicles.model.State;
+import edu.chronicles.model.MODPlatform;
+import edu.chronicles.model.CompletionState;
 import edu.chronicles.model.TopicType;
 
-import java.time.LocalDate;
 import java.time.Year;
 
 public class CourseEntry extends Entry{
 
     private Year releaseYear;
     private TopicType topic;
-    private Platform platform;
-    private State state;
+    private MODPlatform platform;
+    private CompletionState completionState;
 
     public CourseEntry(String title,
                        Float rating,
                        String comments,
                        Year releaseYear,
                        TopicType topic,
-                       Platform platform,
-                       State state) {
+                       MODPlatform platform,
+                       CompletionState completionState) {
         super(title, rating, comments);
         this.releaseYear = releaseYear;
         this.topic = topic;
         this.platform = platform;
-        this.state = state;
+        this.completionState = completionState;
     }
 
     public CourseEntry(String title) {
@@ -33,7 +32,7 @@ public class CourseEntry extends Entry{
         this.releaseYear = null;
         this.topic = null;
         this.platform = null;
-        this.state = State.SIN_COMENZAR;
+        this.completionState = CompletionState.SIN_COMENZAR;
     }
 
     public Year getReleaseYear() {
@@ -52,19 +51,19 @@ public class CourseEntry extends Entry{
         this.topic = topic;
     }
 
-    public Platform getPlatform() {
+    public MODPlatform getPlatform() {
         return platform;
     }
 
-    public void setPlatform(Platform platform) {
+    public void setPlatform(MODPlatform platform) {
         this.platform = platform;
     }
 
-    public State getState() {
-        return state;
+    public CompletionState getState() {
+        return completionState;
     }
 
-    public void setState(State state) {
-        this.state = state;
+    public void setState(CompletionState completionState) {
+        this.completionState = completionState;
     }
 }

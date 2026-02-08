@@ -1,8 +1,8 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.Award;
+import edu.chronicles.model.VideogameAward;
 import edu.chronicles.model.Gender;
-import edu.chronicles.model.Platform;
+import edu.chronicles.model.MODPlatform;
 
 import java.time.Year;
 import java.util.List;
@@ -12,8 +12,8 @@ public class VideogameEntry extends Entry{
     private Year releaseYear;
     private Gender gender;
     private String studio;
-    private List<Platform> availablePlatforms;
-    private List<Award> receivedAwards;
+    private List<MODPlatform> availablePlatforms;
+    private List<VideogameAward> receivedAwards;
 
     public VideogameEntry(String name,
                           Float rating,
@@ -21,8 +21,8 @@ public class VideogameEntry extends Entry{
                           Year releaseYear,
                           Gender gender,
                           String studio,
-                          List<Platform> availablePlatforms,
-                          List<Award> receivedAwards) {
+                          List<MODPlatform> availablePlatforms,
+                          List<VideogameAward> receivedAwards) {
         super(name, rating, comments);
         this.releaseYear = releaseYear;
         this.gender = gender;
@@ -64,19 +64,19 @@ public class VideogameEntry extends Entry{
         this.studio = studio;
     }
 
-    public List<Platform> getAvailablePlatforms() {
+    public List<MODPlatform> getAvailablePlatforms() {
         return availablePlatforms;
     }
 
-    public void setAvailablePlatforms(List<Platform> availablePlatforms) {
+    public void setAvailablePlatforms(List<MODPlatform> availablePlatforms) {
         this.availablePlatforms = availablePlatforms;
     }
 
-    public List<Award> getReceivedAwards() {
+    public List<VideogameAward> getReceivedAwards() {
         return receivedAwards;
     }
 
-    public void setReceivedAwards(List<Award> receivedAwards) {
+    public void setReceivedAwards(List<VideogameAward> receivedAwards) {
         this.receivedAwards = receivedAwards;
     }
 }

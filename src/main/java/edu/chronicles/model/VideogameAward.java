@@ -1,4 +1,4 @@
 package edu.chronicles.model;
 
-public enum Award {
+public enum VideogameAward {
 }

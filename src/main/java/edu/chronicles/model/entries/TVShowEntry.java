@@ -1,21 +1,19 @@
 package edu.chronicles.model.entries;
 
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.List;
 
-import edu.chronicles.model.Award;
-import edu.chronicles.model.Platform;
-import edu.chronicles.model.State;
+import edu.chronicles.model.VideogameAward;
+import edu.chronicles.model.CompletionState;
 
 public class TVShowEntry extends Entry{
 
     private String director;
     private Year releaseYear;
     private VODPlatform platform;
-    private State state;
+    private CompletionState completionState;
     private Float imdbRating;
-    private List<Award> receivedAwards;
+    private List<VideogameAward> receivedAwards;
 
     public TVShowEntry(String title,
                        Float rating,
@@ -23,14 +21,14 @@ public class TVShowEntry extends Entry{
                        String director,
                        Year releaseYear,
                        VODPlatform platform,
-                       State state,
+                       CompletionState completionState,
                        Float imdbRating,
-                       List<Award> receivedAwards) {
+                       List<VideogameAward> receivedAwards) {
         super(title, rating, comments);
         this.director = director;
         this.releaseYear = releaseYear;
         this.platform = platform;
-        this.state = state;
+        this.completionState = completionState;
         this.imdbRating = imdbRating;
         this.receivedAwards = receivedAwards;
     }
@@ -40,7 +38,7 @@ public class TVShowEntry extends Entry{
         this.director = "";
         this.releaseYear = null;
         this.platform = null;
-        this.state = State.SIN_COMENZAR;
+        this.completionState = CompletionState.SIN_COMENZAR;
         this.imdbRating = null;
         this.receivedAwards = null;
     }
@@ -69,12 +67,12 @@ public class TVShowEntry extends Entry{
         this.platform = platform;
     }
 
-    public State getState() {
-        return state;
+    public CompletionState getState() {
+        return completionState;
     }
 
-    public void setState(State state) {
-        this.state = state;
+    public void setState(CompletionState completionState) {
+        this.completionState = completionState;
     }
 
     public Float getImdbRating() {
@@ -85,11 +83,11 @@ public class TVShowEntry extends Entry{
         this.imdbRating = imdbRating;
     }
 
-    public List<Award> getReceivedAwards() {
+    public List<VideogameAward> getReceivedAwards() {
         return receivedAwards;
     }
 
-    public void setReceivedAwards(List<Award> receivedAwards) {
+    public void setReceivedAwards(List<VideogameAward> receivedAwards) {
         this.receivedAwards = receivedAwards;
     }
 }

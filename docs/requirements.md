@@ -141,9 +141,9 @@ a lo largo del tiempo.
 RU-04: Como usuario, quiero eliminar una entrada de curso para mantener mi historial actualizado
 y relevante.
 
-### EPIC-07 Gestión de Coches
+### EPIC-07 Gestión de vehículos
 
-RU-01: Como usuario, quiero crear una entrada de coche que contenga lo siguiente:
+RU-01: Como usuario, quiero crear una entrada de vehículo que contenga lo siguiente:
 * Marca
 * Modelo
 * Altura
@@ -157,13 +157,13 @@ RU-01: Como usuario, quiero crear una entrada de coche que contenga lo siguiente
 * Observaciones
 * Fecha de alta
 
-para guardar los coches que he estado mirando y/o quiero mirar en el futuro.
+para guardar los vehículos que he estado mirando y/o quiero mirar en el futuro.
 
-RU-02: Como usuario, quiero leer una entrada de coche para consultar los diferentes
+RU-02: Como usuario, quiero leer una entrada de vehículo para consultar los diferentes
 campos con su respectiva información.
 
-RU-03: Como usuario, quiero modificar una entrada de coche para actualizar su información
+RU-03: Como usuario, quiero modificar una entrada de vehículo para actualizar su información
 a lo largo del tiempo.
 
-RU-04: Como usuario, quiero eliminar una entrada de coche para mantener mi historial actualizado
+RU-04: Como usuario, quiero eliminar una entrada de vehículo para mantener mi historial actualizado
 y relevante.

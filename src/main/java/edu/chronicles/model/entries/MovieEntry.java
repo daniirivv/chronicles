@@ -1,6 +1,6 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.Award;
+import edu.chronicles.model.VideogameAward;
 import edu.chronicles.model.VODPlatform;
 
 import java.time.Year;
@@ -12,7 +12,7 @@ public class MovieEntry extends Entry {
     private Year releaseYear;
     private VODPlatform platform;
     private Float imdbRating;
-    private List<Award> receivedAwards;
+    private List<VideogameAward> receivedAwards;
 
     public MovieEntry(String title,
                       Float rating,
@@ -21,7 +21,7 @@ public class MovieEntry extends Entry {
                       Year releaseYear,
                       VODPlatform platform,
                       Float imdbRating,
-                      List<Award> receivedAwards) {
+                      List<VideogameAward> receivedAwards) {
         super(title, rating, comments);
         this.director = director;
         this.releaseYear = releaseYear;
@@ -69,11 +69,11 @@ public class MovieEntry extends Entry {
         this.imdbRating = imdbRating;
     }
 
-    public List<Award> getReceivedAwards() {
+    public List<VideogameAward> getReceivedAwards() {
         return receivedAwards;
     }
 
-    public void setReceivedAwards(List<Award> receivedAwards) {
+    public void setReceivedAwards(List<VideogameAward> receivedAwards) {
         this.receivedAwards = receivedAwards;
     }
 }

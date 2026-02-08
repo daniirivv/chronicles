@@ -1,10 +1,9 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.Award;
+import edu.chronicles.model.VideogameAward;
 import edu.chronicles.model.Format;
-import edu.chronicles.model.State;
+import edu.chronicles.model.CompletionState;
 
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.List;
 
@@ -14,8 +13,8 @@ public class BookEntry extends Entry {
     private Year releaseYear;
     private Format format;
     private Integer pages;
-    private State state;
-    private List<Award> receivedAwards;
+    private CompletionState completionState;
+    private List<VideogameAward> receivedAwards;
 
     public BookEntry(String title,
                      String author,
@@ -24,14 +23,14 @@ public class BookEntry extends Entry {
                      Year releaseYear,
                      Format format,
                      Integer pages,
-                     State state,
-                     List<Award> receivedAwards) {
+                     CompletionState completionState,
+                     List<VideogameAward> receivedAwards) {
         super(title, rating, comments);
         this.author = author;
         this.releaseYear = releaseYear;
         this.format = format;
         this.pages = pages;
-        this.state = state;
+        this.completionState = completionState;
         this.receivedAwards = receivedAwards;
     }
 
@@ -41,7 +40,7 @@ public class BookEntry extends Entry {
         this.releaseYear = null;
         this.format = null;
         this.pages = null;
-        this.state = State.SIN_COMENZAR;
+        this.completionState = CompletionState.SIN_COMENZAR;
         this.receivedAwards = null;
     }
 
@@ -77,19 +76,19 @@ public class BookEntry extends Entry {
         this.pages = pages;
     }
 
-    public State getState() {
-        return state;
+    public CompletionState getState() {
+        return completionState;
     }
 
-    public void setState(State state) {
-        this.state = state;
+    public void setState(CompletionState completionState) {
+        this.completionState = completionState;
     }
 
-    public List<Award> getReceivedAwards() {
+    public List<VideogameAward> getReceivedAwards() {
         return receivedAwards;
     }
 
-    public void setReceivedAwards(List<Award> receivedAwards) {
+    public void setReceivedAwards(List<VideogameAward> receivedAwards) {
         this.receivedAwards = receivedAwards;
     }
 
