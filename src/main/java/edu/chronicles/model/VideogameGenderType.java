@@ -1,6 +1,6 @@
 package edu.chronicles.model;
 
-public enum Gender {
+public enum VideogameGenderType {
     SHOOTER,
     RPG,
     AAA,

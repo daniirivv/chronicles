@@ -1,7 +1,7 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.MODPlatform;
 import edu.chronicles.model.CompletionState;
+import edu.chronicles.model.CoursePlatform;
 import edu.chronicles.model.TopicType;
 
 import java.time.Year;
@@ -10,7 +10,7 @@ public class CourseEntry extends Entry{
 
     private Year releaseYear;
     private TopicType topic;
-    private MODPlatform platform;
+    private CoursePlatform platform;
     private CompletionState completionState;
 
     public CourseEntry(String title,
@@ -18,7 +18,7 @@ public class CourseEntry extends Entry{
                        String comments,
                        Year releaseYear,
                        TopicType topic,
-                       MODPlatform platform,
+                       CoursePlatform platform,
                        CompletionState completionState) {
         super(title, rating, comments);
         this.releaseYear = releaseYear;
@@ -51,11 +51,11 @@ public class CourseEntry extends Entry{
         this.topic = topic;
     }
 
-    public MODPlatform getPlatform() {
+    public CoursePlatform getPlatform() {
         return platform;
     }
 
-    public void setPlatform(MODPlatform platform) {
+    public void setPlatform(CoursePlatform platform) {
         this.platform = platform;
     }
 

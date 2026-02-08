@@ -1,6 +1,6 @@
 package edu.chronicles.model;
 
-public enum VideogamesPlatform {
+public enum VideogamePlatform {
     PLAYSTATION_1,
     PSP,
     PLAYSTATION_2,

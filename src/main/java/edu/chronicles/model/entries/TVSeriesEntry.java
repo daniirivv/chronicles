@@ -3,27 +3,28 @@ package edu.chronicles.model.entries;
 import java.time.Year;
 import java.util.List;
 
-import edu.chronicles.model.VideogameAward;
+import edu.chronicles.model.TVSeriesAward;
+import edu.chronicles.model.VODPlatform;
 import edu.chronicles.model.CompletionState;
 
-public class TVShowEntry extends Entry{
+public class TVSeriesEntry extends Entry{
 
     private String director;
     private Year releaseYear;
     private VODPlatform platform;
     private CompletionState completionState;
     private Float imdbRating;
-    private List<VideogameAward> receivedAwards;
+    private List<TVSeriesAward> receivedAwards;
 
-    public TVShowEntry(String title,
-                       Float rating,
-                       String comments,
-                       String director,
-                       Year releaseYear,
-                       VODPlatform platform,
-                       CompletionState completionState,
-                       Float imdbRating,
-                       List<VideogameAward> receivedAwards) {
+    public TVSeriesEntry(String title,
+                         Float rating,
+                         String comments,
+                         String director,
+                         Year releaseYear,
+                         VODPlatform platform,
+                         CompletionState completionState,
+                         Float imdbRating,
+                         List<TVSeriesAward> receivedAwards) {
         super(title, rating, comments);
         this.director = director;
         this.releaseYear = releaseYear;
@@ -33,7 +34,7 @@ public class TVShowEntry extends Entry{
         this.receivedAwards = receivedAwards;
     }
 
-    public TVShowEntry(String title) {
+    public TVSeriesEntry(String title) {
         super(title);
         this.director = "";
         this.releaseYear = null;
@@ -83,11 +84,11 @@ public class TVShowEntry extends Entry{
         this.imdbRating = imdbRating;
     }
 
-    public List<VideogameAward> getReceivedAwards() {
+    public List<TVSeriesAward> getReceivedAwards() {
         return receivedAwards;
     }
 
-    public void setReceivedAwards(List<VideogameAward> receivedAwards) {
+    public void setReceivedAwards(List<TVSeriesAward> receivedAwards) {
         this.receivedAwards = receivedAwards;
     }
 }

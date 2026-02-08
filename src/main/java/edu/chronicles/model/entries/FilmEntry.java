@@ -1,27 +1,27 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.VideogameAward;
+import edu.chronicles.model.FilmAward;
 import edu.chronicles.model.VODPlatform;
 
 import java.time.Year;
 import java.util.List;
 
-public class MovieEntry extends Entry {
+public class FilmEntry extends Entry {
 
     private String director;
     private Year releaseYear;
     private VODPlatform platform;
     private Float imdbRating;
-    private List<VideogameAward> receivedAwards;
+    private List<FilmAward> receivedAwards;
 
-    public MovieEntry(String title,
-                      Float rating,
-                      String comments,
-                      String director,
-                      Year releaseYear,
-                      VODPlatform platform,
-                      Float imdbRating,
-                      List<VideogameAward> receivedAwards) {
+    public FilmEntry(String title,
+                     Float rating,
+                     String comments,
+                     String director,
+                     Year releaseYear,
+                     VODPlatform platform,
+                     Float imdbRating,
+                     List<FilmAward> receivedAwards) {
         super(title, rating, comments);
         this.director = director;
         this.releaseYear = releaseYear;
@@ -30,7 +30,7 @@ public class MovieEntry extends Entry {
         this.receivedAwards = receivedAwards;
     }
 
-    public MovieEntry(String title) {
+    public FilmEntry(String title) {
         super(title);
         this.platform = null;
         this.imdbRating = null;
@@ -69,11 +69,11 @@ public class MovieEntry extends Entry {
         this.imdbRating = imdbRating;
     }
 
-    public List<VideogameAward> getReceivedAwards() {
+    public List<FilmAward> getReceivedAwards() {
         return receivedAwards;
     }
 
-    public void setReceivedAwards(List<VideogameAward> receivedAwards) {
+    public void setReceivedAwards(List<FilmAward> receivedAwards) {
         this.receivedAwards = receivedAwards;
     }
 }

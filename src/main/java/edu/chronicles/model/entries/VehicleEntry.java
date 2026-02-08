@@ -3,7 +3,6 @@ package edu.chronicles.model.entries;
 import edu.chronicles.model.Dimension;
 import edu.chronicles.model.Traction;
 
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.Currency;
 

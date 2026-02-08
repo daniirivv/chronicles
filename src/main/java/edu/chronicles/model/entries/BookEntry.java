@@ -1,11 +1,10 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.VideogameAward;
+import edu.chronicles.model.LiteratureAward;
 import edu.chronicles.model.Format;
 import edu.chronicles.model.CompletionState;
 
 import java.time.Year;
-import java.util.List;
 
 public class BookEntry extends Entry {
 
@@ -14,7 +13,7 @@ public class BookEntry extends Entry {
     private Format format;
     private Integer pages;
     private CompletionState completionState;
-    private List<VideogameAward> receivedAwards;
+    private LiteratureAward receivedAwards;
 
     public BookEntry(String title,
                      String author,
@@ -24,7 +23,7 @@ public class BookEntry extends Entry {
                      Format format,
                      Integer pages,
                      CompletionState completionState,
-                     List<VideogameAward> receivedAwards) {
+                     LiteratureAward receivedAwards) {
         super(title, rating, comments);
         this.author = author;
         this.releaseYear = releaseYear;
@@ -84,11 +83,11 @@ public class BookEntry extends Entry {
         this.completionState = completionState;
     }
 
-    public List<VideogameAward> getReceivedAwards() {
+    public LiteratureAward getReceivedAwards() {
         return receivedAwards;
     }
 
-    public void setReceivedAwards(List<VideogameAward> receivedAwards) {
+    public void setReceivedAwards(LiteratureAward receivedAwards) {
         this.receivedAwards = receivedAwards;
     }
 
