@@ -19,7 +19,7 @@ public class BookTest {
 
         assertEquals("Hábitos Atómicos", book.getName());
         assertEquals("James Clear", book.getAuthor());
-        assertEquals(2, book.getPunctuation());
+        assertEquals(2, book.getRating());
         assertEquals(2025, book.getYearRead());
         assertEquals(328, book.getNumberOfPages());
     }
@@ -28,10 +28,10 @@ public class BookTest {
     public void bookHasCorrectAttributesWhenAddedLater() {
         Book book = new Book("Hábitos Atómicos", "James Clear", 328);
 
-        book.setPunctuation(2);
+        book.setRating(2);
         book.setYearRead(2025);
 
-        assertEquals(2, book.getPunctuation());
+        assertEquals(2, book.getRating());
         assertEquals(2025, book.getYearRead());
     }
 }

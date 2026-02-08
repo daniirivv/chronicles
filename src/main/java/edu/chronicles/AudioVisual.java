@@ -6,8 +6,8 @@ public class AudioVisual extends MediaEntry {
         super(name, creator);
     }
 
-    public AudioVisual(String name, String creator, int punctuation, int yearSeen) {
-        super(name, creator, punctuation, yearSeen);
+    public AudioVisual(String name, String creator, int rating, int yearSeen) {
+        super(name, creator, rating, yearSeen);
     }
 
     public int getYearSeen() {

@@ -6,8 +6,8 @@ public class Movie extends AudioVisual {
         super(name, creator);
     }
 
-    public Movie(String name, String creator, int punctuation, int yearSeen) {
-        super(name, creator, punctuation, yearSeen);
+    public Movie(String name, String creator, int rating, int yearSeen) {
+        super(name, creator, rating, yearSeen);
     }
 
     public String getDirector() {

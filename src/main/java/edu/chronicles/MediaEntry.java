@@ -3,7 +3,7 @@ package edu.chronicles;
 public class MediaEntry {
     protected String name;
     protected String creator;
-    protected int punctuation;
+    protected int rating;
     protected int yearFinished;
 
     public MediaEntry(String name, String creator) {
@@ -11,10 +11,10 @@ public class MediaEntry {
         this.creator = creator;
     }
 
-    public MediaEntry(String name, String creator, int punctuation, int yearFinished) {
+    public MediaEntry(String name, String creator, int rating, int yearFinished) {
         this.name = name;
         this.creator = creator;
-        this.punctuation = punctuation;
+        this.rating = rating;
         this.yearFinished = yearFinished;
     }
 
@@ -26,11 +26,11 @@ public class MediaEntry {
         this.name = name;
     }
 
-    public int getPunctuation() {
-        return punctuation;
+    public int getRating() {
+        return rating;
     }
 
-    public void setPunctuation(int punctuation) {
-        this.punctuation = punctuation;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }

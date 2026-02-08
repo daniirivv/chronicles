@@ -3,8 +3,8 @@ package edu.chronicles;
 public class Book extends MediaEntry {
     private int numberOfPages;
 
-    public Book(String name, String creator, int punctuation, int yearSeen, int numberOfPages) {
-        super(name, creator, punctuation, yearSeen);
+    public Book(String name, String creator, int rating, int yearSeen, int numberOfPages) {
+        super(name, creator, rating, yearSeen);
         this.numberOfPages = numberOfPages;
     }
 
