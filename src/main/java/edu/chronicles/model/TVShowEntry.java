@@ -14,7 +14,7 @@ public class TVShowEntry extends Entry{
     private Float imdbRating;
     private List<Award> receivedAwards;
 
-    public TVShowEntry(String name,
+    public TVShowEntry(String title,
                        Float rating,
                        String comments,
                        LocalDate entryDate,
@@ -24,7 +24,7 @@ public class TVShowEntry extends Entry{
                        State state,
                        Float imdbRating,
                        List<Award> receivedAwards) {
-        super(name, rating, comments, entryDate);
+        super(title, rating, comments, entryDate);
         this.director = director;
         this.releaseYear = releaseYear;
         this.platform = platform;
@@ -33,8 +33,8 @@ public class TVShowEntry extends Entry{
         this.receivedAwards = receivedAwards;
     }
 
-    public TVShowEntry(String name, LocalDate entryDate) {
-        super(name, entryDate);
+    public TVShowEntry(String title, LocalDate entryDate) {
+        super(title, entryDate);
         this.director = "";
         this.releaseYear = null;
         this.platform = null;
