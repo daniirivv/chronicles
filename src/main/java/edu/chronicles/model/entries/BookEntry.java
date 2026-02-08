@@ -3,6 +3,7 @@ package edu.chronicles.model.entries;
 import edu.chronicles.model.LiteratureAward;
 import edu.chronicles.model.Format;
 import edu.chronicles.model.CompletionState;
+import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
 
 import java.time.Year;
 
@@ -72,6 +73,7 @@ public class BookEntry extends Entry {
     }
 
     public void setPages(Integer pages) {
+        if (pages < 0) throw new InvalidNumberOfPagesException(pages);
         this.pages = pages;
     }
 

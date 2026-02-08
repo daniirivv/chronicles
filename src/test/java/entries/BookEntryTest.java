@@ -1,6 +1,7 @@
 package entries;
 
 import edu.chronicles.model.entries.BookEntry;
+import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
