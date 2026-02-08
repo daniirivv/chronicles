@@ -1,4 +1,4 @@
-import edu.chronicles.model.TVShowEntry;
+import edu.chronicles.model.entries.TVShowEntry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

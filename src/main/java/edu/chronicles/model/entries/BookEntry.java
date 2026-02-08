@@ -1,8 +1,11 @@
-package edu.chronicles.model;
+package edu.chronicles.model.entries;
+
+import edu.chronicles.model.Award;
+import edu.chronicles.model.Format;
+import edu.chronicles.model.State;
 
 import java.time.LocalDate;
 import java.time.Year;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BookEntry extends Entry {

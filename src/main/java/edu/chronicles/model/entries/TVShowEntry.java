@@ -1,37 +1,47 @@
-package edu.chronicles.model;
+package edu.chronicles.model.entries;
 
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.List;
 
-public class MovieEntry extends Entry {
+import edu.chronicles.model.Award;
+import edu.chronicles.model.Platform;
+import edu.chronicles.model.State;
+
+public class TVShowEntry extends Entry{
 
     private String director;
     private Year releaseYear;
     private VODPlatform platform;
+    private State state;
     private Float imdbRating;
     private List<Award> receivedAwards;
 
-    public MovieEntry(String title,
-                      Float rating,
-                      String comments,
-                      LocalDate entryDate,
-                      String director,
-                      Year releaseYear,
-                      VODPlatform platform,
-                      Float imdbRating,
-                      List<Award> receivedAwards) {
+    public TVShowEntry(String title,
+                       Float rating,
+                       String comments,
+                       LocalDate entryDate,
+                       String director,
+                       Year releaseYear,
+                       VODPlatform platform,
+                       State state,
+                       Float imdbRating,
+                       List<Award> receivedAwards) {
         super(title, rating, comments, entryDate);
         this.director = director;
         this.releaseYear = releaseYear;
         this.platform = platform;
+        this.state = state;
         this.imdbRating = imdbRating;
         this.receivedAwards = receivedAwards;
     }
 
-    public MovieEntry(String title, LocalDate entryDate) {
+    public TVShowEntry(String title, LocalDate entryDate) {
         super(title, entryDate);
+        this.director = "";
+        this.releaseYear = null;
         this.platform = null;
+        this.state = State.SIN_COMENZAR;
         this.imdbRating = null;
         this.receivedAwards = null;
     }
@@ -58,6 +68,14 @@ public class MovieEntry extends Entry {
 
     public void setPlatform(VODPlatform platform) {
         this.platform = platform;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 
     public Float getImdbRating() {

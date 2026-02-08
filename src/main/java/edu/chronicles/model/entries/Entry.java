@@ -1,4 +1,4 @@
-package edu.chronicles.model;
+package edu.chronicles.model.entries;
 
 import java.time.LocalDate;
 
