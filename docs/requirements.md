@@ -2,6 +2,7 @@
 
 ## Requisitos de usuario
 RU-01: Como usuario, quiero crear una entrada de libro con los siguientes atributos:
+* Título
 * Autor
 * Año de publicación
 * Formato
@@ -9,6 +10,7 @@ RU-01: Como usuario, quiero crear una entrada de libro con los siguientes atribu
 * Prioridad
 * Galardones
 * Valoración
+* Observaciones
 * Fecha de alta
 
 para guardar los libros que me he leído y/o quiero leer en el futuro.
@@ -21,6 +23,7 @@ RU-02: Como usuario, quiero crear una entrada de serie que contenga lo siguiente
 * Puntuación IMDB
 * Galardones
 * Valoración
+* Observaciones
 * Fecha de alta
 
 para guardar las series que he visto y/o quiero ver en el futuro.
@@ -31,6 +34,7 @@ RU-03: Como usuario, quiero crear una entrada de película que contenga lo sigui
 * Puntuación IMDB
 * Galardones
 * Valoración
+* Observaciones
 * Fecha de alta
 
 para guardar las películas que he visto y/o quiero ver en el futuro.
@@ -43,6 +47,7 @@ RU-04: Como usuario, quiero crear una entrada de restaurantes que contenga lo si
 * Permite mascotas
 * Valoración
 * Observaciones
+* Fecha de alta
 
 para guardar los restaurantes que he visitado y/o quiero visitar en el futuro.
 
@@ -53,6 +58,7 @@ RU-05: Como usuario, quiero crear una entrada de podcast que contenga lo siguien
 * Estado
 * Valoración
 * Observaciones
+* Fecha de alta
 
 para guardar los podcasts que he escuchado y/o quiero escuchar en el futuro.
 
@@ -62,3 +68,5 @@ RU-06: Como usuario, quiero crear una entrada de curso que contenga lo siguiente
 * Plataforma
 * Estado
 * Valoración
+* Observaciones
+* Fecha de alta
