@@ -54,7 +54,7 @@ y relevante.
 RU-01: Como usuario, quiero crear una entrada de película que contenga lo siguiente:
 * Título
 * Plataforma
-* * Fecha de estreno
+* Fecha de estreno
 * Puntuación IMDB
 * Galardones
 * Valoración
