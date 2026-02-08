@@ -1,4 +1,4 @@
 package edu.chronicles.model;
 
-public class RestaurantEntry {
+public class Address {
 }
