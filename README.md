@@ -13,5 +13,5 @@ Aplicación para registrar y valorar contenido multimedia
 * [ADR-01: Adopción de TDD](./docs/adr/01-uso-de-tdd.md)
 
 ## 👥 Equipo
-- Dani Rivera
+- Daniel Rivera
 - Lorena Peñas
