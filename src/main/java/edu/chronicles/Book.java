@@ -17,10 +17,6 @@ public class Book extends MediaEntry {
         return creator;
     }
 
-    public String setAuthor(String author) {
-        return this.creator = author;
-    }
-
     public int getYearRead() {
         return yearFinished;
     }
