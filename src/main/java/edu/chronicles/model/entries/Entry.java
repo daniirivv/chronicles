@@ -9,15 +9,15 @@ public abstract class Entry {
     protected String comments;
     protected final LocalDate entryDate;
 
-    protected Entry(String name, Float rating, String comments, LocalDate entryDate) {
+    protected Entry(String name, Float rating, String comments) {
         this.name = name;
         this.rating = rating;
         this.comments = comments;
-        this.entryDate = entryDate;
+        this.entryDate = LocalDate.now();
     }
 
-    protected Entry(String name, LocalDate entryDate) {
-        this(name, null, "", entryDate);
+    protected Entry(String name) {
+        this(name, null, "");
     }
 
     public String getName() {

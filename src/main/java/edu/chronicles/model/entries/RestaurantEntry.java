@@ -18,14 +18,14 @@ public class RestaurantEntry extends Entry{
                            Address address,
                            GastronomyType gastronomyType,
                            Boolean allowsPets) {
-        super(name, rating, comments, entryDate);
+        super(name, rating, comments);
         this.address = address;
         this.gastronomyType = gastronomyType;
         this.allowsPets = allowsPets;
     }
 
-    public RestaurantEntry(String name, LocalDate entryDate) {
-        super(name, entryDate);
+    public RestaurantEntry(String name) {
+        super(name);
         this.address = null;
         this.gastronomyType = null;
         this.allowsPets = null;

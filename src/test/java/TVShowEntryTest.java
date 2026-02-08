@@ -13,7 +13,7 @@ public class TVShowEntryTest {
 
     @BeforeEach
     void initializeShow(){
-        tvShowEntry = new TVShowEntry(SHOW_TITLE, SHOW_CREATOR);
+        tvShowEntry = new TVShowEntry(SHOW_TITLE);
     }
 
     @Test

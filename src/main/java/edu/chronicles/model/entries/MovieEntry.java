@@ -18,13 +18,12 @@ public class MovieEntry extends Entry {
     public MovieEntry(String title,
                       Float rating,
                       String comments,
-                      LocalDate entryDate,
                       String director,
                       Year releaseYear,
                       Platform platform,
                       Float imdbRating,
                       List<Award> receivedAwards) {
-        super(title, rating, comments, entryDate);
+        super(title, rating, comments);
         this.director = director;
         this.releaseYear = releaseYear;
         this.platform = platform;
@@ -32,8 +31,8 @@ public class MovieEntry extends Entry {
         this.receivedAwards = receivedAwards;
     }
 
-    public MovieEntry(String title, LocalDate entryDate) {
-        super(title, entryDate);
+    public MovieEntry(String title) {
+        super(title);
         this.platform = null;
         this.imdbRating = null;
         this.receivedAwards = null;

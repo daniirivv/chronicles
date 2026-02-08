@@ -17,20 +17,19 @@ public class CourseEntry extends Entry{
     public CourseEntry(String title,
                        Float rating,
                        String comments,
-                       LocalDate entryDate,
                        Year releaseYear,
                        TopicType topic,
                        Platform platform,
                        State state) {
-        super(title, rating, comments, entryDate);
+        super(title, rating, comments);
         this.releaseYear = releaseYear;
         this.topic = topic;
         this.platform = platform;
         this.state = state;
     }
 
-    public CourseEntry(String title, LocalDate entryDate) {
-        super(title, entryDate);
+    public CourseEntry(String title) {
+        super(title);
         this.releaseYear = null;
         this.topic = null;
         this.platform = null;

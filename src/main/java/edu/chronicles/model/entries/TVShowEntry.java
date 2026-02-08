@@ -20,14 +20,13 @@ public class TVShowEntry extends Entry{
     public TVShowEntry(String title,
                        Float rating,
                        String comments,
-                       LocalDate entryDate,
                        String director,
                        Year releaseYear,
                        Platform platform,
                        State state,
                        Float imdbRating,
                        List<Award> receivedAwards) {
-        super(title, rating, comments, entryDate);
+        super(title, rating, comments);
         this.director = director;
         this.releaseYear = releaseYear;
         this.platform = platform;
@@ -36,8 +35,8 @@ public class TVShowEntry extends Entry{
         this.receivedAwards = receivedAwards;
     }
 
-    public TVShowEntry(String title, LocalDate entryDate) {
-        super(title, entryDate);
+    public TVShowEntry(String title) {
+        super(title);
         this.director = "";
         this.releaseYear = null;
         this.platform = null;

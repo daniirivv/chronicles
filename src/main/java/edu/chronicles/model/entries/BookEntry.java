@@ -21,13 +21,12 @@ public class BookEntry extends Entry {
                      String author,
                      Float rating,
                      String comments,
-                     LocalDate entryDate,
                      Year releaseYear,
                      Format format,
                      Integer pages,
                      State state,
                      List<Award> receivedAwards) {
-        super(title, rating, comments, entryDate);
+        super(title, rating, comments);
         this.author = author;
         this.releaseYear = releaseYear;
         this.format = format;
@@ -36,8 +35,8 @@ public class BookEntry extends Entry {
         this.receivedAwards = receivedAwards;
     }
 
-    public BookEntry(String title, LocalDate entryDate) {
-        super(title, entryDate);
+    public BookEntry(String title) {
+        super(title);
         this.author = "";
         this.releaseYear = null;
         this.format = null;

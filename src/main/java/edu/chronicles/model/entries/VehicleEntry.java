@@ -19,14 +19,13 @@ public class VehicleEntry extends Entry{
     public VehicleEntry(String model,
                         Float rating,
                         String comments,
-                        LocalDate entryDate,
                         String brand,
                         Year releaseYear,
                         Currency pvp,
                         Dimension dimension,
                         Float horsePower,
                         Traction traction) {
-        super(model, rating, comments, entryDate);
+        super(model, rating, comments);
         this.brand = brand;
         this.releaseYear = releaseYear;
         this.pvp = pvp;
@@ -35,8 +34,8 @@ public class VehicleEntry extends Entry{
         this.traction = traction;
     }
 
-    public VehicleEntry(String brand, LocalDate entryDate) {
-        super(brand, entryDate);
+    public VehicleEntry(String brand) {
+        super(brand);
         this.brand = null;
         this.releaseYear = null;
         this.pvp = null;
