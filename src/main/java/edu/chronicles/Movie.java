@@ -14,7 +14,4 @@ public class Movie extends AudioVisual {
         return creator;
     }
 
-    public void setDirector(String director) {
-        this.creator = director;
-    }
 }

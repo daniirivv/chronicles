@@ -1,12 +1,12 @@
 package edu.chronicles;
 
-public class MediaEntry {
+public abstract class MediaEntry {
     protected String name;
     protected String creator;
     protected int rating;
     protected int yearFinished;
 
-    public MediaEntry(String name, String creator) {
+    protected MediaEntry(String name, String creator) {
         this.name = name;
         this.creator = creator;
     }
@@ -20,10 +20,6 @@ public class MediaEntry {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getRating() {
