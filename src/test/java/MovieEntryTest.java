@@ -1,4 +1,6 @@
 import edu.chronicles.model.MovieEntry;
+import edu.chronicles.model.Platform;
+import edu.chronicles.model.VODPlatform;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,8 +20,11 @@ public class MovieEntryTest {
 
     @Test
     public void givenACreatedMovie_whenAccessingItsAttributes_shouldReturnCorrectAttributes() {
+        VODPlatform moviePlatform = VODPlatform.NETFLIX;
+
         assertEquals(MOVIE_TITLE, movieEntry.getName());
         assertEquals(MOVIE_DIRECTOR, movieEntry.getDirector());
+        assertEquals(moviePlatform, movieEntry.getPlatform());
     }
 
     @Test

@@ -9,7 +9,7 @@ public class TVShowEntry extends Entry{
 
     private String director;
     private Year releaseYear;
-    private Platform platform;
+    private VODPlatform platform;
     private State state;
     private Float imdbRating;
     private List<Award> receivedAwards;
@@ -20,7 +20,7 @@ public class TVShowEntry extends Entry{
                        LocalDate entryDate,
                        String director,
                        Year releaseYear,
-                       Platform platform,
+                       VODPlatform platform,
                        State state,
                        Float imdbRating,
                        List<Award> receivedAwards) {
@@ -59,11 +59,11 @@ public class TVShowEntry extends Entry{
         this.releaseYear = releaseYear;
     }
 
-    public Platform getPlatform() {
+    public VODPlatform getPlatform() {
         return platform;
     }
 
-    public void setPlatform(Platform platform) {
+    public void setPlatform(VODPlatform platform) {
         this.platform = platform;
     }
 

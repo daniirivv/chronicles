@@ -8,7 +8,7 @@ public class MovieEntry extends Entry {
 
     private String director;
     private Year releaseYear;
-    private Platform platform;
+    private VODPlatform platform;
     private Float imdbRating;
     private List<Award> receivedAwards;
 
@@ -18,7 +18,7 @@ public class MovieEntry extends Entry {
                       LocalDate entryDate,
                       String director,
                       Year releaseYear,
-                      Platform platform,
+                      VODPlatform platform,
                       Float imdbRating,
                       List<Award> receivedAwards) {
         super(title, rating, comments, entryDate);
@@ -52,11 +52,11 @@ public class MovieEntry extends Entry {
         this.releaseYear = releaseYear;
     }
 
-    public Platform getPlatform() {
+    public VODPlatform getPlatform() {
         return platform;
     }
 
-    public void setPlatform(Platform platform) {
+    public void setPlatform(VODPlatform platform) {
         this.platform = platform;
     }
 
