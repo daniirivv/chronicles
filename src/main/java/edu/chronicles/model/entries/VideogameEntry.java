@@ -4,7 +4,6 @@ import edu.chronicles.model.Award;
 import edu.chronicles.model.Gender;
 import edu.chronicles.model.Platform;
 
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.List;
 
@@ -19,13 +18,12 @@ public class VideogameEntry extends Entry{
     public VideogameEntry(String name,
                           Float rating,
                           String comments,
-                          LocalDate entryDate,
                           Year releaseYear,
                           Gender gender,
                           String studio,
                           List<Platform> availablePlatforms,
                           List<Award> receivedAwards) {
-        super(name, rating, comments, entryDate);
+        super(name, rating, comments);
         this.releaseYear = releaseYear;
         this.gender = gender;
         this.studio = studio;
@@ -33,8 +31,8 @@ public class VideogameEntry extends Entry{
         this.receivedAwards = receivedAwards;
     }
 
-    public VideogameEntry(String name, LocalDate entryDate) {
-        super(name, entryDate);
+    public VideogameEntry(String name) {
+        super(name);
         this.releaseYear = null;
         this.gender = null;
         this.studio = null;
