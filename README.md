@@ -10,7 +10,8 @@ Aplicación para registrar y valorar contenido multimedia
 - JUnit
 
 ## 📚 Documentación
-* [ADR-01: Adopción de TDD](docs/decisions.md)
+* [Decisiones](docs/decisions.md)
+* [Requisitos](docs/requirements.md)
 
 ## 👥 Equipo
 - Daniel Rivera
