@@ -1,32 +1,37 @@
 import edu.chronicles.Movie;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MovieTest {
 
-    @Test
-    public void movieHasCorrectAttributesWhenCreated() {
-        Movie movie = new Movie("Inception", "Christopher Nolan");
+    private static final String MOVIE_TITLE = "Inception";
+    private static final String MOVIE_DIRECTOR = "Christopher Nolan";
 
-        assertEquals("Inception", movie.getName());
-        assertEquals("Christopher Nolan", movie.getDirector());
+    private Movie movie;
+
+    @BeforeEach
+    void initializeMovie(){
+        movie = new Movie(MOVIE_TITLE, MOVIE_DIRECTOR);
+    }
+
+    @Test
+    public void givenACreatedMovie_whenAccessingItsAttributes_shouldReturnCorrectAttributes() {
+        assertEquals(MOVIE_TITLE, movie.getName());
+        assertEquals(MOVIE_DIRECTOR, movie.getDirector());
     }
 
     @Test
     public void movieHasCorrectAttributesWhenAllAdded() {
-        Movie movie = new Movie("Inception", "Christopher Nolan", 3, 2020);
-
-        assertEquals("Inception", movie.getName());
-        assertEquals("Christopher Nolan", movie.getDirector());
+        assertEquals(MOVIE_TITLE, movie.getName());
+        assertEquals(MOVIE_DIRECTOR, movie.getDirector());
         assertEquals(3, movie.getRating());
         assertEquals(2020, movie.getYearSeen());
     }
 
     @Test
     public void movieHasCorrectAttributesWhenAddedLater() {
-        Movie movie = new Movie("Inception", "Christopher Nolan");
-
         movie.setRating(3);
         movie.setYearSeen(2020);
 
