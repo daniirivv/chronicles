@@ -1,4 +1,4 @@
-import edu.chronicles.model.BookEntry;
+import edu.chronicles.model.entries.BookEntry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

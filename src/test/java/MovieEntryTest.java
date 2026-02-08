@@ -1,4 +1,4 @@
-import edu.chronicles.model.MovieEntry;
+import edu.chronicles.model.entries.MovieEntry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

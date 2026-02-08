@@ -1,4 +1,7 @@
-package edu.chronicles.model;
+package edu.chronicles.model.entries;
+
+import edu.chronicles.model.Award;
+import edu.chronicles.model.Platform;
 
 import java.time.LocalDate;
 import java.time.Year;
