@@ -1,31 +1,31 @@
+package entries;
+
 import edu.chronicles.model.entries.BookEntry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BookEntryTest {
+class BookEntryTest {
 
     private static final String BOOK_TITLE = "Atomic Habits";
-    private static final String BOOK_AUTHOR = "James Clear";
-    private static final int BOOK_PAGES = 328;
 
     private BookEntry bookEntry;
 
     @BeforeEach
     void initializeBook(){
-        bookEntry = new BookEntry(BOOK_TITLE, BOOK_AUTHOR, BOOK_PAGES);
+        bookEntry = new BookEntry(BOOK_TITLE);
     }
 
     @Test
-    public void bookHasCorrectAttributesWhenCreated() {
+    void bookHasCorrectAttributesWhenCreated() {
         assertEquals(BOOK_TITLE, bookEntry.getName());
         assertEquals(BOOK_AUTHOR, bookEntry.getAuthor());
         assertEquals(BOOK_PAGES, bookEntry.getNumberOfPages());
     }
 
     @Test
-    public void bookHasCorrectAttributesWhenAllAdded() {
+    void bookHasCorrectAttributesWhenAllAdded() {
         assertEquals(BOOK_TITLE, bookEntry.getName());
         assertEquals(BOOK_AUTHOR, bookEntry.getAuthor());
         assertEquals(2, bookEntry.getRating());
@@ -34,7 +34,7 @@ public class BookEntryTest {
     }
 
     @Test
-    public void bookHasCorrectAttributesWhenAddedLater() {
+    void bookHasCorrectAttributesWhenAddedLater() {
         bookEntry.setRating(2);
         bookEntry.setYearRead(2025);
 

@@ -1,10 +1,12 @@
+package entries;
+
 import edu.chronicles.model.entries.TVShowEntry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TVShowEntryTest {
+class TVShowEntryTest {
 
     private static final String SHOW_TITLE = "La Casa de Papel";
     private static final String SHOW_CREATOR = "Álex Pina";

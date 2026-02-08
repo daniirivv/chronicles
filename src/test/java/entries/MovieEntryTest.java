@@ -1,3 +1,5 @@
+package entries;
+
 import edu.chronicles.model.entries.MovieEntry;
 import edu.chronicles.model.VODPlatform;
 import org.junit.jupiter.api.BeforeEach;
@@ -5,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MovieEntryTest {
+class MovieEntryTest {
 
     private static final String MOVIE_TITLE = "Inception";
     private static final String MOVIE_DIRECTOR = "Christopher Nolan";
@@ -14,11 +16,11 @@ public class MovieEntryTest {
 
     @BeforeEach
     void initializeMovie(){
-        movieEntry = new MovieEntry(MOVIE_TITLE, MOVIE_DIRECTOR);
+        movieEntry = new MovieEntry(MOVIE_TITLE);
     }
 
     @Test
-    public void givenACreatedMovie_whenAccessingItsAttributes_shouldReturnCorrectAttributes() {
+    void givenACreatedMovie_whenAccessingItsAttributes_shouldReturnCorrectAttributes() {
         VODPlatform moviePlatform = VODPlatform.NETFLIX;
 
         assertEquals(MOVIE_TITLE, movieEntry.getName());
@@ -27,7 +29,7 @@ public class MovieEntryTest {
     }
 
     @Test
-    public void movieHasCorrectAttributesWhenAllAdded() {
+    void movieHasCorrectAttributesWhenAllAdded() {
         assertEquals(MOVIE_TITLE, movieEntry.getName());
         assertEquals(MOVIE_DIRECTOR, movieEntry.getDirector());
         assertEquals(3, movieEntry.getRating());
@@ -35,7 +37,7 @@ public class MovieEntryTest {
     }
 
     @Test
-    public void movieHasCorrectAttributesWhenAddedLater() {
+    void movieHasCorrectAttributesWhenAddedLater() {
         movieEntry.setRating(3);
         movieEntry.setYearSeen(2020);
 

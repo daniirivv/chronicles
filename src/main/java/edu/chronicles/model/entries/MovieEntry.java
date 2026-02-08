@@ -1,9 +1,8 @@
 package edu.chronicles.model.entries;
 
 import edu.chronicles.model.Award;
-import edu.chronicles.model.Platform;
+import edu.chronicles.model.VODPlatform;
 
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.List;
 
