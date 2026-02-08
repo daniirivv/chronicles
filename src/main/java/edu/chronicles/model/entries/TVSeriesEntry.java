@@ -39,7 +39,7 @@ public class TVSeriesEntry extends Entry{
         this.director = "";
         this.releaseYear = null;
         this.platform = null;
-        this.completionState = CompletionState.SIN_COMENZAR;
+        this.completionState = CompletionState.PLANEADO;
         this.imdbRating = null;
         this.receivedAwards = null;
     }

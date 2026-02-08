@@ -1,7 +1,7 @@
 package edu.chronicles.model;
 
 public enum CompletionState {
-    SIN_COMENZAR,
+    PLANEADO,
     COMENZADO,
     TERMINADO,
 }

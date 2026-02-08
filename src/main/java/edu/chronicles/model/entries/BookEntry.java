@@ -39,7 +39,7 @@ public class BookEntry extends Entry {
         this.releaseYear = null;
         this.format = null;
         this.pages = null;
-        this.completionState = CompletionState.SIN_COMENZAR;
+        this.completionState = CompletionState.PLANEADO;
         this.receivedAwards = null;
     }
 

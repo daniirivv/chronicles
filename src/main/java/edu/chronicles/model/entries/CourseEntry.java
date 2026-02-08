@@ -32,7 +32,7 @@ public class CourseEntry extends Entry{
         this.releaseYear = null;
         this.topic = null;
         this.platform = null;
-        this.completionState = CompletionState.SIN_COMENZAR;
+        this.completionState = CompletionState.PLANEADO;
     }
 
     public Year getReleaseYear() {
