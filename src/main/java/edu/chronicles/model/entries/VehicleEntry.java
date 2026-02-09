@@ -1,8 +1,8 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.Dimension;
-import edu.chronicles.model.Rating;
-import edu.chronicles.model.Traction;
+import edu.chronicles.model.value_objects.Dimension;
+import edu.chronicles.model.value_objects.Rating;
+import edu.chronicles.model.enums.Traction;
 
 import java.time.Year;
 import java.util.Currency;

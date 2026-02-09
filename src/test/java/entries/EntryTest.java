@@ -1,6 +1,6 @@
 package entries;
 
-import edu.chronicles.model.Rating;
+import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.exceptions.InvalidRatingException;
 import edu.chronicles.model.entries.TVShowEntry;
 import org.junit.jupiter.api.BeforeEach;

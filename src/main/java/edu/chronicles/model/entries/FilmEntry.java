@@ -1,8 +1,8 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.FilmAward;
-import edu.chronicles.model.Rating;
-import edu.chronicles.model.VODPlatform;
+import edu.chronicles.model.enums.FilmAward;
+import edu.chronicles.model.value_objects.Rating;
+import edu.chronicles.model.enums.VODPlatform;
 
 import java.time.Year;
 import java.util.List;
