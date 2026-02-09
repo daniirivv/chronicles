@@ -8,11 +8,15 @@ public final class Rating {
     private static final int MIN = 1;
     private static final int MAX = 5;
 
-    public Rating(int value) {
+    private Rating(int value) {
+        this.value = value;
+    }
+
+    public static Rating of(int value) {
         if (value < MIN || value > MAX) {
             throw new InvalidRatingException(value);
         }
-        this.value = value;
+        return new Rating(value);
     }
 
     public int value() {
