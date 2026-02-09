@@ -23,7 +23,7 @@ public abstract class Entry {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -31,7 +31,7 @@ public abstract class Entry {
     }
 
     public Rating getRating() {
-        return rating;
+        return this.rating;
     }
 
     public void setRating(Rating rating) {
@@ -39,7 +39,7 @@ public abstract class Entry {
     }
 
     public String getComments() {
-        return comments;
+        return this.comments;
     }
 
     public void setComments(String comments) {
@@ -47,6 +47,6 @@ public abstract class Entry {
     }
 
     public LocalDate getEntryDate() {
-        return entryDate;
+        return this.entryDate;
     }
 }

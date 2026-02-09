@@ -33,7 +33,7 @@ public class RestaurantEntry extends Entry{
     }
 
     public Address getAddress() {
-        return address;
+        return this.address;
     }
 
     public void setAddress(Address address) {
@@ -41,7 +41,7 @@ public class RestaurantEntry extends Entry{
     }
 
     public GastronomyType getGastronomyType() {
-        return gastronomyType;
+        return this.gastronomyType;
     }
 
     public void setGastronomyType(GastronomyType gastronomyType) {
@@ -49,7 +49,7 @@ public class RestaurantEntry extends Entry{
     }
 
     public Boolean getAllowsPets() {
-        return allowsPets;
+        return this.allowsPets;
     }
 
     public void setAllowsPets(Boolean allowsPets) {

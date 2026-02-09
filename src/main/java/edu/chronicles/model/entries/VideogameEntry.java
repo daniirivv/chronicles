@@ -42,7 +42,7 @@ public class VideogameEntry extends Entry{
     }
 
     public Year getReleaseYear() {
-        return releaseYear;
+        return this.releaseYear;
     }
 
     public void setReleaseYear(Year releaseYear) {
@@ -50,7 +50,7 @@ public class VideogameEntry extends Entry{
     }
 
     public VideogameGenderType getGender() {
-        return videogameGenderType;
+        return this.videogameGenderType;
     }
 
     public void setGender(VideogameGenderType videogameGenderType) {
@@ -58,7 +58,7 @@ public class VideogameEntry extends Entry{
     }
 
     public String getStudio() {
-        return studio;
+        return this.studio;
     }
 
     public void setStudio(String studio) {
@@ -66,7 +66,7 @@ public class VideogameEntry extends Entry{
     }
 
     public List<VideogamePlatform> getAvailablePlatforms() {
-        return availablePlatforms;
+        return this.availablePlatforms;
     }
 
     public void setAvailablePlatforms(List<VideogamePlatform> availablePlatforms) {
@@ -74,7 +74,7 @@ public class VideogameEntry extends Entry{
     }
 
     public List<VideogameAward> getReceivedAwards() {
-        return receivedAwards;
+        return this.receivedAwards;
     }
 
     public void setReceivedAwards(List<VideogameAward> receivedAwards) {

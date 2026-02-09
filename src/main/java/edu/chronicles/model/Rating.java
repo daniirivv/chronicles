@@ -20,6 +20,6 @@ public final class Rating {
     }
 
     public int value() {
-        return value;
+        return this.value;
     }
 }

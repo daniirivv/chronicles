@@ -37,7 +37,7 @@ public class CourseEntry extends Entry{
     }
 
     public Year getReleaseYear() {
-        return releaseYear;
+        return this.releaseYear;
     }
 
     public void setReleaseYear(Year releaseYear) {
@@ -45,7 +45,7 @@ public class CourseEntry extends Entry{
     }
 
     public Topic getTopic() {
-        return topic;
+        return this.topic;
     }
 
     public void setTopic(Topic topic) {
@@ -53,7 +53,7 @@ public class CourseEntry extends Entry{
     }
 
     public CoursePlatform getPlatform() {
-        return platform;
+        return this.platform;
     }
 
     public void setPlatform(CoursePlatform platform) {
@@ -61,7 +61,7 @@ public class CourseEntry extends Entry{
     }
 
     public CompletionState getState() {
-        return completionState;
+        return this.completionState;
     }
 
     public void setState(CompletionState completionState) {

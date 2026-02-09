@@ -45,7 +45,7 @@ public class VehicleEntry extends Entry{
     }
 
     public String getBrand() {
-        return brand;
+        return this.brand;
     }
 
     public void setBrand(String brand) {
@@ -53,7 +53,7 @@ public class VehicleEntry extends Entry{
     }
 
     public Year getReleaseYear() {
-        return releaseYear;
+        return this.releaseYear;
     }
 
     public void setReleaseYear(Year releaseYear) {
@@ -61,7 +61,7 @@ public class VehicleEntry extends Entry{
     }
 
     public Currency getPvp() {
-        return pvp;
+        return this.pvp;
     }
 
     public void setPvp(Currency pvp) {
@@ -69,7 +69,7 @@ public class VehicleEntry extends Entry{
     }
 
     public Dimension getDimension() {
-        return dimension;
+        return this.dimension;
     }
 
     public void setDimension(Dimension dimension) {
@@ -77,7 +77,7 @@ public class VehicleEntry extends Entry{
     }
 
     public Float getHorsePower() {
-        return horsePower;
+        return this.horsePower;
     }
 
     public void setHorsePower(Float horsePower) {
@@ -85,7 +85,7 @@ public class VehicleEntry extends Entry{
     }
 
     public Traction getTraction() {
-        return traction;
+        return this.traction;
     }
 
     public void setTraction(Traction traction) {

@@ -39,7 +39,7 @@ public class FilmEntry extends Entry {
     }
 
     public String getDirector() {
-        return director;
+        return this.director;
     }
 
     public void setDirector(String director) {
@@ -47,7 +47,7 @@ public class FilmEntry extends Entry {
     }
 
     public Year getReleaseYear() {
-        return releaseYear;
+        return this.releaseYear;
     }
 
     public void setReleaseYear(Year releaseYear) {
@@ -55,7 +55,7 @@ public class FilmEntry extends Entry {
     }
 
     public VODPlatform getPlatform() {
-        return platform;
+        return this.platform;
     }
 
     public void setPlatform(VODPlatform platform) {
@@ -63,7 +63,7 @@ public class FilmEntry extends Entry {
     }
 
     public Integer getImdbRating() {
-        return imdbRating;
+        return this.imdbRating;
     }
 
     public void setImdbRating(Integer imdbRating) {
@@ -71,7 +71,7 @@ public class FilmEntry extends Entry {
     }
 
     public List<FilmAward> getReceivedAwards() {
-        return receivedAwards;
+        return this.receivedAwards;
     }
 
     public void setReceivedAwards(List<FilmAward> receivedAwards) {

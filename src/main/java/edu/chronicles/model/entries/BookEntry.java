@@ -46,7 +46,7 @@ public class BookEntry extends Entry {
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     public void setAuthor(String author) {
@@ -54,7 +54,7 @@ public class BookEntry extends Entry {
     }
 
     public Year getReleaseYear() {
-        return releaseYear;
+        return this.releaseYear;
     }
 
     public void setReleaseYear(Year releaseYear) {
@@ -62,7 +62,7 @@ public class BookEntry extends Entry {
     }
 
     public Format getFormat() {
-        return format;
+        return this.format;
     }
 
     public void setFormat(Format format) {
@@ -70,7 +70,7 @@ public class BookEntry extends Entry {
     }
 
     public Integer getPages() {
-        return pages;
+        return this.pages;
     }
 
     public void setPages(Integer pages) {
@@ -79,7 +79,7 @@ public class BookEntry extends Entry {
     }
 
     public CompletionState getState() {
-        return completionState;
+        return this.completionState;
     }
 
     public void setState(CompletionState completionState) {
@@ -87,7 +87,7 @@ public class BookEntry extends Entry {
     }
 
     public LiteratureAward getReceivedAwards() {
-        return receivedAwards;
+        return this.receivedAwards;
     }
 
     public void setReceivedAwards(LiteratureAward receivedAwards) {
