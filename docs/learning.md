@@ -5,6 +5,14 @@
 ## Value Object
 El _value object_ es un objeto que encapsula un valor y sus reglas de dominio asociadas.
 
+### ¿Cómo detectarlo?
+
+* ✅ Tiene significado en el dominio 
+* ✅ Tiene reglas propias 
+* ✅ Puede evolucionar 
+* ✅ Quieres evitar estados inválidos SIEMPRE
+* ✅ Se comporta más como un “concepto” que como un dato bruto
+
 ### Caso de uso:
 Podemos tener un atributo `rating` de tipo Integer, sobre el que debemos de forzar que se mantenga en un intervalo (algo así):
 
