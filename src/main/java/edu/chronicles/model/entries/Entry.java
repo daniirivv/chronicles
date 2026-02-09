@@ -1,15 +1,17 @@
 package edu.chronicles.model.entries;
 
+import edu.chronicles.model.exceptions.InvalidRatingException;
+
 import java.time.LocalDate;
 
 public abstract class Entry {
 
     protected String name;
-    protected Float rating;
+    protected Integer rating;
     protected String comments;
     protected final LocalDate entryDate;
 
-    protected Entry(String name, Float rating, String comments) {
+    protected Entry(String name, Integer rating, String comments) {
         this.name = name;
         this.rating = rating;
         this.comments = comments;
@@ -28,11 +30,12 @@ public abstract class Entry {
         this.name = name;
     }
 
-    public Float getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(Float rating) {
+    public void setRating(Integer rating) {
+        if (rating < 1 || rating > 5) throw new InvalidRatingException(rating);
         this.rating = rating;
     }
 

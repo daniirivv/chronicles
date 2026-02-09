@@ -12,7 +12,7 @@ public class RestaurantEntry extends Entry{
     private Boolean allowsPets;
 
     public RestaurantEntry(String name,
-                           Float rating,
+                           Integer rating,
                            String comments,
                            LocalDate entryDate,
                            Address address,

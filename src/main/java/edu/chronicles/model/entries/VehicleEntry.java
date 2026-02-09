@@ -16,7 +16,7 @@ public class VehicleEntry extends Entry{
     private Traction traction;
 
     public VehicleEntry(String model,
-                        Float rating,
+                        Integer rating,
                         String comments,
                         String brand,
                         Year releaseYear,

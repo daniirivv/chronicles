@@ -16,7 +16,7 @@ public class VideogameEntry extends Entry{
     private List<VideogameAward> receivedAwards;
 
     public VideogameEntry(String name,
-                          Float rating,
+                          Integer rating,
                           String comments,
                           Year releaseYear,
                           VideogameGenderType videogameGenderType,
