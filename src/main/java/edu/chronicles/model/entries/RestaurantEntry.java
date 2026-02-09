@@ -1,7 +1,7 @@
 package edu.chronicles.model.entries;
 
 import edu.chronicles.model.Address;
-import edu.chronicles.model.GastronomyType;
+import edu.chronicles.model.Gastronomy;
 import edu.chronicles.model.Rating;
 
 import java.time.LocalDate;
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class RestaurantEntry extends Entry{
 
     private Address address;
-    private GastronomyType gastronomyType;
+    private Gastronomy gastronomy;
     private Boolean allowsPets;
 
     public RestaurantEntry(String name,
@@ -17,18 +17,18 @@ public class RestaurantEntry extends Entry{
                            String comments,
                            LocalDate entryDate,
                            Address address,
-                           GastronomyType gastronomyType,
+                           Gastronomy gastronomy,
                            Boolean allowsPets) {
         super(name, rating, comments);
         this.address = address;
-        this.gastronomyType = gastronomyType;
+        this.gastronomy = gastronomy;
         this.allowsPets = allowsPets;
     }
 
     public RestaurantEntry(String name) {
         super(name);
         this.address = null;
-        this.gastronomyType = null;
+        this.gastronomy = null;
         this.allowsPets = null;
     }
 
@@ -40,12 +40,12 @@ public class RestaurantEntry extends Entry{
         this.address = address;
     }
 
-    public GastronomyType getGastronomyType() {
-        return this.gastronomyType;
+    public Gastronomy getGastronomyType() {
+        return this.gastronomy;
     }
 
-    public void setGastronomyType(GastronomyType gastronomyType) {
-        this.gastronomyType = gastronomyType;
+    public void setGastronomyType(Gastronomy gastronomy) {
+        this.gastronomy = gastronomy;
     }
 
     public Boolean getAllowsPets() {

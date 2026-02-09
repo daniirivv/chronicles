@@ -1,6 +1,6 @@
 package edu.chronicles.model;
 
-public enum GastronomyType {
+public enum Gastronomy {
     ITALIANO,
     AMERICANO,
     CHINO,
