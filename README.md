@@ -1,4 +1,4 @@
-# Chronicles
+# 🗂️ Chronicles
 
 ## 📖 Descripción
 Aplicación para registrar y valorar contenido multimedia 
