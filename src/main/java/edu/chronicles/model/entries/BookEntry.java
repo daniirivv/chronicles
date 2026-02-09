@@ -5,6 +5,7 @@ import edu.chronicles.model.Format;
 import edu.chronicles.model.CompletionState;
 import edu.chronicles.model.Rating;
 import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
+import edu.chronicles.model.exceptions.InvalidStateException;
 
 import java.time.Year;
 
@@ -43,6 +44,11 @@ public class BookEntry extends Entry {
         this.pages = null;
         this.completionState = CompletionState.PLANEADO;
         this.receivedAwards = null;
+    }
+
+    @Override
+    protected void validateRate() {
+        if (completionState != CompletionState.TERMINADO) throw new InvalidStateException(completionState);
     }
 
     public String getAuthor() {

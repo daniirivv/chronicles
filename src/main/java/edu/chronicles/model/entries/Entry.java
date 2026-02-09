@@ -34,9 +34,16 @@ public abstract class Entry {
         return this.rating;
     }
 
-    public void setRating(Rating rating) {
+    public final void rate(Rating rating) {
+        validateRate();
+        setRating(rating);
+    }
+
+    protected void setRating(Rating rating) {
         this.rating = rating;
     }
+
+    protected void validateRate() {}
 
     public String getComments() {
         return this.comments;

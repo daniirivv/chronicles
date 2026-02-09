@@ -1,8 +1,10 @@
 package entries;
 
 import edu.chronicles.model.CompletionState;
+import edu.chronicles.model.Rating;
 import edu.chronicles.model.entries.BookEntry;
 import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
+import edu.chronicles.model.exceptions.InvalidStateException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,5 +28,10 @@ public class BookEntryTest {
     @Test
     void correctInitialCompletionState() {
         assertEquals(CompletionState.PLANEADO, bookEntry.getState());
+    }
+
+    @Test
+    void shouldReturnErrorWhenRatingWithoutCompletion() {
+        assertThrows(InvalidStateException.class, () -> bookEntry.rate(Rating.of(3)));
     }
 }

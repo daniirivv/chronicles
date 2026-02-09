@@ -20,11 +20,11 @@ public class EntryTest {
 
     @Test
     void rejectsRatingBelowRange() {
-        assertThrows(InvalidRatingException.class, () -> tvSeriesEntry.setRating(Rating.of(-1)));
+        assertThrows(InvalidRatingException.class, () -> tvSeriesEntry.rate(Rating.of(-1)));
     }
 
     @Test
     void rejectsRatingAboveRange() {
-        assertThrows(InvalidRatingException.class, () -> tvSeriesEntry.setRating(Rating.of(6)));
+        assertThrows(InvalidRatingException.class, () -> tvSeriesEntry.rate(Rating.of(6)));
     }
 }

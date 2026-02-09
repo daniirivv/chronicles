@@ -1,9 +1,6 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.Rating;
-import edu.chronicles.model.VideogameAward;
-import edu.chronicles.model.VideogameGenderType;
-import edu.chronicles.model.VideogamePlatform;
+import edu.chronicles.model.*;
 
 import java.time.Year;
 import java.util.List;
