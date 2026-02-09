@@ -1,6 +1,7 @@
 package edu.chronicles.model.entries;
 
 import edu.chronicles.model.FilmAward;
+import edu.chronicles.model.Rating;
 import edu.chronicles.model.VODPlatform;
 
 import java.time.Year;
@@ -15,7 +16,7 @@ public class FilmEntry extends Entry {
     private List<FilmAward> receivedAwards;
 
     public FilmEntry(String title,
-                     Integer rating,
+                     Rating rating,
                      String comments,
                      String director,
                      Year releaseYear,

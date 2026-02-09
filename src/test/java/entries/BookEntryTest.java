@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BookEntryTest {
     private static final String BOOK_TITLE = "Atomic Habits";
-    private static final String BOOK_AUTHOR = "James Clear";
 
     private BookEntry bookEntry;
 

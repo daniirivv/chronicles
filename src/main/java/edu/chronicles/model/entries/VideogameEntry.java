@@ -1,5 +1,6 @@
 package edu.chronicles.model.entries;
 
+import edu.chronicles.model.Rating;
 import edu.chronicles.model.VideogameAward;
 import edu.chronicles.model.VideogameGenderType;
 import edu.chronicles.model.VideogamePlatform;
@@ -16,7 +17,7 @@ public class VideogameEntry extends Entry{
     private List<VideogameAward> receivedAwards;
 
     public VideogameEntry(String name,
-                          Integer rating,
+                          Rating rating,
                           String comments,
                           Year releaseYear,
                           VideogameGenderType videogameGenderType,

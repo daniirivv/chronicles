@@ -1,6 +1,7 @@
 package edu.chronicles.model.entries;
 
 import edu.chronicles.model.Dimension;
+import edu.chronicles.model.Rating;
 import edu.chronicles.model.Traction;
 
 import java.time.Year;
@@ -16,7 +17,7 @@ public class VehicleEntry extends Entry{
     private Traction traction;
 
     public VehicleEntry(String model,
-                        Integer rating,
+                        Rating rating,
                         String comments,
                         String brand,
                         Year releaseYear,

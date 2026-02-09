@@ -3,6 +3,7 @@ package edu.chronicles.model.entries;
 import edu.chronicles.model.LiteratureAward;
 import edu.chronicles.model.Format;
 import edu.chronicles.model.CompletionState;
+import edu.chronicles.model.Rating;
 import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
 
 import java.time.Year;
@@ -18,7 +19,7 @@ public class BookEntry extends Entry {
 
     public BookEntry(String title,
                      String author,
-                     Integer rating,
+                     Rating rating,
                      String comments,
                      Year releaseYear,
                      Format format,

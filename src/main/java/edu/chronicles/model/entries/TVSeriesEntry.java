@@ -3,6 +3,7 @@ package edu.chronicles.model.entries;
 import java.time.Year;
 import java.util.List;
 
+import edu.chronicles.model.Rating;
 import edu.chronicles.model.TVSeriesAward;
 import edu.chronicles.model.VODPlatform;
 import edu.chronicles.model.CompletionState;
@@ -17,7 +18,7 @@ public class TVSeriesEntry extends Entry{
     private List<TVSeriesAward> receivedAwards;
 
     public TVSeriesEntry(String title,
-                         Integer rating,
+                         Rating rating,
                          String comments,
                          String director,
                          Year releaseYear,

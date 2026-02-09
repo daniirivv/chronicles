@@ -2,6 +2,7 @@ package edu.chronicles.model.entries;
 
 import edu.chronicles.model.Address;
 import edu.chronicles.model.GastronomyType;
+import edu.chronicles.model.Rating;
 
 import java.time.LocalDate;
 
@@ -12,7 +13,7 @@ public class RestaurantEntry extends Entry{
     private Boolean allowsPets;
 
     public RestaurantEntry(String name,
-                           Integer rating,
+                           Rating rating,
                            String comments,
                            LocalDate entryDate,
                            Address address,

@@ -2,6 +2,7 @@ package edu.chronicles.model.entries;
 
 import edu.chronicles.model.CompletionState;
 import edu.chronicles.model.CoursePlatform;
+import edu.chronicles.model.Rating;
 import edu.chronicles.model.Topic;
 
 import java.time.Year;
@@ -14,7 +15,7 @@ public class CourseEntry extends Entry{
     private CompletionState completionState;
 
     public CourseEntry(String title,
-                       Integer rating,
+                       Rating rating,
                        String comments,
                        Year releaseYear,
                        Topic topic,
