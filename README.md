@@ -12,6 +12,7 @@ Aplicación para registrar y valorar contenido multimedia
 ## 📚 Documentación
 * [Decisiones](docs/decisions.md)
 * [Requisitos](docs/requirements.md)
+* [Aprendizaje](docs/learning.md)
 
 ## 👥 Equipo
 - Daniel Rivera
