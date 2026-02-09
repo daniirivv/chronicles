@@ -7,6 +7,7 @@ import edu.chronicles.model.Rating;
 import edu.chronicles.model.TVSeriesAward;
 import edu.chronicles.model.VODPlatform;
 import edu.chronicles.model.CompletionState;
+import edu.chronicles.model.exceptions.InvalidStateException;
 
 public class TVShowEntry extends Entry{
 
@@ -14,7 +15,7 @@ public class TVShowEntry extends Entry{
     private Year releaseYear;
     private VODPlatform platform;
     private CompletionState completionState;
-    private Integer imdbRating;
+    private Float imdbRating;
     private List<TVSeriesAward> receivedAwards;
 
     public TVShowEntry(String title,
@@ -24,7 +25,7 @@ public class TVShowEntry extends Entry{
                        Year releaseYear,
                        VODPlatform platform,
                        CompletionState completionState,
-                       Integer imdbRating,
+                       Float imdbRating,
                        List<TVSeriesAward> receivedAwards) {
         super(title, rating, comments);
         this.director = director;
@@ -43,6 +44,11 @@ public class TVShowEntry extends Entry{
         this.completionState = CompletionState.PLANEADO;
         this.imdbRating = null;
         this.receivedAwards = null;
+    }
+
+    @Override
+    protected void validateRate() {
+        if (completionState != CompletionState.TERMINADO) throw new InvalidStateException(completionState);
     }
 
     public String getDirector() {
@@ -77,11 +83,11 @@ public class TVShowEntry extends Entry{
         this.completionState = completionState;
     }
 
-    public Integer getImdbRating() {
+    public Float getImdbRating() {
         return this.imdbRating;
     }
 
-    public void setImdbRating(Integer imdbRating) {
+    public void setImdbRating(Float imdbRating) {
         this.imdbRating = imdbRating;
     }
 
