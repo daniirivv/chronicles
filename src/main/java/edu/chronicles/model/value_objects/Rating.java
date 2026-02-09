@@ -1,4 +1,4 @@
-package edu.chronicles.model;
+package edu.chronicles.model.value_objects;
 
 import edu.chronicles.model.exceptions.InvalidRatingException;
 

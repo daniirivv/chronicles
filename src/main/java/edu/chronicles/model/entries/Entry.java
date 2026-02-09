@@ -1,6 +1,6 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.Rating;
+import edu.chronicles.model.value_objects.Rating;
 
 import java.time.LocalDate;
 

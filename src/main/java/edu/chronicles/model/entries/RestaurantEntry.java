@@ -1,8 +1,8 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.Address;
-import edu.chronicles.model.Gastronomy;
-import edu.chronicles.model.Rating;
+import edu.chronicles.model.value_objects.Address;
+import edu.chronicles.model.enums.Gastronomy;
+import edu.chronicles.model.value_objects.Rating;
 
 import java.time.LocalDate;
 

@@ -1,9 +1,9 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.CompletionState;
-import edu.chronicles.model.CoursePlatform;
-import edu.chronicles.model.Rating;
-import edu.chronicles.model.Topic;
+import edu.chronicles.model.enums.CompletionState;
+import edu.chronicles.model.enums.CoursePlatform;
+import edu.chronicles.model.value_objects.Rating;
+import edu.chronicles.model.enums.Topic;
 import edu.chronicles.model.exceptions.InvalidStateException;
 
 import java.time.Year;

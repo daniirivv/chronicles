@@ -3,10 +3,10 @@ package edu.chronicles.model.entries;
 import java.time.Year;
 import java.util.List;
 
-import edu.chronicles.model.Rating;
-import edu.chronicles.model.TVSeriesAward;
-import edu.chronicles.model.VODPlatform;
-import edu.chronicles.model.CompletionState;
+import edu.chronicles.model.value_objects.Rating;
+import edu.chronicles.model.enums.TVSeriesAward;
+import edu.chronicles.model.enums.VODPlatform;
+import edu.chronicles.model.enums.CompletionState;
 import edu.chronicles.model.exceptions.InvalidStateException;
 
 public class TVShowEntry extends Entry{

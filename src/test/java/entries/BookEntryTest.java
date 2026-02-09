@@ -1,7 +1,7 @@
 package entries;
 
-import edu.chronicles.model.CompletionState;
-import edu.chronicles.model.Rating;
+import edu.chronicles.model.enums.CompletionState;
+import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.entries.BookEntry;
 import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
 import edu.chronicles.model.exceptions.InvalidStateException;

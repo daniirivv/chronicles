@@ -1,9 +1,9 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.LiteratureAward;
-import edu.chronicles.model.Format;
-import edu.chronicles.model.CompletionState;
-import edu.chronicles.model.Rating;
+import edu.chronicles.model.enums.LiteratureAward;
+import edu.chronicles.model.enums.Format;
+import edu.chronicles.model.enums.CompletionState;
+import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
 import edu.chronicles.model.exceptions.InvalidStateException;
 
