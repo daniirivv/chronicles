@@ -3,6 +3,7 @@ package edu.chronicles.model.entries;
 import edu.chronicles.model.CompletionState;
 import edu.chronicles.model.MODPlatform;
 import edu.chronicles.model.Rating;
+import edu.chronicles.model.exceptions.InvalidStateException;
 
 import java.time.Year;
 
@@ -29,7 +30,10 @@ public class PodcastEntry extends Entry {
         this.completionState = CompletionState.PLANEADO;
     }
 
-
+    @Override
+    protected void validateRate() {
+        if (completionState != CompletionState.TERMINADO) throw new InvalidStateException(completionState);
+    }
 
     public String getPodcaster() {
         return podcaster;
