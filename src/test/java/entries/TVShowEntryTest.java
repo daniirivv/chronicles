@@ -1,8 +1,8 @@
 package entries;
 
-import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.entries.TVShowEntry;
 import edu.chronicles.model.exceptions.InvalidStateException;
+import edu.chronicles.model.value_objects.UserRating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +21,7 @@ public class TVShowEntryTest {
 
     @Test
     void shouldReturnErrorWhenRatingWithoutCompletion() {
-        assertThrows(InvalidStateException.class, () -> tvShowEntry.rate(Rating.of(3)));
+        assertThrows(InvalidStateException.class, () -> tvShowEntry.rate(UserRating.of(3)));
     }
 
 }

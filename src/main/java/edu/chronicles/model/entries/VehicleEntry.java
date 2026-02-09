@@ -1,8 +1,8 @@
 package edu.chronicles.model.entries;
 
 import edu.chronicles.model.value_objects.Dimension;
-import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.enums.Traction;
+import edu.chronicles.model.value_objects.UserRating;
 
 import java.time.Year;
 import java.util.Currency;
@@ -17,7 +17,7 @@ public class VehicleEntry extends Entry{
     private Traction traction;
 
     public VehicleEntry(String model,
-                        Rating rating,
+                        UserRating userRating,
                         String comments,
                         String brand,
                         Year releaseYear,
@@ -25,7 +25,7 @@ public class VehicleEntry extends Entry{
                         Dimension dimension,
                         Float horsePower,
                         Traction traction) {
-        super(model, rating, comments);
+        super(model, userRating, comments);
         this.brand = brand;
         this.releaseYear = releaseYear;
         this.pvp = pvp;

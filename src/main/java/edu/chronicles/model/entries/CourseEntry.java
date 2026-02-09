@@ -2,9 +2,9 @@ package edu.chronicles.model.entries;
 
 import edu.chronicles.model.enums.CompletionState;
 import edu.chronicles.model.enums.CoursePlatform;
-import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.enums.Topic;
 import edu.chronicles.model.exceptions.InvalidStateException;
+import edu.chronicles.model.value_objects.UserRating;
 
 import java.time.Year;
 
@@ -16,13 +16,13 @@ public class CourseEntry extends Entry{
     private CompletionState completionState;
 
     public CourseEntry(String title,
-                       Rating rating,
+                       UserRating userRating,
                        String comments,
                        Year releaseYear,
                        Topic topic,
                        CoursePlatform platform,
                        CompletionState completionState) {
-        super(title, rating, comments);
+        super(title, userRating, comments);
         this.releaseYear = releaseYear;
         this.topic = topic;
         this.platform = platform;

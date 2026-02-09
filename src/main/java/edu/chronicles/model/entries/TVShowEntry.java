@@ -3,11 +3,11 @@ package edu.chronicles.model.entries;
 import java.time.Year;
 import java.util.List;
 
-import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.enums.TVSeriesAward;
 import edu.chronicles.model.enums.VODPlatform;
 import edu.chronicles.model.enums.CompletionState;
 import edu.chronicles.model.exceptions.InvalidStateException;
+import edu.chronicles.model.value_objects.UserRating;
 
 public class TVShowEntry extends Entry{
 
@@ -19,7 +19,7 @@ public class TVShowEntry extends Entry{
     private List<TVSeriesAward> receivedAwards;
 
     public TVShowEntry(String title,
-                       Rating rating,
+                       UserRating userRating,
                        String comments,
                        String director,
                        Year releaseYear,
@@ -27,7 +27,7 @@ public class TVShowEntry extends Entry{
                        CompletionState completionState,
                        Float imdbRating,
                        List<TVSeriesAward> receivedAwards) {
-        super(title, rating, comments);
+        super(title, userRating, comments);
         this.director = director;
         this.releaseYear = releaseYear;
         this.platform = platform;

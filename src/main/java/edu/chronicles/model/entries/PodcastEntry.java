@@ -2,8 +2,8 @@ package edu.chronicles.model.entries;
 
 import edu.chronicles.model.enums.CompletionState;
 import edu.chronicles.model.enums.MODPlatform;
-import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.exceptions.InvalidStateException;
+import edu.chronicles.model.value_objects.UserRating;
 
 import java.time.Year;
 
@@ -14,8 +14,8 @@ public class PodcastEntry extends Entry {
     private MODPlatform platform;
     private CompletionState completionState;
 
-    public PodcastEntry(String name, Rating rating, String comments, String podcaster, Year releaseYear, MODPlatform platform, CompletionState completionState) {
-        super(name, rating, comments);
+    public PodcastEntry(String name, UserRating userRating, String comments, String podcaster, Year releaseYear, MODPlatform platform, CompletionState completionState) {
+        super(name, userRating, comments);
         this.podcaster = podcaster;
         this.releaseYear = releaseYear;
         this.platform = platform;

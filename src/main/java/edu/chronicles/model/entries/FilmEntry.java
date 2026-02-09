@@ -1,8 +1,8 @@
 package edu.chronicles.model.entries;
 
 import edu.chronicles.model.enums.FilmAward;
-import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.enums.VODPlatform;
+import edu.chronicles.model.value_objects.UserRating;
 
 import java.time.Year;
 import java.util.List;
@@ -16,14 +16,14 @@ public class FilmEntry extends Entry {
     private List<FilmAward> receivedAwards;
 
     public FilmEntry(String title,
-                     Rating rating,
+                     UserRating userRating,
                      String comments,
                      String director,
                      Year releaseYear,
                      VODPlatform platform,
                      Float imdbRating,
                      List<FilmAward> receivedAwards) {
-        super(title, rating, comments);
+        super(title, userRating, comments);
         this.director = director;
         this.releaseYear = releaseYear;
         this.platform = platform;

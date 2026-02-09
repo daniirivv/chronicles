@@ -2,7 +2,7 @@ package edu.chronicles.model.entries;
 
 import edu.chronicles.model.value_objects.Address;
 import edu.chronicles.model.enums.Gastronomy;
-import edu.chronicles.model.value_objects.Rating;
+import edu.chronicles.model.value_objects.UserRating;
 
 import java.time.LocalDate;
 
@@ -13,13 +13,13 @@ public class RestaurantEntry extends Entry{
     private Boolean allowsPets;
 
     public RestaurantEntry(String name,
-                           Rating rating,
+                           UserRating userRating,
                            String comments,
                            LocalDate entryDate,
                            Address address,
                            Gastronomy gastronomy,
                            Boolean allowsPets) {
-        super(name, rating, comments);
+        super(name, userRating, comments);
         this.address = address;
         this.gastronomy = gastronomy;
         this.allowsPets = allowsPets;

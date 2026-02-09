@@ -1,19 +1,19 @@
 package edu.chronicles.model.entries;
 
-import edu.chronicles.model.value_objects.Rating;
+import edu.chronicles.model.value_objects.UserRating;
 
 import java.time.LocalDate;
 
 public abstract class Entry {
 
     protected String name;
-    protected Rating rating;
+    protected UserRating userRating;
     protected String comments;
     protected final LocalDate entryDate;
 
-    protected Entry(String name, Rating rating, String comments) {
+    protected Entry(String name, UserRating userRating, String comments) {
         this.name = name;
-        this.rating = rating;
+        this.userRating = userRating;
         this.comments = comments;
         this.entryDate = LocalDate.now();
     }
@@ -30,17 +30,17 @@ public abstract class Entry {
         this.name = name;
     }
 
-    public Rating getRating() {
-        return this.rating;
+    public UserRating getRating() {
+        return this.userRating;
     }
 
-    public final void rate(Rating rating) {
+    public final void rate(UserRating userRating) {
         validateRate();
-        setRating(rating);
+        setRating(userRating);
     }
 
-    protected void setRating(Rating rating) {
-        this.rating = rating;
+    protected void setRating(UserRating userRating) {
+        this.userRating = userRating;
     }
 
     protected void validateRate() {}

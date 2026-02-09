@@ -1,10 +1,10 @@
 package entries;
 
 import edu.chronicles.model.enums.CompletionState;
-import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.entries.BookEntry;
 import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
 import edu.chronicles.model.exceptions.InvalidStateException;
+import edu.chronicles.model.value_objects.UserRating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,6 +32,6 @@ public class BookEntryTest {
 
     @Test
     void shouldReturnErrorWhenRatingWithoutCompletion() {
-        assertThrows(InvalidStateException.class, () -> bookEntry.rate(Rating.of(3)));
+        assertThrows(InvalidStateException.class, () -> bookEntry.rate(UserRating.of(3)));
     }
 }

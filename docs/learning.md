@@ -14,27 +14,27 @@ El _value object_ es un objeto que encapsula un valor y sus reglas de dominio as
 * ✅ Se comporta más como un “concepto” que como un dato bruto
 
 ### Caso de uso:
-Podemos tener un atributo `rating` de tipo Integer, sobre el que debemos de forzar que se mantenga en un intervalo (algo así):
+Podemos tener un atributo `userRating` de tipo Integer, sobre el que debemos de forzar que se mantenga en un intervalo (algo así):
 
 ```java
 class Entry{
     //...
-    private Integer rating;
+    private Integer userRating;
     
-    public Entry(Integer rating){ // + otros parámetros
+    public Entry(Integer userRating){ // + otros parámetros
         //...
-        rating(rating);
+        userRating(userRating);
         //Hay que llamar al método, porque si no, no se comprueba la lógica
     }
     
     //...
     
-    private void setRating(Integer rating){
-        this.rating = rating;
+    private void setRating(Integer userRating){
+        this.userRating = userRating;
     }
     
-    public void rating(Integer rating){
-        if(rating >= 0 && rating <= 5) setRating(rating);
+    public void userRating(Integer userRating){
+        if(userRating >= 0 && userRating <= 5) setRating(userRating);
         else throw new InvalidRatingException();
     }
 }
@@ -45,11 +45,11 @@ Sin embargo, es mejor encapsular esta lógica en un _value object_ `Rating`, de 
 ```java
 class Entry{
     //...
-    private Rating rating;
+    private Rating userRating;
     
     //...
-    private void setRating(Rating rating){
-        this.rating = rating;
+    private void setRating(Rating userRating){
+        this.userRating = userRating;
     }
 }
 

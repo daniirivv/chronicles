@@ -1,8 +1,8 @@
 package entries;
 
-import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.exceptions.InvalidRatingException;
 import edu.chronicles.model.entries.TVShowEntry;
+import edu.chronicles.model.value_objects.UserRating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,11 +20,11 @@ public class EntryTest {
 
     @Test
     void rejectsRatingBelowRange() {
-        assertThrows(InvalidRatingException.class, () -> tvShowEntry.rate(Rating.of(-1)));
+        assertThrows(InvalidRatingException.class, () -> tvShowEntry.rate(UserRating.of(-1)));
     }
 
     @Test
     void rejectsRatingAboveRange() {
-        assertThrows(InvalidRatingException.class, () -> tvShowEntry.rate(Rating.of(6)));
+        assertThrows(InvalidRatingException.class, () -> tvShowEntry.rate(edu.chronicles.model.value_objects.UserRating.of(6)));
     }
 }

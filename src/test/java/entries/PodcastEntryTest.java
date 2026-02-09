@@ -1,8 +1,8 @@
 package entries;
 
-import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.entries.PodcastEntry;
 import edu.chronicles.model.exceptions.InvalidStateException;
+import edu.chronicles.model.value_objects.UserRating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +19,7 @@ public class PodcastEntryTest {
 
     @Test
     void shouldReturnErrorWhenRatingWithoutCompletion() {
-        assertThrows(InvalidStateException.class, () -> podcastEntry.rate(Rating.of(3)));
+        assertThrows(InvalidStateException.class, () -> podcastEntry.rate(UserRating.of(3)));
     }
 
 }

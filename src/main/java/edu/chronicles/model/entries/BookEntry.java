@@ -3,9 +3,9 @@ package edu.chronicles.model.entries;
 import edu.chronicles.model.enums.LiteratureAward;
 import edu.chronicles.model.enums.Format;
 import edu.chronicles.model.enums.CompletionState;
-import edu.chronicles.model.value_objects.Rating;
 import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
 import edu.chronicles.model.exceptions.InvalidStateException;
+import edu.chronicles.model.value_objects.UserRating;
 
 import java.time.Year;
 
@@ -20,14 +20,14 @@ public class BookEntry extends Entry {
 
     public BookEntry(String title,
                      String author,
-                     Rating rating,
+                     UserRating userRating,
                      String comments,
                      Year releaseYear,
                      Format format,
                      Integer pages,
                      CompletionState completionState,
                      LiteratureAward receivedAwards) {
-        super(title, rating, comments);
+        super(title, userRating, comments);
         this.author = author;
         this.releaseYear = releaseYear;
         this.format = format;

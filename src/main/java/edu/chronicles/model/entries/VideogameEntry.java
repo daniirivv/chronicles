@@ -3,7 +3,7 @@ package edu.chronicles.model.entries;
 import edu.chronicles.model.enums.VideogameAward;
 import edu.chronicles.model.enums.VideogameGenderType;
 import edu.chronicles.model.enums.VideogamePlatform;
-import edu.chronicles.model.value_objects.Rating;
+import edu.chronicles.model.value_objects.UserRating;
 
 import java.time.Year;
 import java.util.List;
@@ -17,14 +17,14 @@ public class VideogameEntry extends Entry{
     private List<VideogameAward> receivedAwards;
 
     public VideogameEntry(String name,
-                          Rating rating,
+                          UserRating userRating,
                           String comments,
                           Year releaseYear,
                           VideogameGenderType videogameGenderType,
                           String studio,
                           List<VideogamePlatform> availablePlatforms,
                           List<VideogameAward> receivedAwards) {
-        super(name, rating, comments);
+        super(name, userRating, comments);
         this.releaseYear = releaseYear;
         this.videogameGenderType = videogameGenderType;
         this.studio = studio;
