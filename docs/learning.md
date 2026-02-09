@@ -94,6 +94,17 @@ Esta opción es, si cabe, más expresiva y directa al uso.
 
 # Testing
 
+## Anotaciones
+
+### `@BeforeEach`
+
+Sirve para:
+
+* **Inicialización de Objetos (Setup)**: Instancia la clase que se va a probar (comúnmente llamada "System Under Test" o SUT).
+* **Preparación de Datos**: Configura escenarios, carga datos necesarios o inicializar estructuras de datos.
+* **Evitar el Código Repetitivo (Boilerplate)**: Elimina la necesidad de crear los mismos objetos al inicio de cada método de prueba, manteniendo los tests concisos y centrados en la acción principal.
+* **Garantizar Aislamiento**: Al recrear el entorno antes de cada test, se evita que los efectos secundarios de una prueba afecten a la siguiente.
+
 ---
 
 # Version Control
