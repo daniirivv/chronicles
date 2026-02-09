@@ -105,6 +105,43 @@ Sirve para:
 * **Evitar el Código Repetitivo (Boilerplate)**: Elimina la necesidad de crear los mismos objetos al inicio de cada método de prueba, manteniendo los tests concisos y centrados en la acción principal.
 * **Garantizar Aislamiento**: Al recrear el entorno antes de cada test, se evita que los efectos secundarios de una prueba afecten a la siguiente.
 
+En vez de:
+
+```java
+@Test
+void correctInitialCompletionState() {
+    BookEntry bookEntry = new BookEntry("Gerónimo Stilton");
+
+    assertEquals(CompletionState.PLANEADO, bookEntry.getState());
+}
+
+@Test
+void shouldReturnErrorWhenRatingWithoutCompletion() {
+    BookEntry bookEntry = new BookEntry("Gerónimo Stilton");
+
+    assertThrows(InvalidStateException.class, () -> bookEntry.rate(Rating.of(3)));
+}
+```
+
+Se transforma en:
+
+```java
+@BeforeEach
+void initializeBook() {
+    BookEntry bookEntry = new BookEntry("Gerónimo Stilton");
+}
+
+@Test
+void correctInitialCompletionState() {
+    assertEquals(CompletionState.PLANEADO, bookEntry.getState());
+}
+
+@Test
+void shouldReturnErrorWhenRatingWithoutCompletion() {
+    assertThrows(InvalidStateException.class, () -> bookEntry.rate(Rating.of(3)));
+}
+```
+
 ---
 
 # Version Control
