@@ -4,6 +4,7 @@ import edu.chronicles.model.CompletionState;
 import edu.chronicles.model.CoursePlatform;
 import edu.chronicles.model.Rating;
 import edu.chronicles.model.Topic;
+import edu.chronicles.model.exceptions.InvalidStateException;
 
 import java.time.Year;
 
@@ -34,6 +35,11 @@ public class CourseEntry extends Entry{
         this.topic = null;
         this.platform = null;
         this.completionState = CompletionState.PLANEADO;
+    }
+
+    @Override
+    protected void validateRate() {
+        if (completionState != CompletionState.TERMINADO) throw new InvalidStateException(completionState);
     }
 
     public Year getReleaseYear() {
