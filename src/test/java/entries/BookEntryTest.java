@@ -1,11 +1,12 @@
 package entries;
 
+import edu.chronicles.model.CompletionState;
 import edu.chronicles.model.entries.BookEntry;
 import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BookEntryTest {
     private static final String BOOK_TITLE = "Atomic Habits";
@@ -23,4 +24,8 @@ public class BookEntryTest {
         assertThrows(InvalidNumberOfPagesException.class, () -> bookEntry.setPages(-1));
     }
 
+    @Test
+    void correctInitialCompletionState() {
+        assertEquals(CompletionState.PLANEADO, bookEntry.getState());
+    }
 }
