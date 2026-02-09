@@ -1,5 +1,4 @@
 package edu.chronicles.model;
 
-public enum TopicType {
-
+public enum Topic {
 }

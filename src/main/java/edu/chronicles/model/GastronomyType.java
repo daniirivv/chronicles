@@ -4,9 +4,10 @@ public enum GastronomyType {
     ITALIANO,
     AMERICANO,
     CHINO,
-    JAPONES,
-    MEDITERRANEO,
-    TAILANDES,
+    JAPONÉS,
+    MEDITERRÁNEO,
+    TAILANDÉS,
     INDIO,
-    KEBAB,
+    PERUANO,
+    MEXICANO
 }

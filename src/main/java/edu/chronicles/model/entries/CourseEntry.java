@@ -2,14 +2,14 @@ package edu.chronicles.model.entries;
 
 import edu.chronicles.model.CompletionState;
 import edu.chronicles.model.CoursePlatform;
-import edu.chronicles.model.TopicType;
+import edu.chronicles.model.Topic;
 
 import java.time.Year;
 
 public class CourseEntry extends Entry{
 
     private Year releaseYear;
-    private TopicType topic;
+    private Topic topic;
     private CoursePlatform platform;
     private CompletionState completionState;
 
@@ -17,7 +17,7 @@ public class CourseEntry extends Entry{
                        Integer rating,
                        String comments,
                        Year releaseYear,
-                       TopicType topic,
+                       Topic topic,
                        CoursePlatform platform,
                        CompletionState completionState) {
         super(title, rating, comments);
@@ -43,11 +43,11 @@ public class CourseEntry extends Entry{
         this.releaseYear = releaseYear;
     }
 
-    public TopicType getTopic() {
+    public Topic getTopic() {
         return topic;
     }
 
-    public void setTopic(TopicType topic) {
+    public void setTopic(Topic topic) {
         this.topic = topic;
     }
 
