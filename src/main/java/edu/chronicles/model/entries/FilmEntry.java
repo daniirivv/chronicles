@@ -2,6 +2,7 @@ package edu.chronicles.model.entries;
 
 import edu.chronicles.model.enums.FilmAward;
 import edu.chronicles.model.enums.VODPlatform;
+import edu.chronicles.model.value_objects.IMDBRating;
 import edu.chronicles.model.value_objects.UserRating;
 
 import java.time.Year;
@@ -12,7 +13,7 @@ public class FilmEntry extends Entry {
     private String director;
     private Year releaseYear;
     private VODPlatform platform;
-    private Float imdbRating;
+    private IMDBRating imdbRating;
     private List<FilmAward> receivedAwards;
 
     public FilmEntry(String title,
@@ -21,7 +22,7 @@ public class FilmEntry extends Entry {
                      String director,
                      Year releaseYear,
                      VODPlatform platform,
-                     Float imdbRating,
+                     IMDBRating imdbRating,
                      List<FilmAward> receivedAwards) {
         super(title, userRating, comments);
         this.director = director;
@@ -62,11 +63,11 @@ public class FilmEntry extends Entry {
         this.platform = platform;
     }
 
-    public Float getImdbRating() {
+    public IMDBRating getImdbRating() {
         return this.imdbRating;
     }
 
-    public void setImdbRating(Float imdbRating) {
+    public void setImdbRating(IMDBRating imdbRating) {
         this.imdbRating = imdbRating;
     }
 

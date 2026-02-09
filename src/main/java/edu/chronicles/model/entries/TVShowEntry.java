@@ -7,6 +7,7 @@ import edu.chronicles.model.enums.TVSeriesAward;
 import edu.chronicles.model.enums.VODPlatform;
 import edu.chronicles.model.enums.CompletionState;
 import edu.chronicles.model.exceptions.InvalidStateException;
+import edu.chronicles.model.value_objects.IMDBRating;
 import edu.chronicles.model.value_objects.UserRating;
 
 public class TVShowEntry extends Entry{
@@ -15,7 +16,7 @@ public class TVShowEntry extends Entry{
     private Year releaseYear;
     private VODPlatform platform;
     private CompletionState completionState;
-    private Float imdbRating;
+    private IMDBRating imdbRating;
     private List<TVSeriesAward> receivedAwards;
 
     public TVShowEntry(String title,
@@ -25,7 +26,7 @@ public class TVShowEntry extends Entry{
                        Year releaseYear,
                        VODPlatform platform,
                        CompletionState completionState,
-                       Float imdbRating,
+                       IMDBRating imdbRating,
                        List<TVSeriesAward> receivedAwards) {
         super(title, userRating, comments);
         this.director = director;
@@ -83,11 +84,11 @@ public class TVShowEntry extends Entry{
         this.completionState = completionState;
     }
 
-    public Float getImdbRating() {
+    public IMDBRating getImdbRating() {
         return this.imdbRating;
     }
 
-    public void setImdbRating(Float imdbRating) {
+    public void setImdbRating(IMDBRating imdbRating) {
         this.imdbRating = imdbRating;
     }
 

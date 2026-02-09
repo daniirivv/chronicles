@@ -1,7 +1,8 @@
 package entries;
 
 import edu.chronicles.model.entries.FilmEntry;
-import edu.chronicles.model.value_objects.UserRating;
+import edu.chronicles.model.exceptions.InvalidIMDBRatingException;
+import edu.chronicles.model.value_objects.IMDBRating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,8 +17,13 @@ public class FilmEntryTest {
     void initializeFilm() { filmEntry = new FilmEntry(FILM_NAME); }
 
     @Test
-    void shouldReturnErrorWhenInvalidIMDBRating() {
-        assertThrows(InvalidIMDBRatingException.class, () -> filmEntry.setImdbRating(12.3F));
+    void shouldReturnErrorWhenInvalidHighIMDBRating() {
+        assertThrows(InvalidIMDBRatingException.class, () -> filmEntry.setImdbRating(IMDBRating.of(12.3F)));
+    }
+
+    @Test
+    void shouldReturnErrorWhenInvalidLowIMDBRating() {
+        assertThrows(InvalidIMDBRatingException.class, () -> filmEntry.setImdbRating(IMDBRating.of(-0.3F)));
     }
 
 }
