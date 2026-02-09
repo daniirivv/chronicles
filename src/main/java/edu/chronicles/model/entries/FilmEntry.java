@@ -12,7 +12,7 @@ public class FilmEntry extends Entry {
     private String director;
     private Year releaseYear;
     private VODPlatform platform;
-    private Integer imdbRating;
+    private Float imdbRating;
     private List<FilmAward> receivedAwards;
 
     public FilmEntry(String title,
@@ -21,7 +21,7 @@ public class FilmEntry extends Entry {
                      String director,
                      Year releaseYear,
                      VODPlatform platform,
-                     Integer imdbRating,
+                     Float imdbRating,
                      List<FilmAward> receivedAwards) {
         super(title, rating, comments);
         this.director = director;
@@ -62,11 +62,11 @@ public class FilmEntry extends Entry {
         this.platform = platform;
     }
 
-    public Integer getImdbRating() {
+    public Float getImdbRating() {
         return this.imdbRating;
     }
 
-    public void setImdbRating(Integer imdbRating) {
+    public void setImdbRating(Float imdbRating) {
         this.imdbRating = imdbRating;
     }
 
