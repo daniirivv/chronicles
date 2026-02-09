@@ -8,7 +8,7 @@ import edu.chronicles.model.TVSeriesAward;
 import edu.chronicles.model.VODPlatform;
 import edu.chronicles.model.CompletionState;
 
-public class TVSeriesEntry extends Entry{
+public class TVShowEntry extends Entry{
 
     private String director;
     private Year releaseYear;
@@ -17,15 +17,15 @@ public class TVSeriesEntry extends Entry{
     private Integer imdbRating;
     private List<TVSeriesAward> receivedAwards;
 
-    public TVSeriesEntry(String title,
-                         Rating rating,
-                         String comments,
-                         String director,
-                         Year releaseYear,
-                         VODPlatform platform,
-                         CompletionState completionState,
-                         Integer imdbRating,
-                         List<TVSeriesAward> receivedAwards) {
+    public TVShowEntry(String title,
+                       Rating rating,
+                       String comments,
+                       String director,
+                       Year releaseYear,
+                       VODPlatform platform,
+                       CompletionState completionState,
+                       Integer imdbRating,
+                       List<TVSeriesAward> receivedAwards) {
         super(title, rating, comments);
         this.director = director;
         this.releaseYear = releaseYear;
@@ -35,7 +35,7 @@ public class TVSeriesEntry extends Entry{
         this.receivedAwards = receivedAwards;
     }
 
-    public TVSeriesEntry(String title) {
+    public TVShowEntry(String title) {
         super(title);
         this.director = "";
         this.releaseYear = null;
