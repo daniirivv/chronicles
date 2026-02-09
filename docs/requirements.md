@@ -99,7 +99,7 @@ y relevante.
 
 RU-01: Como usuario, quiero crear una entrada de podcast que contenga lo siguiente:
 * Título
-* Presentador
+* Podcaster
 * Fecha de estreno
 * Plataforma
 * Estado

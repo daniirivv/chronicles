@@ -11,4 +11,6 @@ public class FilmEntryTest {
     @BeforeEach
     void initializeFilm() { filmEntry = new FilmEntry(FILM_NAME); }
 
+    // TODO: No sé qué testear xd
+
 }
