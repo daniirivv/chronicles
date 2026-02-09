@@ -23,7 +23,8 @@ class Entry{
     
     public Entry(Integer rating){ // + otros parámetros
         //...
-        rating(rating); //Hay que llamar al método, porque si no, no se comprueba la lógica
+        rating(rating);
+        //Hay que llamar al método, porque si no, no se comprueba la lógica
     }
     
     //...
