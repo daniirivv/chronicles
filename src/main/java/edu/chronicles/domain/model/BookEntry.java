@@ -1,4 +1,4 @@
-package edu.chronicles.domain;
+package edu.chronicles.domain.model;
 
 import java.time.Year;
 import java.util.Objects;
