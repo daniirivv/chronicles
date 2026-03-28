@@ -1,4 +1,4 @@
-package edu.chronicles.domain.model;
+package edu.chronicles.domain.models;
 
 import java.time.Year;
 import java.util.Objects;
@@ -10,6 +10,7 @@ public class BookEntry {
     private int numberOfPages;
     private Year releaseDate;
     private boolean completed;
+    private Rating rating;
 
     public BookEntry(String title,
                      String author,
