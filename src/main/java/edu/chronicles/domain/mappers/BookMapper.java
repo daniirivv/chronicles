@@ -3,10 +3,11 @@ package edu.chronicles.domain.mappers;
 import edu.chronicles.domain.models.BookEntry;
 import edu.chronicles.domain.models.Rating;
 import edu.chronicles.presentation.dtos.BookCreateDto;
+import edu.chronicles.presentation.dtos.BookResponseDto;
 
 public class BookMapper {
 
-    public static BookEntry toDomain(BookCreateDto dto) throws IllegalArgumentException{
+    public static BookEntry toDomain(BookCreateDto dto) throws IllegalArgumentException {
         return new BookEntry(
                 dto.title(),
                 dto.author(),
@@ -17,8 +18,8 @@ public class BookMapper {
         );
     }
 
-    public static BookCreateDto toCreateDto(BookEntry bookEntry) {
-        return new BookCreateDto(
+    public static BookResponseDto toResponseDto(BookEntry bookEntry) {
+        return new BookResponseDto(
                 bookEntry.getTitle(),
                 bookEntry.getAuthor(),
                 bookEntry.getPages(),

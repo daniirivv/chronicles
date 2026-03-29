@@ -13,7 +13,7 @@ public record BookCreateDto(
         Rating rating
 ) {
 
-    public int getRatingValue(){
+    public int getRatingValue() {
         return rating.value();
     }
 
