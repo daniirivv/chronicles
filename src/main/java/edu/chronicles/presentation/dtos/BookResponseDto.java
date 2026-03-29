@@ -10,6 +10,6 @@ public record BookResponseDto(
         int pages,
         Year releaseDate,
         boolean completed,
-        Rating rating
+        int rating
 ) {
 }

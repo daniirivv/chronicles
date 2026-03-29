@@ -11,7 +11,11 @@ import java.util.Optional;
 
 public class BookService {
 
-    private BookEntryRepository bookEntryRepository;
+    private final BookEntryRepository bookEntryRepository;
+
+    public BookService(BookEntryRepository bookEntryRepository) {
+        this.bookEntryRepository = bookEntryRepository;
+    }
 
     public BookResponseDto createBookEntry(BookCreateDto createDto)
             throws IllegalArgumentException, EntryAlreadyExistedException {

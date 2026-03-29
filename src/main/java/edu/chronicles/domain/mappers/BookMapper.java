@@ -14,7 +14,7 @@ public class BookMapper {
                 dto.pages(),
                 dto.releaseDate(),
                 dto.completed(),
-                new Rating(dto.getRatingValue())
+                new Rating(dto.rating())
         );
     }
 

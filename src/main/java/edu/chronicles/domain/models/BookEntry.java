@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class BookEntry {
 
-    private String title;
-    private String author;
+    private final String title;
+    private final String author;
     private int pages;
     private Year releaseDate;
     private boolean completed;
@@ -41,16 +41,8 @@ public class BookEntry {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getAuthor() {
         return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public int getPages() {
@@ -77,11 +69,11 @@ public class BookEntry {
         this.completed = completed;
     }
 
-    public Rating getRating() {
-        return rating;
+    public int getRating() {
+        return rating.value();
     }
 
-    public void setRating(Rating rating) {
-        this.rating = rating;
+    public void setRating(int rating) {
+        this.rating = new Rating(rating);
     }
 }

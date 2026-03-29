@@ -10,11 +10,7 @@ public record BookCreateDto(
         int pages,
         Year releaseDate,
         boolean completed,
-        Rating rating
+        int rating
 ) {
-
-    public int getRatingValue() {
-        return rating.value();
-    }
 
 }
