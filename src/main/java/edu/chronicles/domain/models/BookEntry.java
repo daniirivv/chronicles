@@ -7,21 +7,23 @@ public class BookEntry {
 
     private String title;
     private String author;
-    private int numberOfPages;
+    private int pages;
     private Year releaseDate;
     private boolean completed;
     private Rating rating;
 
     public BookEntry(String title,
                      String author,
-                     int numberOfPages,
+                     int pages,
                      Year releaseDate,
-                     boolean completed) {
+                     boolean completed,
+                     Rating rating) {
         this.title = title;
         this.author = author;
-        this.numberOfPages = numberOfPages;
+        this.pages = pages;
         this.releaseDate = releaseDate;
         this.completed = completed;
+        this.rating = rating;
     }
 
     @Override
@@ -51,12 +53,12 @@ public class BookEntry {
         this.author = author;
     }
 
-    public int getNumberOfPages() {
-        return numberOfPages;
+    public int getPages() {
+        return pages;
     }
 
-    public void setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
+    public void setPages(int pages) {
+        this.pages = pages;
     }
 
     public Year getReleaseDate() {
@@ -73,5 +75,13 @@ public class BookEntry {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
     }
 }
