@@ -5,6 +5,7 @@ import edu.chronicles.domain.mappers.BookMapper;
 import edu.chronicles.domain.models.BookEntry;
 import edu.chronicles.persistence.BookEntryRepository;
 import edu.chronicles.presentation.dtos.BookCreateDto;
+import edu.chronicles.presentation.dtos.BookUpdateDto;
 
 import java.util.List;
 import java.util.Optional;
