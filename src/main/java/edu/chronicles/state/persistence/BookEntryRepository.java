@@ -1,6 +1,6 @@
-package edu.chronicles.persistence;
+package edu.chronicles.state.persistence;
 
-import edu.chronicles.domain.models.BookEntry;
+import edu.chronicles.state.entries.BookEntry;
 
 import java.util.Map;
 import java.util.Optional;
@@ -12,6 +12,6 @@ public record BookEntryRepository(Map<String, BookEntry> bookEntryMap) {
     }
 
     public BookEntry save(BookEntry bookEntry) {
-        return this.bookEntryMap.put(bookEntry.getTitle(), bookEntry);
+        return this.bookEntryMap.put(bookEntry.getBookTitle(), bookEntry);
     }
 }

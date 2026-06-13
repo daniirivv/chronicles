@@ -1,9 +1,9 @@
 package edu.chronicles;
 
-import edu.chronicles.domain.services.BookService;
-import edu.chronicles.persistence.BookEntryRepository;
-import edu.chronicles.presentation.controllers.BookEntryController;
-import edu.chronicles.presentation.views.CLI;
+import edu.chronicles.logic.BookService;
+import edu.chronicles.state.persistence.BookEntryRepository;
+import edu.chronicles.display.controllers.BookEntryController;
+import edu.chronicles.display.views.CLI;
 
 import java.util.HashMap;
 

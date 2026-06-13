@@ -1,7 +1,6 @@
-package edu.chronicles.presentation.views;
+package edu.chronicles.display.views;
 
-import edu.chronicles.domain.models.Rating;
-import edu.chronicles.presentation.dtos.BookCreateDto;
+import edu.chronicles.display.dtos.BookCreateDto;
 
 import java.time.Year;
 import java.util.InputMismatchException;

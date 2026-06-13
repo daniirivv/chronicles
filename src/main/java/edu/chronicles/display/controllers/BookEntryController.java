@@ -1,9 +1,9 @@
-package edu.chronicles.presentation.controllers;
+package edu.chronicles.display.controllers;
 
-import edu.chronicles.domain.services.BookService;
-import edu.chronicles.presentation.dtos.BookCreateDto;
-import edu.chronicles.presentation.dtos.BookResponseDto;
-import edu.chronicles.presentation.views.CLI;
+import edu.chronicles.logic.BookService;
+import edu.chronicles.display.dtos.BookCreateDto;
+import edu.chronicles.display.dtos.BookResponseDto;
+import edu.chronicles.display.views.CLI;
 
 public class BookEntryController {
 

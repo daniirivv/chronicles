@@ -1,11 +1,11 @@
-package edu.chronicles.domain.services;
+package edu.chronicles.logic;
 
-import edu.chronicles.domain.exceptions.EntryAlreadyExistedException;
-import edu.chronicles.domain.mappers.BookMapper;
-import edu.chronicles.domain.models.BookEntry;
-import edu.chronicles.persistence.BookEntryRepository;
-import edu.chronicles.presentation.dtos.BookCreateDto;
-import edu.chronicles.presentation.dtos.BookResponseDto;
+
+import edu.chronicles.logic.exceptions.EntryAlreadyExistedException;
+import edu.chronicles.state.entries.BookEntry;
+import edu.chronicles.state.persistence.BookEntryRepository;
+import edu.chronicles.display.dtos.BookCreateDto;
+import edu.chronicles.display.dtos.BookResponseDto;
 
 import java.util.Optional;
 
