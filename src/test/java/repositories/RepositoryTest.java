@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class RepositoryTest {
 
     private static final String BOOK_TITLE = "Atomic Habits";
-    BookEntry exampleEntry = new BookEntry(BOOK_TITLE);
+    BookEntry exampleEntry = new BookEntry(0L, BOOK_TITLE);
 
     @Test
     void givenAnyEntry_onSave_shouldSaveCorrectlyIntoRepository(){

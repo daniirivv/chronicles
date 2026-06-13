@@ -3,6 +3,7 @@ package edu.chronicles.logic;
 
 import edu.chronicles.logic.exceptions.EntryAlreadyExistedException;
 import edu.chronicles.state.entries.BookEntry;
+import edu.chronicles.state.mappers.BookMapper;
 import edu.chronicles.state.persistence.BookEntryRepository;
 import edu.chronicles.display.dtos.BookCreateDto;
 import edu.chronicles.display.dtos.BookResponseDto;

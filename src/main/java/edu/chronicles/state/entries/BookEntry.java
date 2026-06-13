@@ -52,6 +52,15 @@ public class BookEntry extends Entry {
         this.receivedAwards = null;
     }
 
+    public BookEntry(Long id,
+                     String title,
+                     String author,
+                     Integer pages,
+                     Year year,
+                     UserRating rating) {
+        this(id, title, author, rating, null, year, null, pages, CompletionState.PLANEADO, null);
+    }
+
     @Override
     protected void validateRate() {
         if (completionState != CompletionState.TERMINADO) throw new InvalidStateException(completionState);
