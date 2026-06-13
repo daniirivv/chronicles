@@ -1,10 +1,10 @@
 package entries;
 
-import edu.chronicles.model.enums.CompletionState;
-import edu.chronicles.model.entries.BookEntry;
-import edu.chronicles.model.exceptions.InvalidNumberOfPagesException;
-import edu.chronicles.model.exceptions.InvalidStateException;
-import edu.chronicles.model.value_objects.UserRating;
+import edu.chronicles.state.enums.CompletionState;
+import edu.chronicles.state.entries.BookEntry;
+import edu.chronicles.logic.exceptions.InvalidNumberOfPagesException;
+import edu.chronicles.logic.exceptions.InvalidStateException;
+import edu.chronicles.state.value_objects.UserRating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

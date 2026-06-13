@@ -1,6 +1,6 @@
 package repositories;
 
-import edu.chronicles.model.entries.BookEntry;
+import edu.chronicles.state.entries.BookEntry;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

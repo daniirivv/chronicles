@@ -1,8 +1,8 @@
 package entries;
 
-import edu.chronicles.model.entries.FilmEntry;
-import edu.chronicles.model.exceptions.InvalidIMDBRatingException;
-import edu.chronicles.model.value_objects.IMDBRating;
+import edu.chronicles.state.entries.FilmEntry;
+import edu.chronicles.logic.exceptions.InvalidIMDBRatingException;
+import edu.chronicles.state.value_objects.IMDBRating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,8 +1,8 @@
 package entries;
 
-import edu.chronicles.model.entries.PodcastEntry;
-import edu.chronicles.model.exceptions.InvalidStateException;
-import edu.chronicles.model.value_objects.UserRating;
+import edu.chronicles.state.entries.PodcastEntry;
+import edu.chronicles.logic.exceptions.InvalidStateException;
+import edu.chronicles.state.value_objects.UserRating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

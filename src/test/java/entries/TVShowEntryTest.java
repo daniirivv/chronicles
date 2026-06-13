@@ -1,10 +1,10 @@
 package entries;
 
-import edu.chronicles.model.entries.TVShowEntry;
-import edu.chronicles.model.exceptions.InvalidIMDBRatingException;
-import edu.chronicles.model.exceptions.InvalidStateException;
-import edu.chronicles.model.value_objects.IMDBRating;
-import edu.chronicles.model.value_objects.UserRating;
+import edu.chronicles.state.entries.TVShowEntry;
+import edu.chronicles.logic.exceptions.InvalidIMDBRatingException;
+import edu.chronicles.logic.exceptions.InvalidStateException;
+import edu.chronicles.state.value_objects.IMDBRating;
+import edu.chronicles.state.value_objects.UserRating;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
