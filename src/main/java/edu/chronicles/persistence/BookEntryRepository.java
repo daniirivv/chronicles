@@ -12,6 +12,7 @@ public record BookEntryRepository(Map<String, BookEntry> bookEntryMap) {
     }
 
     public BookEntry save(BookEntry bookEntry) {
-        return this.bookEntryMap.put(bookEntry.getTitle(), bookEntry);
+        this.bookEntryMap.put(bookEntry.getTitle(), bookEntry);
+        return bookEntry;
     }
 }

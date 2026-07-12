@@ -8,13 +8,20 @@ import edu.chronicles.presentation.dtos.BookResponseDto;
 public class BookMapper {
 
     public static BookEntry toDomain(BookCreateDto dto) throws IllegalArgumentException {
+
+        Rating mappedRating = null;
+
+        if (dto.rating() != null) {
+            mappedRating = new Rating(dto.rating());
+        }
+
         return new BookEntry(
                 dto.title(),
                 dto.author(),
                 dto.pages(),
                 dto.releaseDate(),
                 dto.completed(),
-                new Rating(dto.rating())
+                mappedRating
         );
     }
 

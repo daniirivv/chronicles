@@ -1,6 +1,5 @@
 package edu.chronicles.presentation.views;
 
-import edu.chronicles.domain.models.Rating;
 import edu.chronicles.presentation.dtos.BookCreateDto;
 
 import java.time.Year;
@@ -36,7 +35,7 @@ public class CLI {
 
     public int readOption() throws InputMismatchException {
         System.out.print("Elige opción: ");
-        return scanner.nextInt();
+        return Integer.parseInt(scanner.nextLine());
     }
 
     public void showError(String error){
@@ -44,7 +43,7 @@ public class CLI {
     }
 
     public String askForParam(String s) {
-        System.out.print(s);
+        System.out.println(s);
         return scanner.nextLine();
     }
 
@@ -53,10 +52,15 @@ public class CLI {
         String author =  askForParam("Introduce el autor del libro: ");
         int numPages =  Integer.parseInt(askForParam("Introduce el número de páginas del libro: "));
         Year releaseDate = Year.of(Integer.parseInt(askForParam("Introduce la fecha de salida del libro: ")));
-        boolean completed = Boolean.parseBoolean(askForParam("¿Lo has terminado? (0--> no, 1--> si)"));
-        int rating =  Integer.parseInt(askForParam("Introduce tu valoración: "));
+        String completedText = askForParam("¿Lo has terminado? (0--> no, 1--> sí)");
+        boolean completed = completedText.equals("1");
 
-        return new BookCreateDto(title, author, numPages, releaseDate, completed, rating);
+        if (completed){
+            int rating =  Integer.parseInt(askForParam("Introduce tu valoración: "));
+            return new BookCreateDto(title, author, numPages, releaseDate, completed, rating);
+        }
+
+        return new BookCreateDto(title, author, numPages, releaseDate, completed, null);
     }
 
     public void showSuccessfullOutput(String s) {

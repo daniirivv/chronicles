@@ -69,11 +69,18 @@ public class BookEntry {
         this.completed = completed;
     }
 
-    public int getRating() {
+    public Integer getRating() {
+        if (this.rating == null) {
+            return null;
+        }
         return rating.value();
     }
 
-    public void setRating(int rating) {
-        this.rating = new Rating(rating);
+    public void setRating(Integer rating) {
+        if (rating == null) {
+            this.rating = null;
+        } else {
+            this.rating = new Rating(rating);
+        }
     }
 }
