@@ -1,4 +1,4 @@
-package edu.chronicles.domain.models;
+package edu.chronicles.logic.models;
 
 public record Rating(int value) {
 

@@ -1,8 +1,8 @@
-package edu.chronicles.presentation.dtos;
+package edu.chronicles.display.dtos;
 
 import java.time.Year;
 
-public record BookCreateDto(
+public record BookDto(
         String title,
         String author,
         Integer pages,
@@ -52,8 +52,8 @@ public record BookCreateDto(
             return this;
         }
 
-        public BookCreateDto build() {
-            return new BookCreateDto(title, author, pages, releaseDate, completed, rating);
+        public BookDto build() {
+            return new BookDto(title, author, pages, releaseDate, completed, rating);
         }
     }
 }
