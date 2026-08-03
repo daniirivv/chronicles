@@ -1,7 +1,7 @@
-package edu.chronicles.back.logic.mappers;
+package edu.chronicles.logic.mappers;
 
-import edu.chronicles.back.display.dtos.BookDto;
-import edu.chronicles.back.logic.models.BookEntry;
+import edu.chronicles.display.dtos.BookDto;
+import edu.chronicles.logic.models.BookEntry;
 
 public class BookMapper {
 

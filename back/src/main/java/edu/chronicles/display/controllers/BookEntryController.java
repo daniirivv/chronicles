@@ -1,9 +1,9 @@
-package edu.chronicles.back.display.controllers;
+package edu.chronicles.display.controllers;
 
-import edu.chronicles.back.display.dtos.BookDto;
-import edu.chronicles.back.logic.exceptions.EntryNotFoundException;
-import edu.chronicles.back.logic.services.BookService;
-import edu.chronicles.back.display.views.CLI;
+import edu.chronicles.display.dtos.BookDto;
+import edu.chronicles.logic.exceptions.EntryNotFoundException;
+import edu.chronicles.logic.services.BookService;
+import edu.chronicles.display.views.CLI;
 
 import java.util.Optional;
 
