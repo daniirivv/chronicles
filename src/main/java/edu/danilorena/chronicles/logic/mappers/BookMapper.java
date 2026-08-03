@@ -1,7 +1,7 @@
-package edu.chronicles.logic.mappers;
+package edu.danilorena.chronicles.logic.mappers;
 
-import edu.chronicles.display.dtos.BookDto;
-import edu.chronicles.logic.models.BookEntry;
+import edu.danilorena.chronicles.display.dtos.BookDto;
+import edu.danilorena.chronicles.logic.models.BookEntry;
 
 public class BookMapper {
 

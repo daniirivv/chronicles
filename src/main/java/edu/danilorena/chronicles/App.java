@@ -1,9 +1,9 @@
-package edu.chronicles;
+package edu.danilorena.chronicles;
 
-import edu.chronicles.logic.services.BookService;
-import edu.chronicles.state.BookEntryRepository;
-import edu.chronicles.display.controllers.BookEntryController;
-import edu.chronicles.display.views.CLI;
+import edu.danilorena.chronicles.logic.services.BookService;
+import edu.danilorena.chronicles.state.BookEntryRepository;
+import edu.danilorena.chronicles.display.controllers.BookEntryController;
+import edu.danilorena.chronicles.display.views.CLI;
 
 import java.util.HashMap;
 

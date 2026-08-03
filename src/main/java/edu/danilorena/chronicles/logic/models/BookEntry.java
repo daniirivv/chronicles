@@ -1,4 +1,4 @@
-package edu.chronicles.logic.models;
+package edu.danilorena.chronicles.logic.models;
 
 import java.time.Year;
 import java.util.Objects;

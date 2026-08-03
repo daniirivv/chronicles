@@ -1,4 +1,4 @@
-package edu.chronicles.logic.exceptions;
+package edu.danilorena.chronicles.logic.exceptions;
 
 public class EntryNotFoundException extends RuntimeException {
     public EntryNotFoundException(String message) {

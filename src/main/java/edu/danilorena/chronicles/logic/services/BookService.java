@@ -1,11 +1,11 @@
-package edu.chronicles.logic.services;
+package edu.danilorena.chronicles.logic.services;
 
-import edu.chronicles.display.dtos.BookDto;
-import edu.chronicles.logic.exceptions.EntryAlreadyExistedException;
-import edu.chronicles.logic.exceptions.EntryNotFoundException;
-import edu.chronicles.logic.mappers.BookMapper;
-import edu.chronicles.logic.models.BookEntry;
-import edu.chronicles.state.BookEntryRepository;
+import edu.danilorena.chronicles.display.dtos.BookDto;
+import edu.danilorena.chronicles.logic.exceptions.EntryAlreadyExistedException;
+import edu.danilorena.chronicles.logic.exceptions.EntryNotFoundException;
+import edu.danilorena.chronicles.logic.mappers.BookMapper;
+import edu.danilorena.chronicles.logic.models.BookEntry;
+import edu.danilorena.chronicles.state.BookEntryRepository;
 
 import java.util.Optional;
 

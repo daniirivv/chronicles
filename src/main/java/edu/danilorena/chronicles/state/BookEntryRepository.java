@@ -1,6 +1,6 @@
-package edu.chronicles.state;
+package edu.danilorena.chronicles.state;
 
-import edu.chronicles.logic.models.BookEntry;
+import edu.danilorena.chronicles.logic.models.BookEntry;
 
 import java.text.Normalizer;
 import java.util.Map;
