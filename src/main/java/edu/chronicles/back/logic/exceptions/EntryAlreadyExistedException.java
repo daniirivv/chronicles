@@ -1,4 +1,4 @@
-package edu.chronicles.logic.exceptions;
+package edu.chronicles.back.logic.exceptions;
 
 public class EntryAlreadyExistedException extends RuntimeException {
     public EntryAlreadyExistedException(String message) {

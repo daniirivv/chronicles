@@ -1,4 +1,4 @@
-package edu.chronicles.display.dtos;
+package edu.chronicles.back.display.dtos;
 
 import java.time.Year;
 
