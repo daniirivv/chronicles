@@ -43,32 +43,25 @@ class Entry{
 Sin embargo, es mejor encapsular esta lógica en un _value object_ `Rating`, de esta forma:
 
 ```java
-class Entry{
+class Entry {
     //...
     private Rating userRating;
-    
+
     //...
-    private void setRating(Rating userRating){
+    private void setRating(Rating userRating) {
         this.userRating = userRating;
     }
 }
 
-public final class Rating {
-
-    private final int value;
+public record Rating(int value) {
 
     private static final int MIN = 1;
     private static final int MAX = 5;
 
-    public Rating(int value) {
+    public Rating {
         if (value < MIN || value > MAX) {
             throw new InvalidRatingException(value);
         }
-        this.value = value;
-    }
-
-    public int value() {
-        return value;
     }
 }
 ```
@@ -153,6 +146,6 @@ void shouldReturnErrorWhenRatingWithoutCompletion() {
 
 ---
 
-# IntellIJ IDE
+# IntelliJ IDEA
 
 ---
