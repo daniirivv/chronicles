@@ -8,7 +8,6 @@ function App() {
         </header>
 
         <main>
-          { /* Aquí se carga el componente del dashboard más tarde */}
             <Dashboard />
         </main>
       </div>
