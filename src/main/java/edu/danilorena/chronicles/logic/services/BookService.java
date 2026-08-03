@@ -6,9 +6,11 @@ import edu.danilorena.chronicles.logic.exceptions.EntryNotFoundException;
 import edu.danilorena.chronicles.logic.mappers.BookMapper;
 import edu.danilorena.chronicles.logic.models.BookEntry;
 import edu.danilorena.chronicles.state.BookEntryRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class BookService {
 
     private final BookEntryRepository bookEntryRepository;

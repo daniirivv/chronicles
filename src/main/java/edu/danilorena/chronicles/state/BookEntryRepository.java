@@ -1,12 +1,18 @@
 package edu.danilorena.chronicles.state;
 
 import edu.danilorena.chronicles.logic.models.BookEntry;
+import org.springframework.stereotype.Repository;
 
 import java.text.Normalizer;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public record BookEntryRepository(Map<String, BookEntry> bookEntryMap) {
+@Repository
+public class BookEntryRepository {
+
+    private final Map<String, BookEntry> bookEntryMap = new HashMap<>();
+
 
     private String normalizeTitle(String title) {
         if (title == null) return null;
