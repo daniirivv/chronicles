@@ -4,61 +4,47 @@ import edu.danilorena.chronicles.display.dtos.BookDto;
 import edu.danilorena.chronicles.logic.exceptions.EntryNotFoundException;
 import edu.danilorena.chronicles.logic.services.BookService;
 import edu.danilorena.chronicles.display.views.CLI;
+import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@RestController
+@RequestMapping("/books")
 public class BookEntryController {
 
-    private final CLI view;
     private final BookService service;
 
-    public BookEntryController(CLI view, BookService service) {
-        this.view = view;
+    public BookEntryController(BookService service) {
         this.service = service;
     }
 
-    public void run(){
-        view.welcome();
+    @PostMapping
+    public ResponseEntity<BookDto> createBookEntry(@RequestBody BookDto bookData) {
+        try {
+            BookDto createdBook = service.createBookEntry(bookData);
 
-        boolean exit = false;
-        do{
-            view.showMenu();
-            int option = view.readOption();
-            switch (option){
-                case 1 -> createBookEntryUseCase();
-                case 2 -> retrieveBookEntryUseCase();
-                case 3 -> updateBookEntryUseCase();
-                case 4 -> deleteBookEntryUseCase();
-                case 0 -> exit = true;
-                default -> throw new IllegalArgumentException("Opción no válida");
-            }
-        } while (!exit);
-    }
+            return ResponseEntity
+                    .status(HttpStatus.CREATED)
+                    .body(createdBook);
 
-    private void createBookEntryUseCase() {
-        try{
-            BookDto bookData = view.askForBookCreationData();
-            BookDto created = this.service.createBookEntry(bookData);
-            view.showSuccess("Entrada sobre " + created.title() + " creada correctamente.");
         } catch (IllegalArgumentException e) {
-            view.showError(e.getMessage());
+            return ResponseEntity.badRequest().build();
         }
     }
 
-    private void retrieveBookEntryUseCase() {
-        String bookTitle = view.askForInput("Introduce el título de la entrada que quieres leer: ");
+    @GetMapping("/{bookTitle}")
+    private ResponseEntity<BookDto> retrieveBookEntryUseCase(@PathVariable String bookTitle) {
         Optional<BookDto> retrieved = this.service.retrieveBookEntry(bookTitle);
 
-        if(retrieved.isEmpty()) {
-            view.showError("No se han encontrado coincidencias.");
-            return;
-        }
-
-        BookDto bookResponse = retrieved.get();
-        view.showSuccess("Entrada sobre " + bookResponse.title() + " recuperada correctamente.");
-        view.printBookEntry(bookResponse);
+        return retrieved.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity
+                .notFound()
+                .build());
     }
 
+    @PatchMapping()
     private void updateBookEntryUseCase() {
         try{
             String bookTitle = view.askForInput("Introduce el título de la entrada que quieres modificar: ");
@@ -79,13 +65,14 @@ public class BookEntryController {
         }
     }
 
-    private void deleteBookEntryUseCase() {
+    @DeleteMapping("{bookTitle}")
+    private ResponseEntity<Void> deleteBookEntryUseCase(@PathVariable String bookTitle) {
         try{
-            String bookTitle = view.askForInput("Introduce el título del libro cuya entrada quieres eliminar: ");
-            BookDto deleted = this.service.deleteBookEntry(bookTitle);
-            view.showSuccess("Entrada sobre " + deleted.title() + " eliminada correctamente.");
+            return ResponseEntity
+                    .ok()
+                    .build();
         } catch (IllegalArgumentException e) {
-            view.showError(e.getMessage());
+            return ResponseEntity.badRequest().build();
         }
     }
 
