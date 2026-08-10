@@ -1,92 +1,156 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import BookList from './BookList';
 import BookDetails from './BookDetails';
 import BookForm from './BookForm';
 
 function Dashboard() {
-    const [books, setBooks] = useState([
-        { id: 1, title: 'El Imperio Final', author: 'Brandon Sanderson', pages: 688, releaseDate: 1968, completed: false, rating: null },
-        { id: 2, title: 'Hábitos Atómicos', author: 'James Clear', pages: 349, releaseDate: 2016, completed: true, rating: 3 }
-    ]);
+    const [books, setBooks] = useState([]);
     const [currentView, setCurrentView] = useState('lista');
     const [selectedBook, setSelectedBook] = useState(null);
     const [formData, setFormData] = useState({
         title: '', author: '', pages: '', releaseDate: '', completed: false, rating: ''
     });
 
+    // Cargar datos al iniciar
+    useEffect(function () {
+
+        function fetchBooks() {
+            fetch('/books')
+                .then(function(response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                })
+
+                .then(function(data) {
+                    if (data) {
+                        setBooks(data);
+                    }
+                })
+
+                .catch(function(error) {
+                    console.error("Error al conectar con Java: ", error);
+                })
+        }
+
+        fetchBooks();
+
+    }, []);
+
 
     // --- FUNCIONES DE NAVEGACIÓN ---
 
-    const showDetails = (book) => {
+    function showDetails(book) {
         setSelectedBook(book);
         setCurrentView('detalles');
-    };
-    const showList = () => {
+    }
+
+    function showList() {
         setSelectedBook(null);
         setCurrentView('lista');
-    };
-    const showCreateForm = () => {
-        setFormData({ title: '', author: '', pages: '', releaseDate: '', completed: false, rating: '' });
+    }
+
+    function showCreateForm() {
+        setFormData({title: '', author: '', pages: '', releaseDate: '', completed: false, rating: ''});
         setCurrentView('formulario');
-    };
-    const showEditForm = () => {
+    }
+
+    function showEditForm() {
         setFormData(selectedBook);
         setCurrentView('formulario');
-    };
+    }
 
 
     // --- FUNCIONES DE ACCIÓN ---
 
-    const deleteBook = (idToRemove) => {
-        const updatedBooks = books.filter((book) => book.id !== idToRemove);
-        setBooks(updatedBooks);
-        showList();
-    };
-    const saveBook = () => {
-        if (formData.id) {
-            const updatedBooks = books.map((book) => book.id === formData.id ? formData : book);
-            setBooks(updatedBooks);
+    function deleteBook(idToRemove) {
+        fetch(`/books/${idToRemove}`, { method: 'DELETE' })
+            .then(function(response) {
+                if (response.ok) {
+                    const updatedBooks = books.filter(function(book) {
+                        return book.id !== idToRemove;
+                    });
+                    setBooks(updatedBooks);
+                    showList();
+                }
+            })
+
+            .catch(function(error) {
+                console.error("Error al eliminar: ", error);
+            });
+    }
+
+    function saveBook() {
+        const isUpdating = selectedBook !== null;
+
+        if (isUpdating) {
+            fetch(`/books/${selectedBook.id}`, {
+                method: 'PATCH',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(formData)
+            })
+                .then(function(response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error("No se pudo actualizar el libro " + formData.title);
+                })
+
+                .then(function(updatedBook) {
+                    const updatedBooks = books.map(function(book) {
+                        if (book.id === updatedBook.id) {
+                            return updatedBook;
+                        } else {
+                            return book;
+                        }
+                    });
+                    setBooks(updatedBooks);
+                    showList();
+                })
+
+                .catch(function(error) {
+                    console.error("Error al actualizar: ", error);
+                });
+
         } else {
-            const newBook = { ...formData, id: Date.now() };
-            setBooks([...books, newBook]);
+            fetch(`/books`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(formData)
+            })
+                .then(function(response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error("No se pudo crear el libro " + formData.title);
+                })
+
+                .then(function(newBook) {
+                    setBooks([...books, newBook]);
+                    showList();
+                })
+
+                .catch(function(error) {
+                    console.error("Error al crear: ", error);
+                });
         }
-        showList();
-    };
+    }
 
 
     // --- RENDERIZADO VISUAL ---
 
     return (
         <div style={{ backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '8px' }}>
-
-            {/* Si la vista es lista, llamamos al componente BookList y le pasamos lo que necesita */}
             {currentView === 'lista' && (
-                <BookList
-                    books={books}
-                    showCreateForm={showCreateForm}
-                    showDetails={showDetails}
-                />
+                <BookList books={books} showCreateForm={showCreateForm} showDetails={showDetails}/>
             )}
-
             {currentView === 'detalles' && selectedBook && (
-                <BookDetails
-                    book={selectedBook}
-                    showList={showList}
-                    showEditForm={showEditForm}
-                    deleteBook={deleteBook}
-                />
+                <BookDetails book={selectedBook} showList={showList} showEditForm={showEditForm} deleteBook={deleteBook}/>
             )}
-
             {currentView === 'formulario' && (
-                <BookForm
-                    formData={formData}
-                    setFormData={setFormData}
-                    showList={showList}
-                    saveBook={saveBook}
-                />
+                <BookForm formData={formData} setFormData={setFormData} showList={showList} saveBook={saveBook}/>
             )}
-
         </div>
     );
 }
