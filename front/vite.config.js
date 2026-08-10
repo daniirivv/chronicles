@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       // Cualquier petición que empiece por '/books', se le envía al servidor de Spring Boot
-      'books': {
+      '/books': {
         target: 'http://localhost:8080',
         changeOrigin: true,
       }
