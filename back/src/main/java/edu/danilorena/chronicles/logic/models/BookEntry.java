@@ -4,9 +4,10 @@ import java.time.Year;
 import java.util.Objects;
 
 public record BookEntry(
+        Long id,
         String title,
         String author,
-        int pages,
+        Integer pages,
         Year releaseDate,
         boolean completed,
         Rating rating
@@ -32,12 +33,18 @@ public record BookEntry(
     }
 
     public static class Builder {
+        private Long id;
         private String title;
         private String author;
         private Integer pages;
         private Year releaseDate;
         private boolean completed;
         private Rating rating;
+
+        public Builder id(Long id){
+            this.id = id;
+            return this;
+        }
 
         public Builder title(String title) {
             this.title = title;
@@ -74,7 +81,7 @@ public record BookEntry(
                 throw new IllegalStateException("Un libro no puede tener valoración si no se ha terminado de leer");
             }
 
-            return new BookEntry(title, author, pages, releaseDate, completed, rating);
+            return new BookEntry(id, title, author, pages, releaseDate, completed, rating);
         }
 
         @Override
