@@ -1,12 +1,12 @@
 package edu.danilorena.chronicles.state;
 
+import edu.danilorena.chronicles.display.dtos.BookDto;
+import edu.danilorena.chronicles.logic.mappers.BookMapper;
 import edu.danilorena.chronicles.logic.models.BookEntry;
 import org.springframework.stereotype.Repository;
 
 import java.text.Normalizer;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Repository
 public class BookEntryRepository {
@@ -32,5 +32,16 @@ public class BookEntryRepository {
     public BookEntry delete(BookEntry bookEntry) {
         this.bookEntryMap.remove(normalizeTitle(bookEntry.title()), bookEntry);
         return bookEntry;
+    }
+
+    public List<BookDto> getAll() {
+        if (this.bookEntryMap.isEmpty()) return null;
+
+        List<BookDto> bookDtoList = new ArrayList<>();
+        for (BookEntry bookEntry : this.bookEntryMap.values()) {
+            bookDtoList.add(BookMapper.toDto(bookEntry));
+        }
+
+        return bookDtoList;
     }
 }

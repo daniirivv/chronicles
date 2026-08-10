@@ -9,6 +9,7 @@ import edu.danilorena.chronicles.logic.models.BookEntry;
 import edu.danilorena.chronicles.state.BookEntryRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,6 +33,10 @@ public class BookService {
         BookEntry toSave = BookMapper.toDomain(createDto);
         BookEntry saved = this.bookEntryRepository.saveOrOverride(toSave);
         return BookMapper.toDto(saved);
+    }
+
+    public Optional<List<BookDto>> retrieveAllEntries() {
+        return Optional.ofNullable(this.bookEntryRepository.getAll());
     }
 
     public Optional<BookDto> retrieveBookEntry(String bookTitle) {

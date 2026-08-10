@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -32,6 +33,12 @@ public class BookEntryController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<BookDto>> getAllBookEntriesUseCase() {
+        return ResponseEntity
+                .of(this.service.retrieveAllEntries());
     }
 
     @GetMapping("/{bookTitle}")
