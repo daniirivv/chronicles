@@ -35,7 +35,7 @@ public class BookEntryController {
     }
 
     @GetMapping("/{bookTitle}")
-    private ResponseEntity<BookDto> retrieveBookEntryUseCase(@PathVariable String bookTitle) {
+    public ResponseEntity<BookDto> retrieveBookEntryUseCase(@PathVariable String bookTitle) {
         Optional<BookDto> retrieved = this.service.retrieveBookEntry(bookTitle);
 
         return retrieved.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity
@@ -44,7 +44,7 @@ public class BookEntryController {
     }
 
     @PatchMapping("/{bookTitle}")
-    private ResponseEntity<BookDto> updateBookEntryUseCase(@PathVariable String bookTitle, @RequestBody UpdateBookRequest patchData) {
+    public ResponseEntity<BookDto> updateBookEntryUseCase(@PathVariable String bookTitle, @RequestBody UpdateBookRequest patchData) {
         try{
             return ResponseEntity
                     .ok(this.service.updateBookEntry(bookTitle, patchData));
@@ -56,7 +56,7 @@ public class BookEntryController {
     }
 
     @DeleteMapping("{bookTitle}")
-    private ResponseEntity<Void> deleteBookEntryUseCase(@PathVariable String bookTitle) {
+    public ResponseEntity<Void> deleteBookEntryUseCase(@PathVariable String bookTitle) {
         try{
             this.service.deleteBookEntry(bookTitle);
 
