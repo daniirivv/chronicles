@@ -1,7 +1,7 @@
-package edu.chronicles.logic.mappers;
+package edu.danilorena.chronicles.logic.mappers;
 
-import edu.chronicles.display.dtos.BookDto;
-import edu.chronicles.logic.models.BookEntry;
+import edu.danilorena.chronicles.display.dtos.BookDto;
+import edu.danilorena.chronicles.logic.models.BookEntry;
 
 public class BookMapper {
 
@@ -20,12 +20,12 @@ public class BookMapper {
     public static BookDto toDto(BookEntry entry) throws IllegalArgumentException {
 
         return BookDto.builder()
-                .title(entry.getTitle())
-                .author(entry.getAuthor())
-                .pages(entry.getPages())
-                .releaseDate(entry.getReleaseDate())
-                .completed(entry.isCompleted())
-                .rating(entry.getRating())
+                .title(entry.title())
+                .author(entry.author())
+                .pages(entry.pages())
+                .releaseDate(entry.releaseDate())
+                .completed(entry.completed())
+                .rating(entry.rating().value())
                 .build();
     }
 

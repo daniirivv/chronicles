@@ -1,4 +1,4 @@
-package edu.chronicles.logic.models;
+package edu.danilorena.chronicles.logic.models;
 
 import java.time.Year;
 import java.util.Objects;
@@ -12,7 +12,6 @@ public record BookEntry(
         Rating rating
 ) {
 
-
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof BookEntry bookEntry)) return false;
@@ -24,31 +23,8 @@ public record BookEntry(
         return Objects.hash(title, author, releaseDate);
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public int getPages() {
-        return pages;
-    }
-
-    public Year getReleaseDate() {
-        return releaseDate;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public Integer getRating() {
-        if (this.rating == null) {
-            return null;
-        }
-        return rating.value();
+    public Integer getRatingValue(){
+        return this.rating.value();
     }
 
     public static Builder builder() {
@@ -94,6 +70,10 @@ public record BookEntry(
         }
 
         public BookEntry build() {
+            if(!completed && rating.value() != null) {
+                throw new IllegalStateException("Un libro no puede tener valoración si no se ha terminado de leer");
+            }
+
             return new BookEntry(title, author, pages, releaseDate, completed, rating);
         }
 

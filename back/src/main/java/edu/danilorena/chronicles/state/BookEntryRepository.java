@@ -1,12 +1,18 @@
-package edu.chronicles.state;
+package edu.danilorena.chronicles.state;
 
-import edu.chronicles.logic.models.BookEntry;
+import edu.danilorena.chronicles.logic.models.BookEntry;
+import org.springframework.stereotype.Repository;
 
 import java.text.Normalizer;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public record BookEntryRepository(Map<String, BookEntry> bookEntryMap) {
+@Repository
+public class BookEntryRepository {
+
+    private final Map<String, BookEntry> bookEntryMap = new HashMap<>();
+
 
     private String normalizeTitle(String title) {
         if (title == null) return null;
@@ -19,12 +25,12 @@ public record BookEntryRepository(Map<String, BookEntry> bookEntryMap) {
     }
 
     public BookEntry saveOrOverride(BookEntry bookEntry) {
-        this.bookEntryMap.put(normalizeTitle(bookEntry.getTitle()), bookEntry);
+        this.bookEntryMap.put(normalizeTitle(bookEntry.title()), bookEntry);
         return bookEntry;
     }
 
     public BookEntry delete(BookEntry bookEntry) {
-        this.bookEntryMap.remove(normalizeTitle(bookEntry.getTitle()), bookEntry);
+        this.bookEntryMap.remove(normalizeTitle(bookEntry.title()), bookEntry);
         return bookEntry;
     }
 }

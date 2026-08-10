@@ -1,4 +1,4 @@
-package edu.chronicles.logic.models;
+package edu.danilorena.chronicles.logic.models;
 
 public record Rating(Integer value) {
 
