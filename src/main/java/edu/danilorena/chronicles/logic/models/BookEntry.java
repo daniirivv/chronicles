@@ -45,9 +45,6 @@ public record BookEntry(
     }
 
     public Integer getRating() {
-        if (this.rating == null) {
-            return null;
-        }
         return rating.value();
     }
 
@@ -94,6 +91,10 @@ public record BookEntry(
         }
 
         public BookEntry build() {
+            if(!completed && rating.value() != null) {
+                throw new IllegalStateException("Un libro no puede tener valoración si no se ha terminado de leer");
+            }
+
             return new BookEntry(title, author, pages, releaseDate, completed, rating);
         }
 
