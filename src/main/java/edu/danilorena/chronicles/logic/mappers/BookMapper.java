@@ -20,12 +20,12 @@ public class BookMapper {
     public static BookDto toDto(BookEntry entry) throws IllegalArgumentException {
 
         return BookDto.builder()
-                .title(entry.getTitle())
-                .author(entry.getAuthor())
-                .pages(entry.getPages())
-                .releaseDate(entry.getReleaseDate())
-                .completed(entry.isCompleted())
-                .rating(entry.getRating())
+                .title(entry.title())
+                .author(entry.author())
+                .pages(entry.pages())
+                .releaseDate(entry.releaseDate())
+                .completed(entry.completed())
+                .rating(entry.rating().value())
                 .build();
     }
 

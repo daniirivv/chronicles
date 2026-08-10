@@ -25,12 +25,12 @@ public class BookEntryRepository {
     }
 
     public BookEntry saveOrOverride(BookEntry bookEntry) {
-        this.bookEntryMap.put(normalizeTitle(bookEntry.getTitle()), bookEntry);
+        this.bookEntryMap.put(normalizeTitle(bookEntry.title()), bookEntry);
         return bookEntry;
     }
 
     public BookEntry delete(BookEntry bookEntry) {
-        this.bookEntryMap.remove(normalizeTitle(bookEntry.getTitle()), bookEntry);
+        this.bookEntryMap.remove(normalizeTitle(bookEntry.title()), bookEntry);
         return bookEntry;
     }
 }

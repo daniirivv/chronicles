@@ -12,7 +12,6 @@ public record BookEntry(
         Rating rating
 ) {
 
-
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof BookEntry bookEntry)) return false;
@@ -24,28 +23,8 @@ public record BookEntry(
         return Objects.hash(title, author, releaseDate);
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public int getPages() {
-        return pages;
-    }
-
-    public Year getReleaseDate() {
-        return releaseDate;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public Integer getRating() {
-        return rating.value();
+    public Integer getRatingValue(){
+        return this.rating.value();
     }
 
     public static Builder builder() {
