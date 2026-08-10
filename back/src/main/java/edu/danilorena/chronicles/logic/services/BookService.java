@@ -35,8 +35,8 @@ public class BookService {
         return BookMapper.toDto(saved);
     }
 
-    public Optional<List<BookDto>> retrieveAllEntries() {
-        return Optional.ofNullable(this.bookEntryRepository.getAll());
+    public List<BookDto> retrieveAllEntries() {
+        return this.bookEntryRepository.getAll();
     }
 
     public Optional<BookDto> retrieveBookEntry(String bookTitle) {

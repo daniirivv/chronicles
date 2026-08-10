@@ -37,8 +37,9 @@ public class BookEntryController {
 
     @GetMapping()
     public ResponseEntity<List<BookDto>> getAllBookEntriesUseCase() {
-        return ResponseEntity
-                .of(this.service.retrieveAllEntries());
+        List<BookDto> bookEntries = this.service.retrieveAllEntries();
+        if (bookEntries.isEmpty()) return ResponseEntity.noContent().build();
+        else return ResponseEntity.ok(bookEntries);
     }
 
     @GetMapping("/{bookTitle}")
