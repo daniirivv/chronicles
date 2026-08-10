@@ -1,6 +1,7 @@
 package edu.danilorena.chronicles.logic.services;
 
 import edu.danilorena.chronicles.display.dtos.BookDto;
+import edu.danilorena.chronicles.display.dtos.UpdateBookRequest;
 import edu.danilorena.chronicles.logic.exceptions.EntryAlreadyExistedException;
 import edu.danilorena.chronicles.logic.exceptions.EntryNotFoundException;
 import edu.danilorena.chronicles.logic.mappers.BookMapper;
@@ -38,17 +39,20 @@ public class BookService {
         return possibleCoincidence.map(BookMapper::toDto);
     }
 
-    public BookDto updateBookEntry(BookDto actualBookEntry, BookDto modifiedBookEntry) {
-        BookEntry mergedEntry = BookEntry.builder()
-                .title(actualBookEntry.title())
-                .author(modifiedBookEntry.author())
-                .pages(modifiedBookEntry.pages())
-                .releaseDate(modifiedBookEntry.releaseDate())
-                .completed(modifiedBookEntry.completed())
-                .rating(modifiedBookEntry.rating())
-                .build();
+    public BookDto updateBookEntry(String bookTitle, UpdateBookRequest patchData) {
+        Optional<BookEntry> actualEntry = this.bookEntryRepository.getByTitle(bookTitle);
+        return actualEntry.map(entry -> mergeEntry(entry, patchData))
+                .orElseThrow();
+    }
 
-        return BookMapper.toDto(this.bookEntryRepository.saveOrOverride(mergedEntry));
+    private BookDto mergeEntry(BookEntry entry, UpdateBookRequest modifiedBookEntry) {
+        return BookDto.builder()
+                .author(modifiedBookEntry.author() != null ? modifiedBookEntry.author() : entry.author())
+                .pages(modifiedBookEntry.pages() != null ? modifiedBookEntry.pages() : entry.pages())
+                .releaseDate(modifiedBookEntry.releaseDate() != null ? modifiedBookEntry.releaseDate() : entry.releaseDate())
+                .completed(modifiedBookEntry.completed() != null && entry.completed())
+                .rating(modifiedBookEntry.rating() != null ? modifiedBookEntry.rating() : entry.getRatingValue())
+                .build();
     }
 
     public BookDto deleteBookEntry(String bookTitle) {
