@@ -8,7 +8,7 @@ function BookDetails({ book, showList, showEditForm, deleteBook }) {
             <p><strong>Páginas:</strong> {book.pages}</p>
             <p><strong>Fecha de publicación:</strong> {book.releaseDate}</p>
             <p><strong>Estado:</strong> {book.completed ? 'Terminado ✅' : 'Pendiente ⏳'}</p>
-            <p><strong>Valoración:</strong> {book.rating ? `${book.rating} / 10` : 'Sin valorar'}</p>
+            <p><strong>Valoración:</strong> {book.rating ? `${book.rating} / 5` : 'Sin valorar'}</p>
 
             <div style={{ marginTop: '20px', display: 'flex', gap: '10px' }}>
                 <button className="btn-primary" onClick={showList}>
