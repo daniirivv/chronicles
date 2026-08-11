@@ -20,8 +20,13 @@ function Dashboard() {
             fetch('/books')
                 .then(function(response) {
                     if (response.ok) {
+                        // Error 204 = no content --> devolvemos una lista vacía
+                        if (response.status === 204) {
+                            return [];
+                        }
                         return response.json();
                     }
+                    throw new Error("Respuesta de red fallida");
                 })
 
                 .then(function(data) {
