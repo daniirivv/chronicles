@@ -60,10 +60,13 @@ public class BookService {
 
     private BookEntry mergeEntry(BookEntry entry, BookDto patchData) {
         return BookEntry.builder()
+                .id(patchData.id())
+                .title(patchData.title() != null
+                        ? patchData.title()
+                        : entry.title())
                 .author(patchData.author() != null
                         ? patchData.author()
-                        : entry.author()
-                )
+                        : entry.author())
                 .pages(patchData.pages() != null
                         ? patchData.pages()
                         : entry.pages())
