@@ -7,7 +7,7 @@ public record BookDto(
         String author,
         Integer pages,
         Year releaseDate,
-        boolean completed,
+        Boolean completed,
         Integer rating
 ) {
     public static Builder builder() {
