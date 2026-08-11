@@ -58,7 +58,7 @@ public class BookEntryRepository {
     }
 
     public List<BookDto> getAll() {
-        if (this.bookEntryMap.isEmpty()) return null;
+        if (this.bookEntryMap.isEmpty()) return List.of();
 
         List<BookDto> bookDtoList = new ArrayList<>();
         for (BookEntry bookEntry : this.bookEntryMap.values()) {
