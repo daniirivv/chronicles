@@ -49,7 +49,8 @@ public class BookEntryRepository {
     }
 
     public BookEntry update(BookEntry bookEntry) {
-        return this.bookEntryMap.replace(bookEntry.id(), bookEntry);
+        this.bookEntryMap.replace(bookEntry.id(), bookEntry);
+        return bookEntry;
     }
 
     public BookEntry delete(BookEntry bookEntry) {
