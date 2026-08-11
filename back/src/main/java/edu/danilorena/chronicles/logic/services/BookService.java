@@ -1,6 +1,7 @@
 package edu.danilorena.chronicles.logic.services;
 
-import edu.danilorena.chronicles.display.dtos.BookDto;
+import edu.danilorena.chronicles.display.dtos.BookRequestDto;
+import edu.danilorena.chronicles.display.dtos.BookResponseDto;
 import edu.danilorena.chronicles.logic.exceptions.EntryAlreadyExistsException;
 import edu.danilorena.chronicles.logic.exceptions.EntryNotFoundException;
 import edu.danilorena.chronicles.logic.mappers.BookMapper;
@@ -20,17 +21,17 @@ public class BookService {
         this.bookEntryRepository = bookEntryRepository;
     }
 
-    public BookDto createBookEntry(BookDto createEntryData)
+    public BookResponseDto createBookEntry(BookRequestDto createEntryData)
             throws EntryAlreadyExistsException {
 
         searchTitleCoincidences(createEntryData);
 
         BookEntry toSave = BookMapper.toDomain(createEntryData);
         BookEntry saved = this.bookEntryRepository.save(toSave);
-        return BookMapper.toDto(saved);
+        return BookMapper.toResponseDto(saved);
     }
 
-    private void searchTitleCoincidences(BookDto createDto) {
+    private void searchTitleCoincidences(BookRequestDto createDto) {
         String bookTitle = createDto.title();
         Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.findByTitle(bookTitle);
 
@@ -38,16 +39,16 @@ public class BookService {
             throw new EntryAlreadyExistsException("La entrada sobre " + bookTitle + " ya existe.");
     }
 
-    public List<BookDto> retrieveAllEntries() {
+    public List<BookResponseDto> retrieveAllEntries() {
         return this.bookEntryRepository.getAll();
     }
 
-    public Optional<BookDto> retrieveBookEntry(Long id) {
+    public Optional<BookResponseDto> retrieveBookEntry(Long id) {
         Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.findById(id);
-        return possibleCoincidence.map(BookMapper::toDto);
+        return possibleCoincidence.map(BookMapper::toResponseDto);
     }
 
-    public BookDto updateBookEntry(Long id, BookDto patchData) {
+    public BookResponseDto updateBookEntry(Long id, BookRequestDto patchData) {
         Optional<BookEntry> actualEntry = this.bookEntryRepository.findById(id);
 
         if (actualEntry.isEmpty()) {
@@ -55,12 +56,12 @@ public class BookService {
         }
 
         BookEntry toSave = mergeEntry(actualEntry.get(), patchData);
-        return BookMapper.toDto(bookEntryRepository.update(toSave));
+        return BookMapper.toResponseDto(bookEntryRepository.update(toSave));
     }
 
-    private BookEntry mergeEntry(BookEntry entry, BookDto patchData) {
+    private BookEntry mergeEntry(BookEntry entry, BookRequestDto patchData) {
         return BookEntry.builder()
-                .id(patchData.id())
+                .id(entry.id())
                 .title(patchData.title() != null
                         ? patchData.title()
                         : entry.title())
@@ -82,14 +83,14 @@ public class BookService {
                 .build();
     }
 
-    public BookDto deleteBookEntry(Long id) {
+    public BookResponseDto deleteBookEntry(Long id) {
         Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.findById(id);
         if (possibleCoincidence.isEmpty()){
             throw new EntryNotFoundException("La entrada no existe.");
         }
 
         BookEntry deleted = this.bookEntryRepository.delete(possibleCoincidence.get());
-        return BookMapper.toDto(deleted);
+        return BookMapper.toResponseDto(deleted);
 
     }
 

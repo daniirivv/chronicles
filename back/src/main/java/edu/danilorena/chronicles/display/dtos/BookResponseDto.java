@@ -1,14 +1,9 @@
 package edu.danilorena.chronicles.display.dtos;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.time.Year;
 
-public record BookDto(
-
-        @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+public record BookResponseDto(
         Long id,
-
         String title,
         String author,
         Integer pages,
@@ -64,8 +59,8 @@ public record BookDto(
             return this;
         }
 
-        public BookDto build() {
-            return new BookDto(id, title, author, pages, releaseDate, completed, rating);
+        public BookResponseDto build() {
+            return new BookResponseDto(id, title, author, pages, releaseDate, completed, rating);
         }
     }
 }

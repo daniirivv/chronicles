@@ -1,6 +1,7 @@
 package edu.danilorena.chronicles.display.controllers;
 
-import edu.danilorena.chronicles.display.dtos.BookDto;
+import edu.danilorena.chronicles.display.dtos.BookRequestDto;
+import edu.danilorena.chronicles.display.dtos.BookResponseDto;
 import edu.danilorena.chronicles.logic.exceptions.EntryAlreadyExistsException;
 import edu.danilorena.chronicles.logic.exceptions.EntryNotFoundException;
 import edu.danilorena.chronicles.logic.services.BookService;
@@ -22,9 +23,9 @@ public class BookEntryController {
     }
 
     @PostMapping
-    public ResponseEntity<BookDto> createBookEntry(@RequestBody BookDto bookData) {
+    public ResponseEntity<BookResponseDto> createBookEntry(@RequestBody BookRequestDto bookData) {
         try {
-            BookDto createdBook = service.createBookEntry(bookData);
+            BookResponseDto createdBook = service.createBookEntry(bookData);
 
             return ResponseEntity
                     .status(HttpStatus.CREATED)
@@ -38,15 +39,15 @@ public class BookEntryController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<BookDto>> getAllBookEntriesUseCase() {
-        List<BookDto> bookEntries = this.service.retrieveAllEntries();
+    public ResponseEntity<List<BookResponseDto>> getAllBookEntriesUseCase() {
+        List<BookResponseDto> bookEntries = this.service.retrieveAllEntries();
         if (bookEntries.isEmpty()) return ResponseEntity.noContent().build();
         else return ResponseEntity.ok(bookEntries);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<BookDto> retrieveBookEntryUseCase(@PathVariable Long id) {
-        Optional<BookDto> retrieved = this.service.retrieveBookEntry(id);
+    public ResponseEntity<BookResponseDto> retrieveBookEntryUseCase(@PathVariable Long id) {
+        Optional<BookResponseDto> retrieved = this.service.retrieveBookEntry(id);
 
         return retrieved.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity
                 .notFound()
@@ -54,9 +55,9 @@ public class BookEntryController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<BookDto> updateBookEntryUseCase(
+    public ResponseEntity<BookResponseDto> updateBookEntryUseCase(
             @PathVariable Long id,
-            @RequestBody BookDto patchData
+            @RequestBody BookRequestDto patchData
     ) {
         try{
             return ResponseEntity
@@ -69,9 +70,9 @@ public class BookEntryController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<BookDto> deleteBookEntryUseCase(@PathVariable Long id) {
+    public ResponseEntity<BookResponseDto> deleteBookEntryUseCase(@PathVariable Long id) {
         try{
-            BookDto deleted = this.service.deleteBookEntry(id);
+            BookResponseDto deleted = this.service.deleteBookEntry(id);
 
             return ResponseEntity
                     .ok(deleted);
