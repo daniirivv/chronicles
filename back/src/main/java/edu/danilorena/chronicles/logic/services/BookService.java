@@ -48,7 +48,9 @@ public class BookService {
         return possibleCoincidence.map(BookMapper::toResponseDto);
     }
 
-    public BookResponseDto updateBookEntry(Long id, BookRequestDto patchData) {
+    public BookResponseDto updateBookEntry(Long id, BookRequestDto patchData)
+            throws EntryNotFoundException,
+            IllegalStateException {
 
         // OPTIMIZE: QUIZÁS ES LÓGICA REPETIDA -- CAMBIAR
         if(!patchData.completed() && patchData.rating() != null){
