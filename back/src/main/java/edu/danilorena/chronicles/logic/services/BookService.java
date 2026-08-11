@@ -1,8 +1,7 @@
 package edu.danilorena.chronicles.logic.services;
 
 import edu.danilorena.chronicles.display.dtos.BookDto;
-import edu.danilorena.chronicles.display.dtos.UpdateBookRequest;
-import edu.danilorena.chronicles.logic.exceptions.EntryAlreadyExistedException;
+import edu.danilorena.chronicles.logic.exceptions.EntryAlreadyExistsException;
 import edu.danilorena.chronicles.logic.exceptions.EntryNotFoundException;
 import edu.danilorena.chronicles.logic.mappers.BookMapper;
 import edu.danilorena.chronicles.logic.models.BookEntry;
@@ -21,49 +20,69 @@ public class BookService {
         this.bookEntryRepository = bookEntryRepository;
     }
 
-    public BookDto createBookEntry(BookDto createDto)
-            throws EntryAlreadyExistedException {
+    public BookDto createBookEntry(BookDto createEntryData)
+            throws EntryAlreadyExistsException {
 
+        searchTitleCoincidences(createEntryData);
+
+        BookEntry toSave = BookMapper.toDomain(createEntryData);
+        BookEntry saved = this.bookEntryRepository.save(toSave);
+        return BookMapper.toDto(saved);
+    }
+
+    private void searchTitleCoincidences(BookDto createDto) {
         String bookTitle = createDto.title();
-        Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.getByTitle(bookTitle);
+        Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.findByTitle(bookTitle);
 
         if (possibleCoincidence.isPresent())
-            throw new EntryAlreadyExistedException("La entrada sobre " + bookTitle + " ya existe.");
-
-        BookEntry toSave = BookMapper.toDomain(createDto);
-        BookEntry saved = this.bookEntryRepository.saveOrOverride(toSave);
-        return BookMapper.toDto(saved);
+            throw new EntryAlreadyExistsException("La entrada sobre " + bookTitle + " ya existe.");
     }
 
     public List<BookDto> retrieveAllEntries() {
         return this.bookEntryRepository.getAll();
     }
 
-    public Optional<BookDto> retrieveBookEntry(String bookTitle) {
-        Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.getByTitle(bookTitle);
+    public Optional<BookDto> retrieveBookEntry(Long id) {
+        Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.findById(id);
         return possibleCoincidence.map(BookMapper::toDto);
     }
 
-    public BookDto updateBookEntry(String bookTitle, UpdateBookRequest patchData) {
-        Optional<BookEntry> actualEntry = this.bookEntryRepository.getByTitle(bookTitle);
-        return actualEntry.map(entry -> mergeEntry(entry, patchData))
-                .orElseThrow();
+    public BookDto updateBookEntry(Long id, BookDto patchData) {
+        Optional<BookEntry> actualEntry = this.bookEntryRepository.findById(id);
+
+        if (actualEntry.isEmpty()) {
+            throw new EntryNotFoundException("La entrada no existe.");
+        }
+
+        BookEntry toSave = mergeEntry(actualEntry.get(), patchData);
+        return BookMapper.toDto(bookEntryRepository.update(toSave));
     }
 
-    private BookDto mergeEntry(BookEntry entry, UpdateBookRequest modifiedBookEntry) {
-        return BookDto.builder()
-                .author(modifiedBookEntry.author() != null ? modifiedBookEntry.author() : entry.author())
-                .pages(modifiedBookEntry.pages() != null ? modifiedBookEntry.pages() : entry.pages())
-                .releaseDate(modifiedBookEntry.releaseDate() != null ? modifiedBookEntry.releaseDate() : entry.releaseDate())
-                .completed(modifiedBookEntry.completed() != null && entry.completed())
-                .rating(modifiedBookEntry.rating() != null ? modifiedBookEntry.rating() : entry.getRatingValue())
+    private BookEntry mergeEntry(BookEntry entry, BookDto patchData) {
+        return BookEntry.builder()
+                .author(patchData.author() != null
+                        ? patchData.author()
+                        : entry.author()
+                )
+                .pages(patchData.pages() != null
+                        ? patchData.pages()
+                        : entry.pages())
+                .releaseDate(patchData.releaseDate() != null
+                        ? patchData.releaseDate()
+                        : entry.releaseDate())
+                .completed(patchData.completed() != null
+                        ? patchData.completed()
+                        : entry.completed())
+                .rating(patchData.rating() != null
+                        ? patchData.rating()
+                        : entry.getRatingValue())
                 .build();
     }
 
-    public BookDto deleteBookEntry(String bookTitle) {
-        Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.getByTitle(bookTitle);
+    public BookDto deleteBookEntry(Long id) {
+        Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.findById(id);
         if (possibleCoincidence.isEmpty()){
-            throw new EntryNotFoundException("La entrada sobre " + bookTitle + " no existe.");
+            throw new EntryNotFoundException("La entrada no existe.");
         }
 
         BookEntry deleted = this.bookEntryRepository.delete(possibleCoincidence.get());

@@ -1,7 +1,7 @@
 package edu.danilorena.chronicles.display.controllers;
 
 import edu.danilorena.chronicles.display.dtos.BookDto;
-import edu.danilorena.chronicles.display.dtos.UpdateBookRequest;
+import edu.danilorena.chronicles.logic.exceptions.EntryAlreadyExistsException;
 import edu.danilorena.chronicles.logic.exceptions.EntryNotFoundException;
 import edu.danilorena.chronicles.logic.services.BookService;
 import org.springframework.http.HttpStatus;
@@ -30,8 +30,10 @@ public class BookEntryController {
                     .status(HttpStatus.CREATED)
                     .body(createdBook);
 
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
+        } catch (IllegalArgumentException | EntryAlreadyExistsException e) {
+            return ResponseEntity.
+                    badRequest().
+                    build();
         }
     }
 
@@ -42,20 +44,23 @@ public class BookEntryController {
         else return ResponseEntity.ok(bookEntries);
     }
 
-    @GetMapping("/{bookTitle}")
-    public ResponseEntity<BookDto> retrieveBookEntryUseCase(@PathVariable String bookTitle) {
-        Optional<BookDto> retrieved = this.service.retrieveBookEntry(bookTitle);
+    @GetMapping("/{id}")
+    public ResponseEntity<BookDto> retrieveBookEntryUseCase(@PathVariable Long id) {
+        Optional<BookDto> retrieved = this.service.retrieveBookEntry(id);
 
         return retrieved.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity
                 .notFound()
                 .build());
     }
 
-    @PatchMapping("/{bookTitle}")
-    public ResponseEntity<BookDto> updateBookEntryUseCase(@PathVariable String bookTitle, @RequestBody UpdateBookRequest patchData) {
+    @PatchMapping("/{id}")
+    public ResponseEntity<BookDto> updateBookEntryUseCase(
+            @PathVariable Long id,
+            @RequestBody BookDto patchData
+    ) {
         try{
             return ResponseEntity
-                    .ok(this.service.updateBookEntry(bookTitle, patchData));
+                    .ok(this.service.updateBookEntry(id, patchData));
         } catch (EntryNotFoundException e) {
             return ResponseEntity
                     .notFound()
@@ -63,14 +68,13 @@ public class BookEntryController {
         }
     }
 
-    @DeleteMapping("{bookTitle}")
-    public ResponseEntity<Void> deleteBookEntryUseCase(@PathVariable String bookTitle) {
+    @DeleteMapping("{id}")
+    public ResponseEntity<BookDto> deleteBookEntryUseCase(@PathVariable Long id) {
         try{
-            this.service.deleteBookEntry(bookTitle);
+            BookDto deleted = this.service.deleteBookEntry(id);
 
             return ResponseEntity
-                    .ok()
-                    .build();
+                    .ok(deleted);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         } catch (EntryNotFoundException e) {
