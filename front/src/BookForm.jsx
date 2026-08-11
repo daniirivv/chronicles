@@ -1,8 +1,11 @@
+import './Dashboard.css';
+
 function BookForm({ formData, setFormData, showList, saveBook }) {
     return (
         <div>
             <h2>{formData.id ? 'Modificar Entrada' : 'Crear Nueva Entrada'}</h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', backgroundColor: 'white', padding: '15px', border: '1px solid #ddd', borderRadius: '4px' }}>
+
+            <div className="book-card" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
 
                 <input
                     placeholder="Título del libro"
@@ -49,8 +52,17 @@ function BookForm({ formData, setFormData, showList, saveBook }) {
                 />
 
                 <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
-                    <button onClick={showList} style={{ cursor: 'pointer' }}>Cancelar</button>
-                    <button onClick={saveBook} style={{ cursor: 'pointer', backgroundColor: '#4CAF50', color: 'white', border: 'none', padding: '8px 12px' }}>
+                    <button
+                        onClick={showList}
+                        style={{ cursor: 'pointer', padding: '10px 15px', border: '1px solid #ddd', borderRadius: '5px', backgroundColor: 'transparent' }}
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        className="btn-primary"
+                        onClick={saveBook}
+                    >
                         Guardar
                     </button>
                 </div>

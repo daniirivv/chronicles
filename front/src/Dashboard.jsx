@@ -1,3 +1,4 @@
+import './Dashboard.css';
 import { useState, useEffect } from 'react';
 
 import BookList from './BookList';
@@ -141,7 +142,7 @@ function Dashboard() {
     // --- RENDERIZADO VISUAL ---
 
     return (
-        <div style={{ backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '8px' }}>
+        <div className='dashboard-container'>
             {currentView === 'lista' && (
                 <BookList books={books} showCreateForm={showCreateForm} showDetails={showDetails}/>
             )}
