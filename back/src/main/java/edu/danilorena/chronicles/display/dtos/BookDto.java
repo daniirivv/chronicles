@@ -19,7 +19,7 @@ public record BookDto(
         private String author;
         private Integer pages;
         private Year releaseDate;
-        private boolean completed;
+        private Boolean completed;
         private Integer rating;
 
         public Builder title(String title) {

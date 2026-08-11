@@ -11,8 +11,9 @@ import java.util.*;
 @Repository
 public class BookEntryRepository {
 
-    private final Map<String, BookEntry> bookEntryMap = new HashMap<>();
+    private long nextId = 1L;
 
+    private final Map<Long, BookEntry> bookEntryMap = new HashMap<>();
 
     private String normalizeTitle(String title) {
         if (title == null) return null;
@@ -20,17 +21,39 @@ public class BookEntryRepository {
         return normalized.replaceAll("\\p{M}", "").toLowerCase();
     }
 
-    public Optional<BookEntry> getByTitle(String title) {
-        return Optional.ofNullable(this.bookEntryMap.get(normalizeTitle(title)));
+    public Optional<BookEntry> findById(Long id) {
+        return Optional.ofNullable(this.bookEntryMap.get(id));
     }
 
-    public BookEntry saveOrOverride(BookEntry bookEntry) {
-        this.bookEntryMap.put(normalizeTitle(bookEntry.title()), bookEntry);
-        return bookEntry;
+    public Optional<BookEntry> findByTitle(String title) {
+        return this.bookEntryMap
+                .values()
+                .stream()
+                .filter(entry -> entry.title().equals(title))
+                .findFirst();
+    }
+
+    public BookEntry save(BookEntry bookEntry) {
+        BookEntry toSave = BookEntry.builder()
+                .id(nextId++)
+                .title(bookEntry.title())
+                .author(bookEntry.author())
+                .pages(bookEntry.pages())
+                .releaseDate(bookEntry.releaseDate())
+                .completed(bookEntry.completed())
+                .rating(bookEntry.getRatingValue())
+                .build();
+
+        this.bookEntryMap.put(toSave.id(),  toSave);
+        return toSave;
+    }
+
+    public BookEntry update(BookEntry bookEntry) {
+        return this.bookEntryMap.replace(bookEntry.id(), bookEntry);
     }
 
     public BookEntry delete(BookEntry bookEntry) {
-        this.bookEntryMap.remove(normalizeTitle(bookEntry.title()), bookEntry);
+        this.bookEntryMap.remove(bookEntry.id(), bookEntry);
         return bookEntry;
     }
 

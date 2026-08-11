@@ -71,8 +71,8 @@ public record BookEntry(
             return this;
         }
 
-        public Builder rating(Integer rating) {
-            this.rating = new Rating(rating);
+        public Builder rating(Integer ratingValue) {
+            this.rating = new Rating(ratingValue);
             return this;
         }
 
