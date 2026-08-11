@@ -10,7 +10,12 @@ function Dashboard() {
     const [currentView, setCurrentView] = useState('lista');
     const [selectedBook, setSelectedBook] = useState(null);
     const [formData, setFormData] = useState({
-        title: '', author: '', pages: '', releaseDate: '', completed: false, rating: ''
+        title: '',
+        author: '',
+        pages: '',
+        releaseDate: '',
+        completed: false,
+        rating: ''
     });
 
     // Cargar datos al iniciar
@@ -62,9 +67,21 @@ function Dashboard() {
         setCurrentView('formulario');
     }
 
-    function showEditForm() {
-        setFormData(selectedBook);
-        setCurrentView('formulario');
+    function showEditForm(bookToEdit) {
+
+        if (bookToEdit) {
+            setSelectedBook(bookToEdit);
+            setFormData({
+                id: bookToEdit.id,
+                title: bookToEdit.title || '',
+                author: bookToEdit.author || '',
+                pages: bookToEdit.pages || '',
+                releaseDate: bookToEdit.releaseDate || '',
+                completed: bookToEdit.completed || false,
+                rating: bookToEdit.rating || ''
+            });
+            setCurrentView('formulario');
+        }
     }
 
 
@@ -112,6 +129,7 @@ function Dashboard() {
                         }
                     });
                     setBooks(updatedBooks);
+                    setSelectedBook(updatedBook);
                     showList();
                 })
 

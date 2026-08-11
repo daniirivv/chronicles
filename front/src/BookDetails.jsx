@@ -14,7 +14,7 @@ function BookDetails({ book, showList, showEditForm, deleteBook }) {
                 <button className="btn-primary" onClick={showList}>
                     Volver a la lista
                 </button>
-                <button className="btn-primary" onClick={showEditForm}>
+                <button className="btn-primary" onClick={() => showEditForm(book)}>
                     Editar
                 </button>
 
