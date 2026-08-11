@@ -39,8 +39,14 @@ public class BookEntryController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<BookResponseDto>> getAllBookEntriesUseCase() {
-        List<BookResponseDto> bookEntries = this.service.retrieveAllEntries();
+    public ResponseEntity<List<BookResponseDto>> getAllBookEntriesUseCase(
+            @RequestParam(required = false) String author
+    ) {
+        List<BookResponseDto> bookEntries;
+
+        if (author != null && !author.isBlank()) bookEntries = this.service.retrieveBooksByAuthor(author);
+        else bookEntries = this.service.retrieveAllEntries();
+
         if (bookEntries.isEmpty()) return ResponseEntity.noContent().build();
         else return ResponseEntity.ok(bookEntries);
     }

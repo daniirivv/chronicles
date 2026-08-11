@@ -48,6 +48,15 @@ public class BookService {
         return possibleCoincidence.map(BookMapper::toResponseDto);
     }
 
+    public List<BookResponseDto> retrieveBooksByAuthor(String authorName) {
+        List<BookEntry> filteredEntries = this.bookEntryRepository.filterByAuthor(authorName);
+
+        return filteredEntries
+                .stream()
+                .map(BookMapper::toResponseDto)
+                .toList();
+    }
+
     public BookResponseDto updateBookEntry(Long id, BookRequestDto patchData) {
         Optional<BookEntry> actualEntry = this.bookEntryRepository.findById(id);
 

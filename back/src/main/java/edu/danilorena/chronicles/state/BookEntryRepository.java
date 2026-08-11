@@ -5,7 +5,6 @@ import edu.danilorena.chronicles.logic.mappers.BookMapper;
 import edu.danilorena.chronicles.logic.models.BookEntry;
 import org.springframework.stereotype.Repository;
 
-import java.text.Normalizer;
 import java.util.*;
 
 @Repository
@@ -25,6 +24,20 @@ public class BookEntryRepository {
                 .stream()
                 .filter(entry -> entry.title().equals(title))
                 .findFirst();
+    }
+
+    public List<BookEntry> filterByAuthor(String authorPrefix) {
+        if (authorPrefix == null || authorPrefix.isBlank()) {
+            return List.of();
+        }
+
+        String lowerPrefix = authorPrefix.toLowerCase();
+
+        return this.bookEntryMap
+                .values()
+                .stream()
+                .filter(entry -> entry.author() != null && entry.author().toLowerCase().startsWith(lowerPrefix))
+                .toList();
     }
 
     public BookEntry save(BookEntry bookEntry) {
