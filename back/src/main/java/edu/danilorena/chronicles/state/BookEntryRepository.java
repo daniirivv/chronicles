@@ -15,12 +15,6 @@ public class BookEntryRepository {
 
     private final Map<Long, BookEntry> bookEntryMap = new HashMap<>();
 
-    private String normalizeTitle(String title) {
-        if (title == null) return null;
-        String normalized = Normalizer.normalize(title, Normalizer.Form.NFD); // Elimina tildes
-        return normalized.replaceAll("\\p{M}", "").toLowerCase();
-    }
-
     public Optional<BookEntry> findById(Long id) {
         return Optional.ofNullable(this.bookEntryMap.get(id));
     }
