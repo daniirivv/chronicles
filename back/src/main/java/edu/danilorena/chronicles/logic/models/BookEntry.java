@@ -16,12 +16,12 @@ public record BookEntry(
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof BookEntry bookEntry)) return false;
-        return Objects.equals(title, bookEntry.title) && Objects.equals(author, bookEntry.author) && Objects.equals(releaseDate, bookEntry.releaseDate);
+        return Objects.equals(id, bookEntry.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, author, releaseDate);
+        return Objects.hashCode(id);
     }
 
     public Integer getRatingValue(){
