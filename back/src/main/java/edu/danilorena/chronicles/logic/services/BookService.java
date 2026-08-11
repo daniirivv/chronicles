@@ -49,6 +49,12 @@ public class BookService {
     }
 
     public BookResponseDto updateBookEntry(Long id, BookRequestDto patchData) {
+
+        // OPTIMIZE: QUIZÁS ES LÓGICA REPETIDA -- CAMBIAR
+        if(!patchData.completed() && patchData.rating() != null){
+            throw new IllegalStateException("No se puede fijar una valoración si la entrada no ha terminado");
+        }
+
         Optional<BookEntry> actualEntry = this.bookEntryRepository.findById(id);
 
         if (actualEntry.isEmpty()) {
