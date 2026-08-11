@@ -87,7 +87,8 @@ public record BookEntry(
         @Override
         public String toString() {
 
-            return "Title: " + this.title + "\n" +
+            return  "ID: " + this.id + "\n" +
+                    "Title: " + this.title + "\n" +
                     "Author: " + this.author + "\n" +
                     "Pages: " + this.pages + "\n" +
                     "ReleaseDate: " + this.releaseDate + "\n" +

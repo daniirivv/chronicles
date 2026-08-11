@@ -8,6 +8,7 @@ public class BookMapper {
     public static BookEntry toDomain(BookDto dto) throws IllegalArgumentException {
 
         return BookEntry.builder()
+                .id(dto.id())
                 .title(dto.title())
                 .author(dto.author())
                 .pages(dto.pages())
@@ -20,6 +21,7 @@ public class BookMapper {
     public static BookDto toDto(BookEntry entry) throws IllegalArgumentException {
 
         return BookDto.builder()
+                .id(entry.id())
                 .title(entry.title())
                 .author(entry.author())
                 .pages(entry.pages())
