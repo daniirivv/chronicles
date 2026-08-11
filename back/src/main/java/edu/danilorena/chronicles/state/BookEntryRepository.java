@@ -1,6 +1,6 @@
 package edu.danilorena.chronicles.state;
 
-import edu.danilorena.chronicles.display.dtos.BookDto;
+import edu.danilorena.chronicles.display.dtos.BookResponseDto;
 import edu.danilorena.chronicles.logic.mappers.BookMapper;
 import edu.danilorena.chronicles.logic.models.BookEntry;
 import org.springframework.stereotype.Repository;
@@ -57,14 +57,14 @@ public class BookEntryRepository {
         return bookEntry;
     }
 
-    public List<BookDto> getAll() {
+    public List<BookResponseDto> getAll() {
         if (this.bookEntryMap.isEmpty()) return List.of();
 
-        List<BookDto> bookDtoList = new ArrayList<>();
+        List<BookResponseDto> bookResponseDtoList = new ArrayList<>();
         for (BookEntry bookEntry : this.bookEntryMap.values()) {
-            bookDtoList.add(BookMapper.toDto(bookEntry));
+            bookResponseDtoList.add(BookMapper.toResponseDto(bookEntry));
         }
 
-        return bookDtoList;
+        return bookResponseDtoList;
     }
 }
