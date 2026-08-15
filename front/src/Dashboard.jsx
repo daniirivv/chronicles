@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import BookList from './BookList';
 import BookDetails from './BookDetails';
 import BookForm from './BookForm';
-import {getBooks} from "./api/BooksApi.js";
+import {createBook, getBooks} from "./api/BooksApi.js";
 
 function Dashboard() {
     const [books, setBooks] = useState([]);
@@ -114,18 +114,7 @@ function Dashboard() {
                 });
 
         } else {
-            fetch(`/books`, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(formData)
-            })
-                .then(function(response) {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    throw new Error("No se pudo crear el libro " + formData.title);
-                })
-
+            createBook(formData)
                 .then(function(newBook) {
                     setBooks([...books, newBook]);
                     showList();
