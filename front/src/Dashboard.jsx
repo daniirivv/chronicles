@@ -99,9 +99,7 @@ function Dashboard() {
                     showList();
                 })
 
-                .catch(function(error) {
-                    console.error("Error al actualizar: ", error);
-                });
+                .catch(error => console.error("Error al actualizar: ", error));
 
         } else {
             createBook(formData)
@@ -110,9 +108,7 @@ function Dashboard() {
                     showList();
                 })
 
-                .catch(function(error) {
-                    console.error("Error al crear: ", error);
-                });
+                .catch(error => console.error("Error al guadar: ", error));
         }
     }
 
