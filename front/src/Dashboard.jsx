@@ -44,7 +44,6 @@ function Dashboard() {
     }
 
     function showList() {
-        setSelectedBook(null);
         setCurrentView('lista');
     }
 
