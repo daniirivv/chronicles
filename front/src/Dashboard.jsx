@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import BookList from './BookList';
 import BookDetails from './BookDetails';
 import BookForm from './BookForm';
-import {createBook, getBooks} from "./api/BooksApi.js";
+import {createBook, getBooks, updateBook} from "./api/BooksApi.js";
 
 function Dashboard() {
     const [books, setBooks] = useState([]);
@@ -84,17 +84,7 @@ function Dashboard() {
         const isUpdating = selectedBook !== null;
 
         if (isUpdating) {
-            fetch(`/books/${selectedBook.id}`, {
-                method: 'PATCH',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(formData)
-            })
-                .then(function(response) {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    throw new Error("No se pudo actualizar el libro " + formData.title);
-                })
+            updateBook(selectedBook.id, formData)
 
                 .then(function(updatedBook) {
                     const updatedBooks = books.map(function(book) {
