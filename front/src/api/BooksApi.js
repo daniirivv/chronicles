@@ -11,6 +11,17 @@ function getBooks() {
         })
 }
 
+function getBook(id) {
+    return fetch(url + `/${id}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+
+            return response.json()
+        })
+}
+
 function createBook(bookData) {
     return fetch(url, {
         method: 'POST',
@@ -52,4 +63,4 @@ function deleteBook(id) {
         })
 }
 
-export { getBooks, createBook, updateBook, deleteBook };
+export {getBooks, getBook, createBook, updateBook, deleteBook};
