@@ -47,7 +47,7 @@ function BookDetails() {
     }
 
     return (
-        <div className="book-details book-card">
+        <div className="content-container book-card">
             <h2>{book.title}</h2>
             <p><strong>Autor:</strong> {book.author}</p>
             <p><strong>Páginas:</strong> {book.pages}</p>

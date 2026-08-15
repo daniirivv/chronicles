@@ -1,0 +1,43 @@
+:root {
+    --color-primario: #FF7F50;
+    --color-primario-oscuro: #E0693E;
+    --color-fondo: #f9f9f9;
+    --color-texto: #333333;
+    --color-borde: #dddddd;
+}
+
+.content-container {
+    background-color: var(--color-fondo);
+    padding: 20px;
+    border-radius: 8px;
+    color: var(--color-texto);
+}
+
+.brand-title {
+    color: var(--color-primario);
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primario-oscuro);
+}
+
+.book-card {
+    border: 1px solid var(--color-borde);
+    padding: 15px;
+    background-color: white;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border-left: 5px solid var(--color-primario);
+}
