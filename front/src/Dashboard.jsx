@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import BookList from './BookList';
 import BookDetails from './BookDetails';
 import BookForm from './BookForm';
-import {createBook, getBooks, updateBook} from "./api/BooksApi.js";
+import {createBook, getBooks, updateBook, deleteBook } from "./api/BooksApi.js";
 
 function Dashboard() {
     const [books, setBooks] = useState([]);
@@ -63,21 +63,17 @@ function Dashboard() {
 
     // --- FUNCIONES DE ACCIÓN ---
 
-    function deleteBook(idToRemove) {
-        fetch(`/books/${idToRemove}`, { method: 'DELETE' })
-            .then(function(response) {
-                if (response.ok) {
-                    const updatedBooks = books.filter(function(book) {
-                        return book.id !== idToRemove;
-                    });
-                    setBooks(updatedBooks);
-                    showList();
-                }
+    function handleDeleteBook(idToRemove) {
+        deleteBook(idToRemove)
+            .then(function() {
+                const updatedBooks = books.filter(function(book) {
+                    return book.id !== idToRemove;
+                });
+                setBooks(updatedBooks);
+                showList();
             })
 
-            .catch(function(error) {
-                console.error("Error al eliminar: ", error);
-            });
+            .catch(error => console.error("Error al borrar: ", error));
     }
 
     function saveBook() {
@@ -121,7 +117,7 @@ function Dashboard() {
                 <BookList books={books} showCreateForm={showCreateForm} showDetails={showDetails}/>
             )}
             {currentView === 'detalles' && selectedBook && (
-                <BookDetails book={selectedBook} showList={showList} showEditForm={showEditForm} deleteBook={deleteBook}/>
+                <BookDetails book={selectedBook} showList={showList} showEditForm={showEditForm} deleteBook={handleDeleteBook}/>
             )}
             {currentView === 'formulario' && (
                 <BookForm formData={formData} setFormData={setFormData} showList={showList} saveBook={saveBook}/>
