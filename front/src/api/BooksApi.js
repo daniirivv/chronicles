@@ -41,4 +41,15 @@ function updateBook(id, bookData) {
         })
 }
 
-export { getBooks, createBook, updateBook};
+function deleteBook(id) {
+    return fetch(url + `/${id}`, {
+        method: 'DELETE'
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+        })
+}
+
+export { getBooks, createBook, updateBook, deleteBook };
