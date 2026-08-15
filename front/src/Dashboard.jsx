@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import BookList from './BookList';
 import BookDetails from './BookDetails';
 import BookForm from './BookForm';
+import {getBooks} from "./api/BooksApi.js";
 
 function Dashboard() {
     const [books, setBooks] = useState([]);
@@ -18,35 +19,10 @@ function Dashboard() {
         rating: ''
     });
 
-    // Cargar datos al iniciar
-    useEffect(function () {
-
-        function fetchBooks() {
-            fetch('/books')
-                .then(function(response) {
-                    if (response.ok) {
-                        // Error 204 = no content --> devolvemos una lista vacía
-                        if (response.status === 204) {
-                            return [];
-                        }
-                        return response.json();
-                    }
-                    throw new Error("Respuesta de red fallida");
-                })
-
-                .then(function(data) {
-                    if (data) {
-                        setBooks(data);
-                    }
-                })
-
-                .catch(function(error) {
-                    console.error("Error al conectar con Java: ", error);
-                })
-        }
-
-        fetchBooks();
-
+    useEffect(() => {
+        getBooks()
+            .then(data => setBooks(data))
+            .catch(error => console.error("Error al cargar libros: ", error))
     }, []);
 
 
