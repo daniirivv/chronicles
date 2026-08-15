@@ -1,6 +1,11 @@
 import './Dashboard.css';
 
-function BookForm({ formData, setFormData, showList, saveBook }) {
+import { useState } from 'react';
+
+function BookForm({ initialData, showList, onSave }) {
+
+    const [formData, setFormData] = useState(initialData);
+
     return (
         <div>
             <h2>{formData.id ? 'Modificar Entrada' : 'Crear Nueva Entrada'}</h2>
@@ -69,7 +74,7 @@ function BookForm({ formData, setFormData, showList, saveBook }) {
 
                     <button
                         className="btn-primary"
-                        onClick={saveBook}
+                        onClick={() => onSave(formData)}
                     >
                         Guardar
                     </button>

@@ -10,14 +10,24 @@ function Dashboard() {
     const [books, setBooks] = useState([]);
     const [currentView, setCurrentView] = useState('lista');
     const [selectedBook, setSelectedBook] = useState(null);
-    const [formData, setFormData] = useState({
-        title: '',
-        author: '',
-        pages: '',
-        releaseDate: '',
-        completed: false,
-        rating: ''
-    });
+    const initialData = selectedBook
+        ? {
+            id: selectedBook.id,
+            title: selectedBook.title ?? '',
+            author: selectedBook.author ?? '',
+            pages: selectedBook.pages ?? '',
+            releaseDate: selectedBook.releaseDate ?? '',
+            completed: selectedBook.completed ?? false,
+            rating: selectedBook.rating ?? ''
+        }
+        : {
+            title: '',
+            author: '',
+            pages: '',
+            releaseDate: '',
+            completed: false,
+            rating: ''
+        };
 
     useEffect(() => {
         getBooks()
@@ -39,25 +49,13 @@ function Dashboard() {
     }
 
     function showCreateForm() {
-        setFormData({title: '', author: '', pages: '', releaseDate: '', completed: false, rating: ''});
+        setSelectedBook(null);
         setCurrentView('formulario');
     }
 
     function showEditForm(bookToEdit) {
-
-        if (bookToEdit) {
-            setSelectedBook(bookToEdit);
-            setFormData({
-                id: bookToEdit.id,
-                title: bookToEdit.title || '',
-                author: bookToEdit.author || '',
-                pages: bookToEdit.pages || '',
-                releaseDate: bookToEdit.releaseDate || '',
-                completed: bookToEdit.completed || false,
-                rating: bookToEdit.rating || ''
-            });
-            setCurrentView('formulario');
-        }
+        setSelectedBook(bookToEdit);
+        setCurrentView('formulario');
     }
 
 
@@ -76,7 +74,7 @@ function Dashboard() {
             .catch(error => console.error("Error al borrar: ", error));
     }
 
-    function saveBook() {
+    function saveBook(formData) {
         const isUpdating = selectedBook !== null;
 
         if (isUpdating) {
@@ -108,7 +106,6 @@ function Dashboard() {
         }
     }
 
-
     // --- RENDERIZADO VISUAL ---
 
     return (
@@ -120,7 +117,7 @@ function Dashboard() {
                 <BookDetails book={selectedBook} showList={showList} showEditForm={showEditForm} deleteBook={handleDeleteBook}/>
             )}
             {currentView === 'formulario' && (
-                <BookForm formData={formData} setFormData={setFormData} showList={showList} saveBook={saveBook}/>
+                <BookForm initialData={initialData} showList={showList} onSave={saveBook}/>
             )}
         </div>
     );
