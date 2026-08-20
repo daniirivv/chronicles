@@ -18,8 +18,7 @@ function BookList() {
         <div>
             <Link
                 to="/books/new"
-                className="btn-primary"
-                style={{marginBottom: '20px'}}
+                className="btn btn-primary"
             >
                 Crear entrada
             </Link>
