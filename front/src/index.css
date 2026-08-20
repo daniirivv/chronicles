@@ -27,6 +27,12 @@
     border-left: 5px solid var(--color-primario);
 }
 
+.details-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
 
 /* --- ESTILOS DE FORMULARIO --- */
 
