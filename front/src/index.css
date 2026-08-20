@@ -56,8 +56,8 @@
 
 /* --- ESTILOS DE BOTONES --- */
 
-.btn-primary {
-    background-color: var(--color-primario);
+.btn {
+    background-color: white;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -65,6 +65,11 @@
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--color-primario);
 }
 
 .btn-primary:hover {
@@ -73,11 +78,12 @@
 
 .btn-secondary {
     background-color: transparent;
+    color: var(--color-texto);
     border: 1px solid var(--color-borde);
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
+}
+
+.btn-red {
+    background-color: #dc3545;
 }
 
 .form-actions {
