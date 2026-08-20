@@ -22,7 +22,7 @@ public class BookService {
     }
 
     public BookResponseDto createBookEntry(BookRequestDto createEntryData)
-            throws EntryAlreadyExistsException {
+            throws EntryAlreadyExistsException, IllegalArgumentException {
 
         searchTitleCoincidences(createEntryData);
 
@@ -31,7 +31,7 @@ public class BookService {
         return BookMapper.toResponseDto(saved);
     }
 
-    private void searchTitleCoincidences(BookRequestDto createDto) {
+    private void searchTitleCoincidences(BookRequestDto createDto) throws EntryAlreadyExistsException {
         String bookTitle = createDto.title();
         Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.findByTitle(bookTitle);
 
@@ -53,7 +53,7 @@ public class BookService {
             IllegalStateException {
 
         // OPTIMIZE: QUIZÁS ES LÓGICA REPETIDA -- CAMBIAR
-        if(!patchData.completed() && patchData.rating() != null){
+        if(isNotFinishedBookWithRating(patchData)){
             throw new IllegalStateException("No se puede fijar una valoración si la entrada no ha terminado");
         }
 
@@ -65,6 +65,10 @@ public class BookService {
 
         BookEntry toSave = mergeEntry(actualEntry.get(), patchData);
         return BookMapper.toResponseDto(bookEntryRepository.update(toSave));
+    }
+
+    private static boolean isNotFinishedBookWithRating(BookRequestDto patchData) {
+        return patchData != null && !patchData.completed() && patchData.rating() != null;
     }
 
     private BookEntry mergeEntry(BookEntry entry, BookRequestDto patchData) {
