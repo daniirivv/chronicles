@@ -6,47 +6,42 @@ import BookForm from './components/BookForm.jsx';
 
 function App() {
     return (
-        <div
-            style={{
-                maxWidth: '800px',
-                margin: '0 auto',
-                padding: '20px',
-                fontFamily: 'sans-serif'
-            }}
-        >
-            <header style={{textAlign: 'center', marginBottom: '30px'}}>
-                <h1 className="brand-title">Chronicles</h1>
+        <>
+            <header className="brand-title">
+                <h1>Chronicles</h1>
             </header>
 
-            <main>
-                <Routes>
-                    <Route
-                        path="/"
-                        element={<Navigate to="/books" replace />}
-                    />
+            <div className="content-container">
+                <main>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={<Navigate to="/books" replace />}
+                        />
 
-                    <Route
-                        path="/books"
-                        element={<BookList />}
-                    />
+                        <Route
+                            path="/books"
+                            element={<BookList />}
+                        />
 
-                    <Route
-                        path="/books/new"
-                        element={<BookForm />}
-                    />
+                        <Route
+                            path="/books/new"
+                            element={<BookForm />}
+                        />
 
-                    <Route
-                        path="/books/:id"
-                        element={<BookDetails />}
-                    />
+                        <Route
+                            path="/books/:id"
+                            element={<BookDetails />}
+                        />
 
-                    <Route
-                        path="/books/:id/edit"
-                        element={<BookForm />}
-                    />
-                </Routes>
-            </main>
-        </div>
+                        <Route
+                            path="/books/:id/edit"
+                            element={<BookForm />}
+                        />
+                    </Routes>
+                </main>
+            </div>
+        </>
     );
 }
 
