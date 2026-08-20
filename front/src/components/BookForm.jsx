@@ -72,15 +72,9 @@ function BookForm() {
         <div>
             <h2>{id ? 'Modificar Entrada' : 'Crear Nueva Entrada'}</h2>
 
-            <div
-                className="book-card"
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '10px'
-                }}
-            >
+            <div className="book-card form-container">
                 <input
+                    className="form-input"
                     placeholder="Título del libro"
                     value={formData.title}
                     onChange={(e) =>
@@ -89,10 +83,10 @@ function BookForm() {
                             title: e.target.value
                         })
                     }
-                    style={{padding: '8px'}}
                 />
 
                 <input
+                    className="form-input"
                     placeholder="Autor"
                     value={formData.author}
                     onChange={(e) =>
@@ -101,10 +95,10 @@ function BookForm() {
                             author: e.target.value
                         })
                     }
-                    style={{padding: '8px'}}
                 />
 
                 <input
+                    className="form-input"
                     placeholder="Número de páginas"
                     type="number"
                     value={formData.pages}
@@ -114,10 +108,10 @@ function BookForm() {
                             pages: e.target.value
                         })
                     }
-                    style={{padding: '8px'}}
                 />
 
                 <input
+                    className="form-input"
                     placeholder="Año de lanzamiento"
                     type="number"
                     value={formData.releaseDate}
@@ -127,17 +121,9 @@ function BookForm() {
                             releaseDate: e.target.value
                         })
                     }
-                    style={{padding: '8px'}}
                 />
 
-                <label
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        padding: '8px'
-                    }}
-                >
+                <label className="checkbox-label">
                     <input
                         type="checkbox"
                         checked={formData.completed}
@@ -156,6 +142,7 @@ function BookForm() {
 
                 {formData.completed && (
                     <input
+                        className="form-input"
                         placeholder="Valoración"
                         type="number"
                         value={formData.rating}
@@ -165,26 +152,13 @@ function BookForm() {
                                 rating: e.target.value
                             })
                         }
-                        style={{padding: '8px'}}
                     />
                 )}
 
-                <div
-                    style={{
-                        display: 'flex',
-                        gap: '10px',
-                        marginTop: '10px'
-                    }}
-                >
+                <div className="form-actions">
                     <Link
                         to={id ? `/books/${id}` : '/books'}
-                        style={{
-                            cursor: 'pointer',
-                            padding: '10px 15px',
-                            border: '1px solid #ddd',
-                            borderRadius: '5px',
-                            backgroundColor: 'transparent'
-                        }}
+                        className="btn-secondary"
                     >
                         Cancelar
                     </Link>

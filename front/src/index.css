@@ -18,11 +18,49 @@
     font-weight: bold;
 }
 
+.book-card {
+    border: 1px solid var(--color-borde);
+    padding: 15px;
+    background-color: white;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border-left: 5px solid var(--color-primario);
+}
+
+
+/* --- ESTILOS DE FORMULARIO --- */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+
+/* --- ESTILOS DE BOTONES --- */
+
 .btn-primary {
     background-color: var(--color-primario);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
@@ -33,11 +71,17 @@
     background-color: var(--color-primario-oscuro);
 }
 
-.book-card {
+.btn-secondary {
+    background-color: transparent;
     border: 1px solid var(--color-borde);
-    padding: 15px;
-    background-color: white;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    border-left: 5px solid var(--color-primario);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
 }
