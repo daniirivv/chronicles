@@ -158,13 +158,13 @@ function BookForm() {
                 <div className="form-actions">
                     <Link
                         to={id ? `/books/${id}` : '/books'}
-                        className="btn-secondary"
+                        className="btn btn-secondary"
                     >
                         Cancelar
                     </Link>
 
                     <button
-                        className="btn-primary"
+                        className="btn btn-primary"
                         onClick={handleSave}
                     >
                         Guardar
