@@ -64,34 +64,21 @@ function BookDetails() {
                 {book.rating ? `${book.rating} / 5` : 'Sin valorar'}
             </p>
 
-            <div
-                style={{
-                    marginTop: '20px',
-                    display: 'flex',
-                    gap: '10px'
-                }}
-            >
-                <Link className="btn-primary" to="/books">
+            <div className="details-container">
+
+                <Link className="btn btn-primary" to="/books">
                     Volver a la lista
                 </Link>
 
                 <Link
-                    className="btn-primary"
+                    className="btn btn-primary"
                     to={`/books/${id}/edit`}
                 >
                     Editar
                 </Link>
 
                 <button
-                    style={{
-                        backgroundColor: '#dc3545',
-                        color: 'white',
-                        border: 'none',
-                        padding: '10px 15px',
-                        borderRadius: '5px',
-                        cursor: 'pointer',
-                        fontWeight: 'bold'
-                    }}
+                    className="btn btn-red"
                     onClick={handleDelete}
                 >
                     Eliminar
