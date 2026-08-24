@@ -38,18 +38,26 @@ function BookForm({ formData, setFormData, showList, saveBook }) {
                     <input
                         type="checkbox"
                         checked={formData.completed}
-                        onChange={(e) => setFormData({ ...formData, completed: e.target.checked })}
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                completed: e.target.checked,
+                                rating: e.target.checked ? formData.rating : ''
+                            })
+                        }
                     />
                     ¿Terminado?
                 </label>
 
-                <input
-                    placeholder="Valoración"
-                    type="number"
-                    value={formData.rating}
-                    onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
-                    style={{ padding: '8px' }}
-                />
+                {formData.completed && (
+                    <input
+                        placeholder="Valoración"
+                        type="number"
+                        value={formData.rating}
+                        onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
+                        style={{ padding: '8px' }}
+                    />
+                )}
 
                 <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
                     <button

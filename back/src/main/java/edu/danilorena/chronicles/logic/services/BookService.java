@@ -22,7 +22,7 @@ public class BookService {
     }
 
     public BookResponseDto createBookEntry(BookRequestDto createEntryData)
-            throws EntryAlreadyExistsException {
+            throws EntryAlreadyExistsException, IllegalArgumentException {
 
         searchTitleCoincidences(createEntryData);
 
@@ -31,7 +31,7 @@ public class BookService {
         return BookMapper.toResponseDto(saved);
     }
 
-    private void searchTitleCoincidences(BookRequestDto createDto) {
+    private void searchTitleCoincidences(BookRequestDto createDto) throws EntryAlreadyExistsException {
         String bookTitle = createDto.title();
         Optional<BookEntry> possibleCoincidence = this.bookEntryRepository.findByTitle(bookTitle);
 
@@ -48,16 +48,15 @@ public class BookService {
         return possibleCoincidence.map(BookMapper::toResponseDto);
     }
 
-    public List<BookResponseDto> retrieveBooksByAuthor(String authorName) {
-        List<BookEntry> filteredEntries = this.bookEntryRepository.filterByAuthor(authorName);
+    public BookResponseDto updateBookEntry(Long id, BookRequestDto patchData)
+            throws EntryNotFoundException,
+            IllegalStateException {
 
-        return filteredEntries
-                .stream()
-                .map(BookMapper::toResponseDto)
-                .toList();
-    }
+        // OPTIMIZE: QUIZÁS ES LÓGICA REPETIDA -- CAMBIAR
+        if(isNotFinishedBookWithRating(patchData)){
+            throw new IllegalStateException("No se puede fijar una valoración si la entrada no ha terminado");
+        }
 
-    public BookResponseDto updateBookEntry(Long id, BookRequestDto patchData) {
         Optional<BookEntry> actualEntry = this.bookEntryRepository.findById(id);
 
         if (actualEntry.isEmpty()) {
@@ -66,6 +65,10 @@ public class BookService {
 
         BookEntry toSave = mergeEntry(actualEntry.get(), patchData);
         return BookMapper.toResponseDto(bookEntryRepository.update(toSave));
+    }
+
+    private static boolean isNotFinishedBookWithRating(BookRequestDto patchData) {
+        return patchData != null && !patchData.completed() && patchData.rating() != null;
     }
 
     private BookEntry mergeEntry(BookEntry entry, BookRequestDto patchData) {
