@@ -66,10 +66,6 @@ public class BookEntryController {
             return ResponseEntity
                     .notFound()
                     .build();
-        } catch (IllegalStateException e) {
-            return ResponseEntity
-                    .badRequest()
-                    .build();
         }
     }
 

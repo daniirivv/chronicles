@@ -1,12 +1,16 @@
 const url = '/books'
 
-function getBooks() {
-    return fetch(url)
+function getBooks(author = '') {
+    const fetchUrl = author ? `${url}?author=${author}` : url;
+
+    return fetch(fetchUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Error HTTP: ${response.status}`);
             }
-
+            if (response.status === 204) {
+                return [];
+            }
             return response.json()
         })
 }
